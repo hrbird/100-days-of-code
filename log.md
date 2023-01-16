@@ -62,13 +62,14 @@
 
 **Today's Progress**: 
 - I started this 100-days project on Jan 12 in a fork of the repository made by the original creator of this challenge. However, I have just learned that GitHub does not count commits in forked repositories as contributions in your user profile. Therefore, I am copying my work from the first 3 days into a new, standalone repository!
-- Continued working through "100 Days of Python" Udemy class. Completed days 12-.
-- Focused on scope, object-oriented programming, the turtle graphics library, 
+- Continued working through "100 Days of Python" Udemy class. Completed days 12-15 and half of day 16.
+- Focused on variable scope, object-oriented programming, and the turtle graphics library. 
 - More quick programs:
   - **learn_turtle.py**: Simple program that creates a green turtle and has it create an original modern art piece by walking in a random direction for a random number of steps.
+  - **spiro_turtle.py**: This program draws a rainbow spirograph image using Turtle.
+  - **spiral_spiro.py**: This program draws a green spiral spirograph image using Turtle.
 
-
-**Thoughts:** 
+**Thoughts:** Feeling a little frustrated that this repo will not have the commit history of the first 3 days, but I hope things go more smoothly from here. I'm excited to finally learn turtle and graphics libraries, instead of creating purely terminal-based programs.
 
 **Link to work:** [Day 04](https://github.com/hrbird/100-days-of-code/tree/master/week01/day04)
 
