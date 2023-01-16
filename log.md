@@ -63,9 +63,10 @@
 **Today's Progress**: 
 - I started this 100-days project on Jan 12 in a fork of the repository made by the original creator of this challenge. However, I have just learned that GitHub does not count commits in forked repositories as contributions in your user profile. Therefore, I am copying my work from the first 3 days into a new, standalone repository!
 - Continued working through "100 Days of Python" Udemy class. Completed days 12-.
-- Focused on scope, 
+- Focused on scope, object-oriented programming, the turtle graphics library, 
 - More quick programs:
-  - **x.py**: Y
+  - **learn_turtle.py**: Simple program that creates a green turtle and has it create an original modern art piece by walking in a random direction for a random number of steps.
+
 
 **Thoughts:** 
 
