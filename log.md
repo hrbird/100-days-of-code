@@ -1,7 +1,7 @@
 # 100 Days Of Code - Log
 
 ## Week 1
-**Link to work:** [Week 01](https://github.com/hrbird/100-days-of-code/tree/master/week01)
+**Link to work:** [Week 01](https://github.com/hrbird/100-days-of-code-2023/tree/master/week01)
 
 ### Day 1: January 12, 2023
 
@@ -17,8 +17,6 @@
   - **tipcalculator.py**: Asks the user for a bill total and how many people will split the bill. Calculates and displays a table with common tip amounts and how much each person should pay.
 
 **Thoughts:** It's been a while since I've used Python, and Python 3 syntax has changed in a few ways since Python 2, so I decided to start from the beginning with some very simple projects. I feel excited and determined.
-
-**Link to work:** [Day 01](https://github.com/hrbird/100-days-of-code/tree/master/week01/day01)
 
 -----
 
@@ -36,8 +34,6 @@
 
 **Thoughts:** Feeling pretty comfortable with playing around with lists, loops, and basic functions.
 
-**Link to work:** [Day 02](https://github.com/hrbird/100-days-of-code/tree/master/week01/day02)
-
 -----
 
 ### Day 3: January 14, 2023
@@ -52,9 +48,6 @@
   - **blackjack.py**: A standard game of blackjack. Creates a shuffled deck of 52 cards, keeps track of the player and dealer's hands, calculates hand values, handles the dealer's decisions, and determines the winner/outcome.
 
 **Thoughts:** I continued working on exercises from the "100 Days of Python" class and adding a little more complexity to them. The Blackjack project was supposed to be a lot simpler (just pulling random values from a list of possible card values, with no classes). However, I felt confident to try including classes and more complicated game logic (creating a full deck of 52 cards, using logic to determine when aces should be counted as 1 vs 11, and creating classes with initializers for the Cards, Deck, and Hands). Having fun pushing myself :)
-
-**Link to work:** [Day 03](https://github.com/hrbird/100-days-of-code/tree/master/week01/day03)
-
 
 -----
 
@@ -71,8 +64,25 @@
 
 **Thoughts:** Feeling a little frustrated that this repo will not have the commit history of the first 3 days, but I hope things go more smoothly from here. I'm excited to finally learn turtle and graphics libraries, instead of creating purely terminal-based programs.
 
-**Link to work:** [Day 04](https://github.com/hrbird/100-days-of-code/tree/master/week01/day04)
+-----
 
+### Day 5: January 16, 2023
+
+**Today's Progress**: 
+- First day of NuCamp bootcamp for Web Dev Fundamentals. Logged into the course, filled out the initial questions/quiz, joined the discussion group, learned a bit about HTML history and basic structure.
+- Continued working through "100 Days of Python" Udemy class. Completed day 16.
+- Focused on object-oriented programming in Python, PyPi, and learning how to install other python packages. Also a little HTML.
+- Quick program:
+  - **helloworld.html**: Quick page that displays "hello world"
+- Coffee machine project:
+  - **main.py**: This program pretends to be a coffee machine that can make certain drinks, process coins and return change, and check current levels of resources (water, milk, coffee grounds).
+  - **coffee_maker.py**: CoffeeMaker class that makes the coffee and manages the current levels of resources.
+  - **menu.py**: MenuItem class that handles the name, cost, and amounts of resources (water, milk, coffee grounds) used by each of the coffee machine drinks. Menu class that manages all of the MenuItem objects.
+  - **money_machine.py**: MoneyMachine class that processes coins, accepts or refuses payments, and calculates change.
+
+**Thoughts:** Not much code today because I spent most of the time setting up for the bootcamp and doing introductory work. I also tried my best to install the python package PrettyTable in VSCode, but every install method I tried results in the error "Import "prettytable" could not be resolved from sourcePylancereportMissingModuleSource", even though the terminal says it installed successfully. Hmph.
+
+-----
 
 
 
