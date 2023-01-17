@@ -70,7 +70,7 @@
 
 **Today's Progress**: 
 - First day of NuCamp bootcamp for Web Dev Fundamentals. Logged into the course, filled out the initial questions/quiz, joined the discussion group, learned a bit about HTML history and basic structure.
-- Continued working through "100 Days of Python" Udemy class. Completed day 16.
+- Continued working through "100 Days of Python" Udemy class. Continued working on day 16.
 - Focused on object-oriented programming in Python, PyPi, and learning how to install other python packages. Also a little HTML.
 - Quick program:
   - **helloworld.html**: Quick page that displays "hello world"
@@ -80,11 +80,21 @@
   - **menu.py**: MenuItem class that handles the name, cost, and amounts of resources (water, milk, coffee grounds) used by each of the coffee machine drinks. Menu class that manages all of the MenuItem objects.
   - **money_machine.py**: MoneyMachine class that processes coins, accepts or refuses payments, and calculates change.
 
-**Thoughts:** Not much code today because I spent most of the time setting up for the bootcamp and doing introductory work. I also tried my best to install the python package PrettyTable in VSCode, but every install method I tried results in the error "Import "prettytable" could not be resolved from sourcePylancereportMissingModuleSource", even though the terminal says it installed successfully. Hmph.
+**Thoughts:** Not much HTML work today because I spent most of the day setting up for the bootcamp and doing introductory work. I also started the OOP Coffee Maker project and feel like I'm getting the hang of how to use python classes.
 
 -----
 
+### Day 6: January 17, 2023
 
+**Today's Progress**: 
+- NuCamp Web Dev bootcamp: 
+- Continued working through "100 Days of Python" Udemy class. Completed days 16-
+- Focused on object-oriented programming in Python, 
+- Quick programs:
+  - 
+  - **coffee_machine**: Tidied up the Coffee Machine project from yesterday and added a main loop so multiple drinks could be ordered in a row.
+
+**Thoughts:** 
 
 
 
