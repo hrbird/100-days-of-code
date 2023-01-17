@@ -1,7 +1,7 @@
 # CoffeeMaker class for the coffee machine project.
 
 class CoffeeMaker:
-    """The machine that makes the coffee and manages the levels of resources"""
+    """The machine that makes the coffee and manages the current levels of resources."""
     def __init__(self):
         self.resources = {
             "water": 300,   # Int current amount of water (in ml)
