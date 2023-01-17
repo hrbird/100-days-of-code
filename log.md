@@ -75,7 +75,7 @@
 - Quick program:
   - **helloworld.html**: Quick page that displays "hello world"
 - Coffee machine project:
-  - **main.py**: This program pretends to be a coffee machine that can make certain drinks, process coins and return change, and check current levels of resources (water, milk, coffee grounds).
+  - **main.py**: This program pretends to be a coffee machine that can make a list of drinks, process coins and return change, and check current levels of resources (water, milk, coffee grounds).
   - **coffee_maker.py**: CoffeeMaker class that makes the coffee and manages the current levels of resources.
   - **menu.py**: MenuItem class that handles the name, cost, and amounts of resources (water, milk, coffee grounds) used by each of the coffee machine drinks. Menu class that manages all of the MenuItem objects.
   - **money_machine.py**: MoneyMachine class that processes coins, accepts or refuses payments, and calculates change.
