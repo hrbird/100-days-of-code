@@ -67,10 +67,7 @@ class CoffeeMachine:
 def main():
 
     coffee_machine = CoffeeMachine()
-
     coffee_machine.start_machine()
     
-    
-
 if __name__ == "__main__":
     main()

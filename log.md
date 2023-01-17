@@ -92,7 +92,7 @@
 - Focused on object-oriented programming in Python, 
 - Quick programs:
   - 
-  - **coffee_machine**: Tidied up the Coffee Machine project from yesterday and added a main loop so multiple drinks could be ordered in a row.
+  - **coffee_machine/main.py**: Tidied up the Coffee Machine project from yesterday by creating a new CoffeeMachine class to encapsulate all of the related objects and code for the coffee machine. This cleans up the main function of the program so it only needs to create a CoffeeMachine object and call its start_machine function. I also added a loop while the machine is on, so multiple drinks can be ordered in a row.
 
 **Thoughts:** 
 
