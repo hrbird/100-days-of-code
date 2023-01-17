@@ -11,6 +11,10 @@ class MenuItem:
             "coffee": coffee    # Int amount of coffee (in ml)
         }
 
+    def show_drink(self):
+        print(f"You selected the {self.name}, which costs ${self.cost:.2f}")
+        return
+
 class Menu:
     """A menu with drinks. Manages all of the MenuItem objects."""
     def __init__(self):
