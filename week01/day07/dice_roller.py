@@ -5,8 +5,6 @@
 import math
 import random
 
-DICE_TYPES = [4, 6, 8, 10, 12, 20, 100]
-
 MENU_STR = """
 Welcome to the Dice Roller!
 
@@ -17,10 +15,7 @@ For example, if you enter:
     3d6+1       I will roll 3 6-sided dice and add 1.
     4d10-2      I will roll 4 10-sided dice and subtract 2.
     1d100       I will roll 1 100-sided die.
-    Q           I will quit the program.
-
-I can roll dice with 4, 6, 8, 10, 12, 20, or 100 sides.
-"""
+    Q           I will quit the program."""
 
 
 def roll_dice(num_dice, num_sides, mod_amount = 0):
@@ -31,8 +26,7 @@ def roll_dice(num_dice, num_sides, mod_amount = 0):
         num_sides (int): the number of sides on the dice
         mod_amount (int): the modifier amount to add or subtract
     """
-    print(f"\nRolling {num_dice}d{num_sides}...")
-
+    
     # Roll the dice and store them in a list.
     rolls = []
     for d in range(num_dice):
@@ -69,8 +63,8 @@ def parse_dice(dice_str):
     # Find the index of the "d" in the string.
     d_index = dice_str.find("d")
     if d_index == -1:
-        # If "d" is not found, return -1 to signify bad input.
-        return -1
+        # If "d" is not found, return False to signify bad input.
+        return False
 
     # Find whether there is a + or - modifier at the end.
     mod_index = dice_str.find("+")
@@ -80,8 +74,8 @@ def parse_dice(dice_str):
     # Get the number of dice to roll.
     num_dice_str = dice_str[:d_index]
     if not num_dice_str.isdecimal():
-        # If the characters before "d" aren't all digits, return -1.
-        return -1
+        # If the characters before "d" aren't all digits, return False.
+        return False
     num_dice = int(num_dice_str)
 
     # Get the type of dice to roll.
@@ -93,8 +87,8 @@ def parse_dice(dice_str):
         num_sides_str = dice_str[(d_index + 1) : mod_index]
 
     if not num_sides_str.isdecimal():
-        # If the characters aren't all digits, return -1.
-        return -1
+        # If the characters aren't all digits, return False.
+        return False
     num_sides = int(num_sides_str)
 
     # Find the modifier amount to add or subtract.
@@ -103,14 +97,18 @@ def parse_dice(dice_str):
         mod_str = dice_str[mod_index + 1 :]
 
         if not mod_str.isdecimal():
-            return -1
+            return False
         mod_amount = int(mod_str)
 
         if dice_str[mod_index] == "-":
             mod_amount = -mod_amount
 
     # Roll the dice.
+    print(f"\nRolling {dice_str}...")
     roll_dice(num_dice=num_dice, num_sides=num_sides, mod_amount=mod_amount)
+
+    # Return True for a successful roll.
+    return True
 
 def show_menu():
     """Shows the main menu and gets dice input from the user.
@@ -118,9 +116,26 @@ def show_menu():
     """
     print(MENU_STR)
 
+    quit_program = False
+    while not quit_program:
 
-show_menu()
+        # Get input from user.
+        input_str = input("\n> ")
 
-parse_dice("3d6+1")
-parse_dice("6d10-3")
-parse_dice("4d2")
+        if len(input_str) > 0 and input_str[0].upper() == "Q":
+            print("\nGoodbye!\n")
+            quit_program = True
+
+        else:
+            roll_success = parse_dice(input_str)
+            if roll_success:
+                print("\nPlease enter another roll, or Q to quit.")
+            else:
+                print(f"\nSorry, I couldn't understand: {input_str}")
+                print("Please use the correct dice notation.")
+
+def main():
+    show_menu()
+    
+if __name__ == "__main__":
+    main()
