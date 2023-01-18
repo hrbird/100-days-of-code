@@ -87,12 +87,17 @@
 ### Day 6: January 17, 2023
 
 **Today's Progress**: 
-- NuCamp Web Dev bootcamp: 
-- Continued working through "100 Days of Python" Udemy class. Completed days 16-
-- Focused on object-oriented programming in Python, 
-- Quick programs:
-  - 
+- NuCamp Web Dev bootcamp: Continued working through Week 1: Course Setup & Introduction to HTML.
+- Continued working through "100 Days of Python" Udemy class. Completed day 16 and part of day 17.
+- Focused on object-oriented programming in Python, basic HTML, and how to use VSCode Live Server to easily preview HTML pages. 
+- Programs:
+  - **install-extension.html**: Simple HTML file to learn the basic structure and elements.
   - **coffee_machine/main.py**: Tidied up the Coffee Machine project from yesterday by creating a new CoffeeMachine class to encapsulate all of the related objects and code for the coffee machine. This cleans up the main function of the program so it only needs to create a CoffeeMachine object and call its start_machine function. I also added a loop while the machine is on, so multiple drinks can be ordered in a row.
+- Quiz Project:
+  - **main.py**: Main program
+  - **data.py**: A list of objects containing data for each question: the question text and the answer (True or False)
+  - **quiz_brain.py**: The QuizBrain class, which manages the quiz. It asks the user the questions, checks if their answers are right, and checks if they reached the end of the quiz.
+  - **question**: The Question class, which models each quiz question.
 
 **Thoughts:** 
 
