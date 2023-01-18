@@ -5,10 +5,14 @@ import random, shutil, sys, time
 from enum import Enum
 
 # Constants
-PAUSE = 0.2     # The time in seconds to pause between printing each line.
-DENSITY = 0.1   # 
+PAUSE = 0.5         # The time in seconds to pause between printing each line.
+DUCK_DENSITY = 0.05 # The density of ducks on the screen.
 DUCKLING_WIDTH = 5  # The number of characters each duckling is wide
 
+# Get the size of the terminal window.
+WINDOW_WIDTH = shutil.get_terminal_size()[0] - 10
+
+# Enums for random duckling features.
 class Direction(Enum):
     LEFT = 0
     RIGHT = 1
@@ -50,7 +54,7 @@ class Duckling:
 
         if self.body == Body.CHUBBY:
             # Chubby ducklings can only have beady eyes.
-            self.eyes == Eyes.BEADY
+            self.eyes = Eyes.BEADY
 
         self.cur_part = Parts.HEAD
 
@@ -136,9 +140,9 @@ class Duckling:
         body_space_str = self.get_body_space_str()
 
         if self.direction == Direction.LEFT:
-            body_str = body_space_str + wings_str
+            body_str += body_space_str + wings_str
         else:
-            body_str = wings_str + body_space_str
+            body_str += wings_str + body_space_str
 
         body_str += ")"
 
@@ -170,20 +174,63 @@ class Duckling:
             return self.get_feet_str()
 
 
-# Get the size of the terminal window.
-TERM_WIDTH = shutil.get_terminal_size()[0] - 1
+def print_duckling_lanes():
+    """Print a scrolling screen filled with ducklings."""
+    print("Ducklings!\nPress Ctrl-C to quit...")
+    time.sleep(2)
+
+    duckling_lanes = [None] * (WINDOW_WIDTH // DUCKLING_WIDTH)
+
+    for i in range(100):
+
+        for lane_num, duckling_obj in enumerate(duckling_lanes):
+            
+            # See if we should create a duckling in this lane.
+            if (duckling_obj == None and random.random() <= DUCK_DENSITY):
+                duckling_obj = Duckling()
+                duckling_lanes[lane_num] = duckling_obj
+
+            # Draw a duckling if there is one.
+            if duckling_obj != None:
+                print(duckling_obj.get_next_part(), end="")
+
+                if duckling_obj.cur_part == None:
+                    duckling_lanes[lane_num] = None
+
+            else:
+                # Draw empty spaces if there is no duckling.
+                print(" " * DUCKLING_WIDTH, end="")
+
+        print()
+        sys.stdout.flush()
+        time.sleep(PAUSE)
+
+
+def print_duckling_line():
+    """Print one row of random ducklings spaced evenly apart."""
+    
+    # Fill a list with duckling objects.
+    num_ducklings = 10
+    ducklings = []
+    for d in range(num_ducklings):
+        ducklings.append(Duckling())
+
+    # for d in ducklings:
+    #     d.print_enums()
+
+    # Print each line of ducklings.
+    space_between = "    "
+    for i in range(3):
+        row_str = ""
+        for d in ducklings:
+            row_str += d.get_next_part() + space_between
+
+        print(row_str)
+
 
 def main():
-    print("Ducklings!\nPress Ctrl-C to quit...")
-    #time.sleep(2)
-
-    d = Duckling()
-    d.print_enums()
-
-    print(d.get_next_part())
-    print(d.get_next_part())
-    print(d.get_next_part())
-
+    print_duckling_line()
+    print_duckling_lanes()
     
 if __name__ == "__main__":
     main()
