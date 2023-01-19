@@ -8,7 +8,11 @@ for q in question_data:
     new_q = Question(q["text"], q["answer"])
     question_bank.append(new_q)
 
-# Create a QuizBrain object and pass it the question bank.
-quiz = QuizBrain(question_bank)
 
-quiz.next_question()
+def main():
+    # Create a QuizBrain object and pass it the question bank.
+    quiz = QuizBrain(question_bank)
+    quiz.show_quiz()
+
+if __name__ == "__main__":
+    main()
