@@ -5,9 +5,12 @@ import random, shutil, sys, time
 from enum import Enum
 
 # Constants
-PAUSE = 0.5         # The time in seconds to pause between printing each line.
-DUCK_DENSITY = 0.05 # The density of ducks on the screen.
+PAUSE = 0.5         # The time in seconds to pause between printing each line
+DUCK_DENSITY = 0.05 # The density of ducks on the screen
 DUCKLING_WIDTH = 5  # The number of characters each duckling is wide
+DUCKLING_HEIGHT = 3 # The number of lines each duckling is tall
+NUM_DUCKLINGS_IN_ROW = 10 # The number of ducklings to print on the initial row
+LANES_HEIGHT = 100  # How many lines to print for the scrolling duckling lanes
 
 # Get the size of the terminal window.
 WINDOW_WIDTH = shutil.get_terminal_size()[0] - 10
@@ -181,7 +184,7 @@ def print_duckling_lanes():
 
     duckling_lanes = [None] * (WINDOW_WIDTH // DUCKLING_WIDTH)
 
-    for i in range(100):
+    for i in range(LANES_HEIGHT):
 
         for lane_num, duckling_obj in enumerate(duckling_lanes):
             
@@ -210,9 +213,8 @@ def print_duckling_line():
     """Print one row of random ducklings spaced evenly apart."""
     
     # Fill a list with duckling objects.
-    num_ducklings = 10
     ducklings = []
-    for d in range(num_ducklings):
+    for d in range(NUM_DUCKLINGS_IN_ROW):
         ducklings.append(Duckling())
 
     # for d in ducklings:
@@ -220,7 +222,7 @@ def print_duckling_line():
 
     # Print each line of ducklings.
     space_between = "    "
-    for i in range(3):
+    for i in range(DUCKLING_HEIGHT):
         row_str = ""
         for d in ducklings:
             row_str += d.get_next_part() + space_between
