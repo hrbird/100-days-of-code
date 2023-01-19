@@ -108,15 +108,15 @@
 **Today's Progress**: 
 - NuCamp Web Dev bootcamp: Continued working through Week 1: Course Setup & Introduction to HTML.
 - Continued working through "100 Days of Python" Udemy class. Completed day 17
-- Focused on object-oriented programming, enums, and in Python. Also, basic HTML.
+- Focused on object-oriented programming, enums, and in Python. Also, using links, images, and videos in HTML.
 - Programs:
   - **dice_roller.py**: This program simulates rolling dice for table-top roleplaying games, like DND or Pathfinder. It can roll dice with 4, 6, 8, 10, 12, 20, or 100 sides.
   - **ducklings.py**: This program creates a randomized field of ASCII ducklings. First, it prints a row of 10 ducklings. Then, it prints a scrolling screen filled with random ducklings.
-  - **.html**: 
+  - **install-extension.html**: Added navigation links, images, and a video to the install-extension page.
 - Day 6 Quiz Project:
   - **quiz_brain.py**: Updated QuizBrain so it can give the entire quiz to the user, validate that each answer is T or F, and calculate the final score.
 
-**Thoughts:** 
+**Thoughts:** Still enjoying learning new things with every project! For this first week, I organized my files into daily folders, since I made several small programs per day. However, next week I think I will put all of the one-file programs into a "small_python_projects" folder and put larger projects into their own subfolders. This will make it easier to work on more complex programs that may take 2+ days to complete.
 
 
 
