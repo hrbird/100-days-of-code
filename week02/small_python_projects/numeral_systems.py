@@ -1,5 +1,5 @@
 # Counts to a given number in different numeral systems: 
-# decimal (base 10), hexadecimal (base 16), and binary (base 2).
+# decimal (base 10), binary (base 2), hexadecimal (base 16), and octal (base 8).
 
 def print_numbers_list(lowest_num, highest_num):
     """Prints a list of numbers in different numeral systems.
