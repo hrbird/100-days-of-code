@@ -118,6 +118,22 @@
 
 **Thoughts:** Still enjoying learning new things with every project! For this first week, I organized my files into daily folders, since I made several small programs per day. However, next week I think I will put all of the one-file programs into a "small_python_projects" folder and put larger projects into their own subfolders. This will make it easier to work on more complex programs that may take 2+ days to complete.
 
+-----
+
+## Week 2
+**Link to work:** [Week 02](https://github.com/hrbird/100-days-of-code-2023/tree/master/week02)
+
+### Day 8: January 18, 2023
+
+**Today's Progress**: 
+- Did a project from the "Big Book of Small Python Projects" by Al Sweigart. I tried to play around with the code by creating a class and moving the game logic into smaller encapsulated functions, instead of long, global functions. I also added input validation.
+- Learned how to open txt files and read their contents into a list in Python. Also learned some more complicated string formatting and new randomization functions (choice, sample, etc.).
+- Programs:
+  - **hacking_game.py**: Hacking game inspired by the computer-hacking minigame in Fallout: New Vegas.
+
+**Thoughts:** The hacking game was my favorite minigame in FNV, so it was a lot of fun to be able to mimic it in Python. I'm learning that there's a lot you can do just with ASCII in the terminal.
+
+-----
 
 
 
