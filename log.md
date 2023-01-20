@@ -125,12 +125,18 @@
 **Today's Progress**: 
 - Continued working through "100 Days of Python" Udemy class. Completed days 4-7.
 - Focused on validating input, randomization, loops, and functions.
-- More quick programs:
-  - **numberguesser.py**: A game that asks the player to guess a secret random number between 1 and 1000 within 10 guesses. Incorporates a basic game loop and input validation.
-  - **rockpaperscissors.py**: A simple Rock, Paper, Scissors game. The player enters their choice while the computer picks a random choice. Then the program shows ASCII art of each choice and determines the winner.
-  - **fizzbuzz.py**: A classic interview challenge. Print out each integer from 1 to 100, unless it's divisible by 3, 5, or 15. In those cases, write special keywords instead.
-  - **passwordgen.py**: Generates a random, secure password with a given number of letters, symbols, and numbers.
-  - **hangman.py**: A classic game in which the computer chooses a random word, and the player guesses which letters are in it. If they guess all the letters in the word without too many mistakes, they win. If they make too many wrong guesses, they hang.
+
+**Programs**:
+- **numberguesser.py**: A game that asks the player to guess a secret random number between 1 and 1000 within 10 guesses. Incorporates a basic game loop and input validation.<br />
+    ![img](/screenshots/0102_number_guesser.jpg)
+- **rockpaperscissors.py**: A simple Rock, Paper, Scissors game. The player enters their choice while the computer picks a random choice. Then the program shows ASCII art of each choice and determines the winner.<br />
+    ![img](/screenshots/0102_rps.jpg)
+- **fizzbuzz.py**: A classic interview challenge. Print out each integer from 1 to 100, unless it's divisible by 3, 5, or 15. In those cases, write special keywords instead.<br />
+    ![img](/screenshots/0102_fizzbuzz.jpg)
+- **passwordgen.py**: Generates a random, secure password with a given number of letters, symbols, and numbers.<br />
+    ![img](/screenshots/0102_password_gen.jpg)
+- **hangman.py**: A classic game in which the computer chooses a random word, and the player guesses which letters are in it. If they guess all the letters in the word without too many mistakes, they win. If they make too many wrong guesses, they hang.<br />
+    ![img](/screenshots/0102_hangman_1.jpg) ![img](/screenshots/0102_hangman_2.jpg)
 
 **Thoughts:** Feeling pretty comfortable with playing around with lists, loops, and basic functions.
 
@@ -146,14 +152,14 @@
 - Signed up for "100 Days of Python" Udemy class for learning and inspiration. Completed days 1-3.
 
 **Programs**:
-- **helloworld.py**: Basic "hello world" program, with some ASCII art.<br /><br />
+- **helloworld.py**: Basic "hello world" program, with some ASCII art.<br />
     ![helloworld](/screenshots/0101_hello_world.jpg)
-- **basicmath.py**: Asks the user for two numbers, then performs simple math operations with those numbers.<br /><br />
-    ![helloworld](/screenshots/0101_basic_math.jpg)
-- **weightconversion.py**: Asks the user for their weight in pounds, then converts it to kg, stones, and a variety of silly measurements.<br /><br />
-    ![helloworld](/screenshots/0101_weight.jpg)
-- **tipcalculator.py**: Asks the user for a bill total and how many people will split the bill. Calculates and displays a table with common tip amounts and how much each person should pay.<br /><br />
-    ![helloworld](/screenshots/0101_tip.jpg)
+- **basicmath.py**: Asks the user for two numbers, then performs simple math operations with those numbers.<br />
+    ![img](/screenshots/0101_basic_math.jpg)
+- **weightconversion.py**: Asks the user for their weight in pounds, then converts it to kg, stones, and a variety of silly measurements.<br />
+    ![img](/screenshots/0101_weight.jpg)
+- **tipcalculator.py**: Asks the user for a bill total and how many people will split the bill. Calculates and displays a table with common tip amounts and how much each person should pay.<br />
+    ![img](/screenshots/0101_tip.jpg)
 
 **Thoughts:** It's been a while since I've used Python, and Python 3 syntax has changed in a few ways since Python 2, so I decided to start from the beginning with some very simple projects. I feel excited and determined.
 
