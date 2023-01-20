@@ -48,7 +48,6 @@ class WordManager:
 
         self.get_word_list()
 
-
     def get_word_list(self):
         """Read each 7-letter word from the given txt file into the WORDS list.
         Args:
@@ -149,23 +148,21 @@ class WordManager:
         print(f"The secret password is: {secret_password}")
         self.game_words = [secret_password]
 
-        # First, find 2 words with zero letters that match the password.
-        self.game_words.extend(self.get_match_list(secret_password, 0, 2))
+        # To make the game fair, we need to ensure that there are words 
+        # with a range of matching numbers of letters as the secret word.
+        fairness_matrix = [
+            [0, 2], # Find 2 words with zero letters that match the password
+            [1, 2], # Find 2 words with 1 letter that matches the password
+            [2, 3], # Find 3 words with 2 letters that match the password
+            [3, 2], # Find 2 words with 3 letters that match the password
+            [4, 1], # Find 1 word with 4 letters that match the password
+            [5, 1]  # Find 1 word with 5 letters that match the password
+        ]
 
-        # Find 2 words with 1 matching letter.
-        self.game_words.extend(self.get_match_list(secret_password, 1, 2))
-
-        # Find 3 words with 2 matching letters.
-        self.game_words.extend(self.get_match_list(secret_password, 2, 3))
-
-        # Find 2 words with 3 matching letters.
-        self.game_words.extend(self.get_match_list(secret_password, 3, 2))
-
-        # Try to find 1 word with 4 matching letters.
-        self.game_words.extend(self.get_match_list(secret_password, 4, 1))
-
-        # Try to find 1 word with 5 matching letters.
-        self.game_words.extend(self.get_match_list(secret_password, 5, 1))
+        # Get the new words that match the criteria and add them to the game_words list.
+        for f in fairness_matrix:
+            new_words = self.get_match_list(secret_password, f[0], f[1])
+            self.game_words.extend(new_words)
 
         # Fill out the rest of the list with random words.
         num_words_left = self.total_words - len(self.game_words)
