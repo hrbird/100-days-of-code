@@ -42,13 +42,14 @@ class WordManager:
     def __init__(self, file_name):
         self.ALL_WORDS = []     # List to hold 7-letter words
         self.game_words = []    # List to hold the words for the game.
+        self.password = ""      # The correct secret password to win the game.
         self.total_words = 12   # How many words to get.
         self.max_tries = 1000   # The number of times to try finding a word before giving up.
         self.file_name = file_name # Name of the text file with all the words.
 
-        self.get_word_list()
+        self.import_word_list()
 
-    def get_word_list(self):
+    def import_word_list(self):
         """Read each 7-letter word from the given txt file into the WORDS list.
         Args:
             file_name (str): relative file path and name of txt file
@@ -101,12 +102,11 @@ class WordManager:
                 num_matches += 1
         return num_matches
 
-    def get_match(self, secret_password, num_matches):
+    def get_match(self, num_matches):
         """Get a random word that has a given number of letters that
-        match the given secret password (and is not already in game_words).
+        match the current secret password (and is not already in game_words).
 
         Args:
-            secret_password (string): the secret password for the game
             num_matches (int): the number of letters to match the password
 
         Returns the matching word, or an empty string if none was found.
@@ -116,27 +116,26 @@ class WordManager:
         # Give up after 1000 tries.
         for i in range(self.max_tries):
             random_word = self.get_random_word_except(self.game_words)
-            if self.count_matching_letters(secret_password, random_word) == num_matches:
+            if self.count_matching_letters(self.password, random_word) == num_matches:
                 return random_word
 
         return ""
 
-    def get_match_list(self, secret_password, num_matches, num_words):
+    def get_match_list(self, num_matches, num_words):
         """Get a list of random words that have a given number of letters that
         match the given secret password (and are not already in game_words).
 
         Args:
-            secret_password (string): the secret password for the game
             num_matches (int): the number of letters to match the password
             num_words (int): the number of words of this criteria to get
         """
         words = []
         for w in range(num_words):
-            new_word = self.get_match(secret_password, num_matches)
+            new_word = self.get_match(num_matches)
             if len(new_word) > 0:
                 words.append(new_word)
 
-        print(f"{len(words)} words with {num_matches} matches: {words}")
+        #print(f"{len(words)} words with {num_matches} matches: {words}")
 
         return words
 
@@ -144,9 +143,9 @@ class WordManager:
         """Fill game_words with a list of random words from the ALL_WORDS list."""
 
         # The secret password will be the first word in the list.
-        secret_password = random.choice(self.ALL_WORDS)
-        print(f"The secret password is: {secret_password}")
-        self.game_words = [secret_password]
+        self.password = random.choice(self.ALL_WORDS)
+        self.game_words = [self.password]
+        #print(f"The secret password is: {self.password}")
 
         # To make the game fair, we need to ensure that there are words 
         # with a range of matching numbers of letters as the secret word.
@@ -161,29 +160,79 @@ class WordManager:
 
         # Get the new words that match the criteria and add them to the game_words list.
         for f in fairness_matrix:
-            new_words = self.get_match_list(secret_password, f[0], f[1])
+            new_words = self.get_match_list(f[0], f[1])
             self.game_words.extend(new_words)
 
-        # Fill out the rest of the list with random words.
+        # Fill out the rest of the list with random words, if needed.
         num_words_left = self.total_words - len(self.game_words)
         for w in range(num_words_left):
             new_word = self.get_random_word_except(self.game_words)
             self.game_words.append(new_word)
 
-        print(f"game words: {self.game_words}")
-        print(f"length: {len(self.game_words)}")
+        #print(f"game words: {self.game_words}")
+        #print(f"length: {len(self.game_words)}")
     
+    def print_game_words(self):
+        # TODO: Make this look like jumbled memory banks, like in Fallout
+        # For now...
+        for w in self.game_words:
+            print(w)
+
+    def get_guess(self):
+        """Asks user to guess one of the passwords.
+        Keeps looping until the user enters an acceptable word in game_words.
+        Returns a string."""
+        ans = ""
+        while True:
+            ans = input("> ").upper().replace(" ", "")
+
+            if ans not in self.game_words:
+                print(f"Sorry, '{ans}' is not an acceptable answer.")
+                print("Please enter one of the passwords listed above.")
+            else:
+                return ans
+
     def play_game(self):
+        """Play a single game of Hacking."""
+
         self.get_game_words()
 
-def start_game():
-    """Run a single game of Hacking."""
-    word_manager = WordManager(WORDS_FILENAME)
-    word_manager.play_game()
+        print("Words:")
+        self.print_game_words()
+
+        num_tries_left = 4
+        is_game_over = False
+        while not is_game_over:
+
+            # Ask the user for their guess.
+            print(f"Enter the password ({num_tries_left} tries remaining):")
+            guess = self.get_guess()
+
+            # Check if it's the correct password.
+            if guess == self.password:
+                print("\nA C C E S S   G R A N T E D\n")
+                is_game_over = True
+            else:
+                # Get the number of matching letters.
+                num_matches = self.count_matching_letters(self.password, guess)
+                print(f"Access Denied ({num_matches}/7 correct)\n")
+                num_tries_left -= 1
+
+            # If user runs out of guesses, end the game.
+            if num_tries_left <= 0:
+                print(f"\nOut of tries. The secret password was {self.password}.")
+                is_game_over = True
+
+
+
+
+
 
 def main():
+    word_manager = WordManager(WORDS_FILENAME)
     
-    start_game()
+    # Run a single game.
+    word_manager.play_game()
 
 if __name__ == "__main__":
     main()
