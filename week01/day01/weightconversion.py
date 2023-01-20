@@ -6,28 +6,21 @@ lb_stones = 14
 
 # List of random things and their average weight in pounds.
 randomWeights = [
-    ["great danes", 160],
     ["golden retrievers", 65],
     ["small bales of hay", 50],
-    ["water tank jugs", 47],
-    ["toddlers", 27],
     ["watermelons", 20],
     ["bicycles", 18],
-    ["gallons of paint", 11],
     ["cats", 10],
     ["gallons of milk", 8.6],
     ["chickens", 5.7],
-    ["toasters", 5],
+    ["chihuahuas", 4],
     ["pillows", 2.75],
     ["loaves of bread", 1.25],
     ["coffee mugs", 0.55],
     ["bricks", 0.5],
-    ["chihuahuas", 4],
-    ["apples", 0.33],
     ["bananas", 0.25],
     ["bars of soap", 0.22],
-    ["toothbrushes", 0.039],
-    ["pennies", 0.006856376]
+    ["toothbrushes", 0.039]
 ]
 
 # Get the user's weight in pounds.
