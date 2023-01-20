@@ -1,7 +1,7 @@
 print("Welcome to the tip calculator.")
 
 totalBill = input("What was the total bill? $")
-splitNumber = input("How many people will split the bill? (Enter 1 for no splitting) ")
+splitNumber = input("How many people will split the bill? (Enter 1 for no splitting): ")
 
 try:
     bill = float(totalBill)
@@ -35,7 +35,7 @@ except ValueError:
 # -----------------
 # Welcome to the tip calculator.
 # What was the total bill? $124.56
-# How many people will split the bill? (Enter 1 for no splitting) 7
+# How many people will split the bill? (Enter 1 for no splitting): 7
 # 
 # The total bill is $124.56, split between 7 people.
 # Here is a table with common tip percentages:
