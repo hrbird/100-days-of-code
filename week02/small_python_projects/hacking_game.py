@@ -184,8 +184,40 @@ class WordManager:
         #print(f"game words: {self.game_words}")
         #print(f"length: {len(self.game_words)}")
     
+    def get_memory_bank_string(self, num_chars, word=""):
+        """Returns a line of the given number of random garbage characters.
+        If a word is given, it is inserted at random inside the string.
+
+        Args:
+            word (str, optional): String word to hide in the memory bank,
+            if any. Defaults to an empty string.
+        """
+
+        line_str = ""
+        for c in range(num_chars):
+            line_str += random.choice(GARBAGE_CHARS)
+
+        if len(word) > 0:
+            # If a word is given, insert it at a random index in the line.
+            i = random.randint(0, num_chars - len(word))
+
+            # Insert the word.
+            line_str = (line_str[:i] + word + line_str[i + 7:])
+
+        return line_str
+
+    def get_hex_address_string(self, memory_address):
+        """Returns a formatted string similar to a hex memory bank address.
+
+        Args:
+            memory_address (int): the memory address, as an integer
+        """
+        hex_address = hex(memory_address)[2:].zfill(4)
+        return f"0x{hex_address}"
+
     def get_memory_banks_string(self):
-        """Return a string representing the "computer memory banks"."""
+        """Return a string representing the "computer memory banks".
+        The possible passwords are hidden in the data."""
 
         # If the game_words haven't been created yet, return an empty string.
         if len(self.game_words) != self.total_words:
@@ -211,54 +243,37 @@ class WordManager:
         # Start with a list of 16 strings, one for each line.
         computer_memory = []
 
-        cur_word_index = 0 # Track where we are in shuffled_words
+        cur_word_index = 0 # Track where we are in shuffled_words list
 
         for line_num in range(16):
-            # Create half a line of garbage characters.
+            # Create two half-lines of garbage characters.
             left_half = ""
             right_half = ""
-
-            # Each half-line has 16 characters.
-            # Fill them with random garbage.
-            for j in range(16):
-                left_half += random.choice(GARBAGE_CHARS)
-                right_half += random.choice(GARBAGE_CHARS)
-
+            
+            # If this half-line should have a word in it, 
+            # add the next word from the shuffled_words list at a random place.
+            # Else, fill the entire half-line with garbage characters.
             if line_num in lines_with_words:
-                # Add the next word from the shuffled_words list at 
-                # a random place in the half-line.
-                insertion_index = random.randint(0, 16 - 7)
-
-                # Insert the word.
-                left_half = (
-                    left_half[:insertion_index] +
-                    shuffled_words[cur_word_index] +
-                    left_half[insertion_index + 7:]
-                    )
-
-                # Go to the next word.
+                left_half = self.get_memory_bank_string(16, shuffled_words[cur_word_index])
                 cur_word_index += 1
+            else:
+                left_half = self.get_memory_bank_string(16)
 
+            # Do the same with the right half-line.
             if (line_num + 16) in lines_with_words:
-                insertion_index = random.randint(0, 16 - 7)
-
-                # Insert the word.
-                right_half = (
-                    right_half[:insertion_index] +
-                    shuffled_words[cur_word_index] +
-                    right_half[insertion_index + 7:]
-                    )
-                
-                # Go to the next word.
+                right_half = self.get_memory_bank_string(16, shuffled_words[cur_word_index])
                 cur_word_index += 1
+            else:
+                right_half = self.get_memory_bank_string(16)
 
             # Add the whole line to the computer_memory list.
-            hex_address_a = hex(memory_address)[2:].zfill(4)
-            hex_address_b = hex(memory_address + (16*16))[2:].zfill(4)
-            line_str = f"0x{hex_address_a}  {left_half}    0x{hex_address_b}  {right_half}"
+            hex_address_a = self.get_hex_address_string(memory_address)
+            hex_address_b = self.get_hex_address_string(memory_address + (16*16))
+            
+            line_str = f"{hex_address_a}  {left_half}    {hex_address_b}  {right_half}"
             computer_memory.append(line_str)
 
-            # Increase the "computer memory" address by 2 bytes.
+            # Go to the next "computer memory" address.
             memory_address += 16
 
         # Join all the strings into one string with newlines.
@@ -283,13 +298,14 @@ class WordManager:
 
         print(HACKER_ART)
 
-        print("Find the correct password in the computer's memory.")
+        print("Find the correct password hidden in the computer's memory.")
         print("After each guess, you will be told how many letters you got right.")
         print(f"You get {self.num_guesses} attempts before you are locked out.\n")
 
         self.get_game_words()
 
         print(self.get_memory_banks_string())
+        print()
 
         num_tries_left = self.num_guesses
         is_game_over = False
@@ -311,7 +327,7 @@ class WordManager:
 
             # If user runs out of guesses, end the game.
             if num_tries_left <= 0:
-                print(f"\nOut of tries. The secret password was {self.password}.")
+                print(f"Out of tries. The secret password was {self.password}.\n")
                 is_game_over = True
 
 
