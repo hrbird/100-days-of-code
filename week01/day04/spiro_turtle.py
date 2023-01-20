@@ -12,7 +12,7 @@ COLORS = [
 ]
 
 # How large to make the circles.
-CIRCLE_RADIUS = 100
+CIRCLE_RADIUS = 150
 
 # The change in angle between each circle.
 CIRCLE_ANGLE_CHANGE = 10
