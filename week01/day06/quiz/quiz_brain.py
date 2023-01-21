@@ -50,7 +50,7 @@ class QuizBrain:
 
     def show_quiz(self):
         """Gives the user the quiz and processes each answer."""
-        print("Here's a quiz!\n")
+        print("\nPop Quiz!\nPlease answer either T or F for each question.\n")
 
         # Keep asking the user questions until the quiz is finished.
         while not self.is_quiz_done():
