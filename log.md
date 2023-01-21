@@ -17,22 +17,28 @@
 
 -----
 
-## 9. Numeral Systems, String Formatting, Turtle
+## 9. Numeral Systems, String Formatting, Turtle Graphics
 ### Day 9: January 20, 2023
 
 **Today's Progress**: 
 - Continued working through "100 Days of Python" Udemy class. Completed day 18.
-- Learned conversion into different numeral systems (binary, hex, octal) and more f-string formatting (alignment, padding). Also learned more about using the turtle library.
+- Learned conversion into different numeral systems (binary, hex, octal) and more f-string formatting (alignment, padding). Also learned more about using the Turtle library.
 
 **Programs**:
 - **numeral_systems.py**: Counts to a given number in different numeral systems: decimal (base 10), hexadecimal (base 16), and binary (base 2).<br />
   ![img](/screenshots/0109_numeral.jpg)
 - **blackjack.py**: I went back to day 3's blackjack program and changed the way the cards are presented so they look more like cards. I also added docstrings for the classes and functions.<br />
   ![img](/screenshots/0109_blackjack_1.jpg)
-- **turtle_square.py**: Draws a basic square in turtle.<br />
+- **turtle_square.py**: Draws a basic square in Turtle.<br />
   ![img](/screenshots/0109_turtle_square.jpg)
+- **turtle_dashed.py**: Draws a dashed line in Turtle.<br />
+  ![img](/screenshots/0109_turtle_dashed.jpg)
+- **turtle_shapes.py**: Draws a variety of overlapping shapes in turtle. Draws every regular shape from the 3-sided triangle to the 10-sided decagon.<br />
+  ![img](/screenshots/0109_turtle_shapes.jpg)
+- **turtle_random_walk.py**: Draws a random path, switching colors and changing speeds randomly.<br />
+  ![img](/screenshots/0109_turtle_random_1.jpg)
 
-**Thoughts:** Decided to reformat this log to put the days in reverse-chronological order. I also added screenshots of each project.
+**Thoughts:** Decided to reformat this log to put the days in reverse-chronological order. I also added screenshots of each project. Having fun with Turtle!
 
 -----
 
