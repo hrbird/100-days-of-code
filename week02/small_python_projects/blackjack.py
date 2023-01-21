@@ -92,7 +92,6 @@ class Deck:
         }
 
         ranks = {
-            "1": ["One", 1], 
             "2": ["Two", 2], 
             "3": ["Three", 3], 
             "4": ["Four", 4], 
@@ -125,9 +124,11 @@ class Deck:
         return self.cards.pop()
         
 class Hand:
-    """Class to handle a hand of cards."""
-    def __init__(self):
+    """Class to handle a hand of cards.
+    Arg person (string): either 'Player' or 'Dealer'"""
+    def __init__(self, person):
         self.cards = []
+        self.person = person
 
     def add_card(self, card):
         """Add a Card object to the hand."""
@@ -154,7 +155,12 @@ class Hand:
             for a in range(len(card_art)):
                 lines[a] += card_art[a] + "  "
 
-        print(self.get_value_str())
+        # Add either "Dealer's hand" or "Player's hand" to line 1.
+        lines[1] += f"  {self.person}'s hand"
+        
+        # Add the current value to line 2.
+        lines[2] += "  " + self.get_value_str()
+        
         for l in lines:
             print(l)
 
@@ -175,7 +181,12 @@ class Hand:
             for m in range(len(mystery_art)):
                 lines[m] += mystery_art[m] + "  "
 
-        print("(Current value: ??)")
+        # Add "Dealer's starting hand" to line 1.
+        lines[1] += "Dealer's starting hand"
+
+        # Add the current value to line 2.
+        lines[2] += "  (Current value: ??)"
+
         for l in lines:
             print(l)        
 
@@ -266,26 +277,24 @@ def play_game():
     deck = Deck()
 
     # Deal two cards to the dealer.
-    dealer_hand = Hand()
+    dealer_hand = Hand("Dealer")
     dealer_hand.add_card(deck.draw_card())
     dealer_hand.add_card(deck.draw_card())
 
     # Deal two cards to the player.
-    player_hand = Hand()
+    player_hand = Hand("Player")
     player_hand.add_card(deck.draw_card())
     player_hand.add_card(deck.draw_card())
 
     # Show only one of the dealer's cards to the player.
-    print("\nDealer's starting hand:")
     dealer_hand.show_init_dealer_hand()
 
     # Show the player's cards to the player.
-    print("\nYour starting hand:")
     player_hand.show_hand()
 
     # If the player gets 21 in their first two cards, they automatically win.
     if player_hand.get_value() == 21:
-        print("\Blackjack!\nYou win!")
+        print("\nBLACKJACK!\nYou win!")
 
     else:
 
@@ -305,7 +314,6 @@ def play_game():
                 player_hand.add_card(deck.draw_card())
 
                 # Show the player's cards to the player.
-                print("\nYour current hand:")
                 player_hand.show_hand()
 
                 # Check if the player has Busted (gone over 21).
