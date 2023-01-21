@@ -29,6 +29,8 @@
   ![img](/screenshots/0109_numeral.jpg)
 - **blackjack.py**: I went back to day 3's blackjack program and changed the way the cards are presented so they look more like cards. I also added docstrings for the classes and functions.<br />
   ![img](/screenshots/0109_blackjack_1.jpg)
+- **turtle_square.py**: Draws a basic square in turtle.<br />
+  ![img](/screenshots/0109_turtle_square.jpg)
 
 **Thoughts:** Decided to reformat this log to put the days in reverse-chronological order. I also added screenshots of each project.
 
