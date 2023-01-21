@@ -3,30 +3,47 @@
 
 -----
 
+## X. Daily Template
+### Day X: January X, 2023
+
+**Today's Progress**: 
+- 
+
+**Programs**:
+- **x.py**: X.<br />
+  ![img](/screenshots/.jpg)
+
+**Thoughts:** 
+
+-----
+
 ## 9. Numeral Systems, String Formatting, Turtle
-### Day 9: January 19, 2023
+### Day 9: January 20, 2023
 
 **Today's Progress**: 
 - Continued working through "100 Days of Python" Udemy class. Completed day 18.
 - Learned conversion into different numeral systems (binary, hex, octal) and more f-string formatting (alignment, padding). Also learned more about using the turtle library.
 
 **Programs**:
-- **numeral_systems.py**: Counts to a given number in different numeral systems: decimal (base 10), hexadecimal (base 16), and binary (base 2).
-- **blackjack.py**: I went back to day 3's blackjack program and changed the way the cards are presented so they look more like cards. I also added docstrings for the classes and functions.
+- **numeral_systems.py**: Counts to a given number in different numeral systems: decimal (base 10), hexadecimal (base 16), and binary (base 2).<br />
+  ![img](/screenshots/0109_numeral.jpg)
+- **blackjack.py**: I went back to day 3's blackjack program and changed the way the cards are presented so they look more like cards. I also added docstrings for the classes and functions.<br />
+  ![img](/screenshots/0109_blackjack_1.jpg)
 
-**Thoughts:** Decided to reformat this log to put the days in reverse-chronological order and also add screenshots of work.
+**Thoughts:** Decided to reformat this log to put the days in reverse-chronological order. I also added screenshots of each project.
 
 -----
 
 ## 8. Reading From Text Files, String Formatting
-### Day 8: January 18, 2023
+### Day 8: January 19, 2023
 
 **Today's Progress**: 
 - Did a project from the "Big Book of Small Python Projects" by Al Sweigart. I tried to play around with the code by creating a class and moving the game logic into smaller encapsulated functions, instead of long, global functions. I also added input validation.
 - Learned how to open txt files and read their contents into a list in Python. Also learned some more complicated string formatting and new randomization functions (choice, sample, etc.).
 
 **Programs**:
-- **hacking_game.py**: Hacking game inspired by the computer-hacking minigame in Fallout: New Vegas.
+- **hacking_game.py**: Hacking game inspired by the computer-hacking minigame in Fallout: New Vegas.<br />
+  ![img](/screenshots/0108_hack_1.JPG)
 
 **Thoughts:** The hacking game was my favorite minigame in FNV, so it was a lot of fun to be able to mimic it in Python. I'm learning that there's a lot you can do just with ASCII in the terminal.
 
@@ -41,9 +58,12 @@
 - Focused on object-oriented programming and enums in Python. Also, using links, images, and videos in HTML.
 
 **Programs**:
-- **dice_roller.py**: This program simulates rolling dice for table-top roleplaying games, like DND or Pathfinder. It can roll dice with 4, 6, 8, 10, 12, 20, or 100 sides.
-- **ducklings.py**: This program creates a randomized field of ASCII ducklings. First, it prints a row of 10 ducklings. Then, it prints a scrolling screen filled with random ducklings.
-- **install-extension.html**: Added navigation links, images, and a video to the install-extension page.
+- **dice_roller.py**: This program simulates rolling dice for table-top roleplaying games, like DND or Pathfinder. It can roll dice with 4, 6, 8, 10, 12, 20, or 100 sides.<br />
+  ![img](/screenshots/0107_dice.jpg)
+- **ducklings.py**: This program creates a randomized field of ASCII ducklings. First, it prints a row of 10 ducklings. Then, it prints a scrolling screen filled with random ducklings.<br />
+  ![img](/screenshots/0107_ducklings.jpg)
+- **install-extension.html**: Added navigation links, images, and a video to the install-extension page.<br />
+  ![img](/screenshots/0107_html.jpg)
 
 **Thoughts:** Still enjoying learning new things with every project! For this first week, I organized my files into daily folders, since I made several small programs per day. However, next week I think I will put all of the one-file programs into a "small_python_projects" folder and put larger projects into their own subfolders. This will make it easier to work on more complex programs that may take 2+ days to complete.
 
@@ -58,20 +78,22 @@
 - Focused on object-oriented programming in Python, basic HTML, and how to use VSCode Live Server to easily preview HTML pages.
 
 **Programs**:
-- **install-extension.html**: Simple HTML file to learn the basic structure and elements.
-- **coffee_machine/main.py**: Tidied up the Coffee Machine project from yesterday by creating a new CoffeeMachine class to encapsulate all of the related objects and code for the coffee machine. This cleans up the main function of the program so it only needs to create a CoffeeMachine object and call its start_machine function. I also added a loop while the machine is on, so multiple drinks can be ordered in a row.
+- **install-extension.html**: Simple HTML file to learn the basic structure and elements.<br />
+  ![img](/screenshots/0106_live_server.jpg) 
+- **coffee_machine/main.py**: Tidied up the Coffee Machine project from yesterday by creating a new CoffeeMachine class to encapsulate all of the related objects and code for the coffee machine. This cleans up the main function of the program so it only needs to create a CoffeeMachine object and call its start_machine function. It loops while the machine is on, so multiple drinks can be ordered in a row.
 
 **Quiz Project**:
 - **main.py**: Main program
 - **data.py**: A list of objects containing data for each question: the question text and the answer (True or False)
 - **question**: The Question class, which models each quiz question.
-- **quiz_brain.py**: The QuizBrain class, which manages the quiz. It asks the user the questions, validates that each answer is T or F, checks if the answers are right, checks if they reached the end of the quiz, and calculates the final score.
+- **quiz_brain.py**: The QuizBrain class, which manages the quiz. It asks the user the questions, validates that each answer is T or F, checks if the answers are right, checks if they reached the end of the quiz, and calculates the final score.<br />
+  ![img](/screenshots/0106_quiz_1.jpg) [Snipped...] ![img](/screenshots/0106_quiz_2.jpg)
 
 **Thoughts:** Feeling more confident with creating and using Python classes.
 
 -----
 
-## 5. Installing Python Packages
+## 5. Started NuCamp, Coffee Machine Project
 ### Day 5: January 16, 2023
 
 **Today's Progress**: 
@@ -81,9 +103,14 @@
 
 **Coffee machine project**:
 - **main.py**: This program pretends to be a coffee machine that can make a list of drinks, process coins and return change, and check current levels of resources (water, milk, coffee grounds).
-- **coffee_maker.py**: CoffeeMaker class that makes the coffee and manages the current levels of resources.
+- **coffee_maker.py**: CoffeeMaker class that makes the coffee and manages the current levels of resources. If there aren't enough resources left to make the ordered drink, the drink is not made and the user is told why.
 - **menu.py**: MenuItem class that handles the name, cost, and amounts of resources (water, milk, coffee grounds) used by each of the coffee machine drinks. Menu class that manages all of the MenuItem objects.
-- **money_machine.py**: MoneyMachine class that processes coins, accepts or refuses payments, and calculates change.
+- **money_machine.py**: MoneyMachine class that processes coins, accepts or refuses payments, and calculates change. If the user does not enter enough money after ordering a drink, the drink is not made and their money is returned to them.<br />
+- **screenshots**: 
+  - Ordering a drink:<br />
+    ![img](/screenshots/0105_coffee.jpg)<br />
+  - Checking resource levels (secret code 0):<br />
+    ![img](/screenshots/0106_coffee_2.jpg)<br />
 
 **Thoughts:** Not much HTML work today because I spent most of the day setting up for the bootcamp and doing introductory work. I also started the OOP Coffee Maker project and feel like I'm getting the hang of how to use python classes.
 
@@ -105,7 +132,7 @@
 - **spiral_spiro.py**: This program draws a green spiral spirograph image using Turtle.<br />
   ![img](/screenshots/0104_spiral_spiro.jpg)
 
-**Thoughts:** Feeling a little frustrated that this repo will not have the commit history of the first 3 days, but I hope things go more smoothly from here. I'm excited to finally learn turtle and graphics libraries, instead of creating purely terminal-based programs.
+**Thoughts:** Feeling a little frustrated that this repo will not have the commit history of the first 3 days, but I hope things go more smoothly from here. I'm excited to learn turtle and graphics libraries, instead of creating purely terminal-based programs.
 
 -----
 
@@ -123,7 +150,7 @@
   ![img](/screenshots/0103_caesar.jpg)
 - **calculator.py**: Acts as a calculator that can perform basic math operations for the user.<br />
   ![img](/screenshots/0103_calc.jpg)
-- **blackjack.py**: A standard game of blackjack. Creates a shuffled deck of 52 cards, keeps track of the player and dealer's hands, calculates hand values, handles the dealer's decisions, and determines the winner/outcome.<br />
+- **blackjack.py**: A standard game of blackjack. Creates a shuffled deck of 52 cards, keeps track of the player and dealer's hands, calculates hand values, handles the dealer's decisions, and determines the winner/outcome. It also figures out when to count an ace as 1 or 11.<br />
   ![img](/screenshots/0103_blackjack_b.jpg)
 
 **Thoughts:** I continued working on exercises from the "100 Days of Python" class and adding a little more complexity to them. The Blackjack project was supposed to be a lot simpler (just pulling random values from a list of possible card values, with no classes). However, I felt confident to try including classes and more complicated game logic (creating a full deck of 52 cards, using logic to determine when aces should be counted as 1 vs 11, and creating classes with initializers for the Cards, Deck, and Hands). Having fun pushing myself :)
