@@ -5,6 +5,17 @@
 import math
 import random
 
+# Art by Joan G. Stark, from: https://www.asciiart.eu/miscellaneous/dice
+DICE_ART = """
+   .-------.    ______
+  /   o   /|   /\     \\          _ _          
+ /_______/o|  /o \  o  \\      __| (_) ___ ___ 
+ | o     | | /   o\_____\\    / _` | |/ __/ _ \\
+ |   o   |o/ \o   /o    /   | (_| | | (_|  __/
+ |     o |/   \ o/  o  /     \__,_|_|\___\___|
+ '-------'     \/____o/
+"""
+
 MENU_STR = """
 Welcome to the Dice Roller!
 
@@ -114,6 +125,7 @@ def show_menu():
     """Shows the main menu and gets dice input from the user.
     Keeps looping until the user quits the program.
     """
+    print(DICE_ART)
     print(MENU_STR)
 
     quit_program = False
