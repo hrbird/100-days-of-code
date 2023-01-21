@@ -36,7 +36,7 @@ from os.path import dirname, join
 GARBAGE_CHARS = "!@#$%^&*()_-+=~\{\}[]|;:,.<>?/"
 WORDS_FILENAME = "./seven_letter_words.txt"
 
-HACKER_ART = """
+HACKER_ART = '''
 88                                   88                              
 88                                   88                              
 88                                   88                              
@@ -45,7 +45,7 @@ HACKER_ART = """
 88       88  ,adPPPPP88  8b          8888[     8PP"""""""  88          
 88       88  88,    ,88  "8a,   ,aa  88`"Yba,  "8b,   ,aa  88          
 88       88  `"8bbdP"Y8   `"Ybbd8"'  88   `Y8a  `"Ybbd8"'  88          
-"""
+'''
 
 class WordManager:
     """The WordManager class handles getting the list of 
