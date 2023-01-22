@@ -1,4 +1,4 @@
-# Food class for the snake game
+# Food class for the snake game project.
 
 from turtle import Turtle
 import random
@@ -23,7 +23,7 @@ class Food(Turtle):
 
         # Make the food a small, blue circle that does not draw a path.
         self.shape("circle")
-        self.color("blue")
+        self.color("turquoise3")
         self.penup()
         self.shapesize(stretch_len=0.5, stretch_wid=0.5)
         self.speed("fastest")

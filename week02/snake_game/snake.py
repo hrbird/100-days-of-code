@@ -1,4 +1,4 @@
-# Snake class to manage the snake in the snake game.
+# Snake class for the snake game project.
 from turtle import Turtle, Screen
 
 # Directions for Turtle setheading()
