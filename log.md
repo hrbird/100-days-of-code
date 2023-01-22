@@ -17,7 +17,29 @@
 
 -----
 
-## 10. Turtle Graphics
+## 11. Pong Game Project
+### Day 11: January 22, 2023
+
+**Today's Progress**: 
+- "100 Days of Python" Udemy class: completed days 22-.
+- 
+
+**Programs**:
+- **x.py**: X.<br />
+
+**Pong Game Project**: The classic game of Pong, in two players control paddles to hit a ball back and forth across the screen. When the ball hits a paddle, it bounces in the opposite direction and its speed increases. If the ball hits the top or bottom edge, it bounces. If a player misses the ball and it goes off the left or right edge, their score increases by 1 and the ball returns to the center of the screen. Whoever has the lowest score wins.
+- **main.py**: Main program. Creates the custom objects and handles event listeners for the user pressing the keys. The left paddle is controlled by the W/S keys, and the right paddle is controlled by the up/down arrow keys. The main function also runs the main game loop and detects collision between the ball and the paddles or the edges of the screen.
+- **paddle.py**: Paddle class to handle the paddles on either side of the screen.
+- **ball.py**: Ball class to handle the ball that moves across the screen.
+- **scoreboard.py**: A class to keep track of the left and right players' scores and display them on the screen.<br />
+![img](/screenshots/1101_pong1.jpg) ![img](/screenshots/1101_pong2.jpg)<br />
+![img](/screenshots/1101_pong3.jpg) ![img](/screenshots/1101_pong4.jpg)
+
+**Thoughts:** Another recreation of a classic video game. It's amazing to be able to make these with just a few hours of work.
+
+-----
+
+## 10. Turtle Graphics and Snake Game Project
 ### Day 10: January 21, 2023
 
 **Today's Progress**: 
