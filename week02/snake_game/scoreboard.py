@@ -29,3 +29,8 @@ class Scoreboard(Turtle):
         score_str = f"Score: {self.score}"
         self.clear()
         self.write(arg=score_str, align=ALIGNMENT, font=FONT)
+
+    def show_game_over(self):
+        """Tell the user the game is over."""
+        self.goto(0, 0)
+        self.write(arg="GAME OVER", align=ALIGNMENT, font=FONT)
