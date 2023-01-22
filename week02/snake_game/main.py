@@ -1,8 +1,11 @@
 # Snake game.
 from turtle import Turtle, Screen
 from snake import Snake
+from food import Food
 import random
 import time
+
+FOOD_COLLISION_DISTANCE = 15
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -12,8 +15,11 @@ screen.title("Snake Game")
 # Turn off turtle animation so we can control when the screen is redrawn.
 screen.tracer(0)
 
-# Create a snake object.
+# Create a Snake object.
 snake = Snake()
+
+# Create a Food object.
+food = Food()
 
 # If the user presses the arrow keys, change the snake's direction.
 screen.listen()
@@ -35,5 +41,9 @@ while not is_game_over:
 
     # Move the snake forward.
     snake.move()
+
+    # Detect collision between snake head and food.
+    if snake.head.distance(food) < FOOD_COLLISION_DISTANCE:
+        food.go_to_random_spot()
     
 screen.exitonclick()

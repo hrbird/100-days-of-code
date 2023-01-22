@@ -8,8 +8,8 @@ LEFT = 180
 DOWN = 270
 
 class Snake:
-    """Class to handle the snake object in the game, including
-    its body segments, its movement, and changes in direction."""
+    """Class to handle the snake object in the game, including creating 
+    its body segments, handling its movement, and changing its direction."""
     def __init__(self):
         # The height/width of each square segment of the snake's body
         self.SEGMENT_SIZE = 20
