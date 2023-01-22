@@ -1,4 +1,12 @@
 # Pong game.
+
+# The classic game of Pong, in two players control paddles to hit a ball 
+# back and forth across the screen. When the ball hits a paddle, it bounces 
+# in the opposite direction and its speed increases. If the ball hits the 
+# top or bottom edge, it bounces. If a player misses the ball and it goes 
+# off the left or right edge, their score increases by 1 and the ball 
+# returns to the center of the screen. Whoever has the lowest score wins.
+
 from turtle import Turtle, Screen
 from paddle import Paddle
 from ball import Ball
@@ -43,6 +51,30 @@ screen.onkeypress(left_paddle.go_down, "s")
 screen.onkeypress(right_paddle.go_up, "Up")
 screen.onkeypress(right_paddle.go_down, "Down")
 
+def detect_collision():
+    # Detect collision for the ball.
+    if ball.ycor() > WALL_Y_TOP or ball.ycor() < WALL_Y_BOTTOM:
+        # Collision with top or bottom walls.
+        ball.bounce_y()
+
+    elif ball.distance(left_paddle) < 50 and ball.xcor() < left_paddle.xcor() + COLLISION_DISTANCE and ball.x_move < 0:
+        # Collision with left paddle.
+        ball.bounce_x()
+
+    elif ball.distance(right_paddle) < 50 and ball.xcor() > right_paddle.xcor() - COLLISION_DISTANCE and ball.x_move > 0:
+        # Collision with right paddle.
+        ball.bounce_x()
+
+    elif ball.xcor() < WALL_X_LEFT:
+        # Collision with left wall (left player missed).
+        ball.reset_position()
+        scoreboard.l_point()
+
+    elif ball.xcor() > WALL_X_RIGHT:
+        # Collision with right wall (right player missed).
+        ball.reset_position()
+        scoreboard.r_point()
+
 def play_game():
     print("Starting new game.")
     # Game loop.
@@ -59,28 +91,7 @@ def play_game():
         ball.move()
 
         # Detect collision for the ball.
-        if ball.ycor() > WALL_Y_TOP or ball.ycor() < WALL_Y_BOTTOM:
-            # Collision with top or bottom walls.
-            ball.bounce_y()
-
-        elif ball.distance(left_paddle) < 50 and ball.xcor() < left_paddle.xcor() + COLLISION_DISTANCE and ball.x_move < 0:
-            # Collision with left paddle.
-            ball.bounce_x()
-
-        elif ball.distance(right_paddle) < 50 and ball.xcor() > right_paddle.xcor() - COLLISION_DISTANCE and ball.x_move > 0:
-            # Collision with right paddle.
-            ball.bounce_x()
-
-        elif ball.xcor() < WALL_X_LEFT:
-            # Collision with left wall (left player missed).
-            ball.reset_position()
-            scoreboard.l_point()
-
-        elif ball.xcor() > WALL_X_RIGHT:
-            # Collision with right wall (right player missed).
-            ball.reset_position()
-            scoreboard.r_point()
-
+        detect_collision()
 
 def main():
     play_game()
