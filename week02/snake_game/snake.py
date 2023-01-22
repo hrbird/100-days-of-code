@@ -26,13 +26,24 @@ class Snake:
         """Create the 3 starting body segments of the snake."""
 
         for i in range(3):
-            t = Turtle(shape="square")
-            t.color("white")
-            t.width(self.SEGMENT_SIZE)
-            t.penup()
-            t.goto(x=(i * -self.SEGMENT_SIZE), y=0)
+            position = ((i * -self.SEGMENT_SIZE), 0)
+            self.add_segment(position)
 
-            self.segments.append(t)
+    def add_segment(self, position):
+        """Adds a new segment to the snake.
+        Arg position (tuple): a tuple of 2 integers for the x and y position"""
+        t = Turtle(shape="square")
+        t.color("white")
+        t.width(self.SEGMENT_SIZE)
+        t.penup()
+        t.goto(position)
+
+        self.segments.append(t)
+
+    def extend(self):
+        """Add a new segment to the snake, at the position of the current
+        tail of the snake."""
+        self.add_segment(self.segments[-1].position())
 
     def move(self):
         """Move the snake forward in its current direction."""
