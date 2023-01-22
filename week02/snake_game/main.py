@@ -12,9 +12,9 @@ FOOD_COLLISION_DISTANCE = 20
 
 # Boundaries of the screen where the Snake is allowed.
 WALL_X_RIGHT = SCREEN_WIDTH/2 - 20
-WALL_X_LEFT = -SCREEN_WIDTH/2
+WALL_X_LEFT = -SCREEN_WIDTH/2 + 20
 WALL_Y_UP = SCREEN_HEIGHT/2 - 20
-WALL_Y_DOWN = -SCREEN_HEIGHT/2
+WALL_Y_DOWN = -SCREEN_HEIGHT/2 + 20
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -40,18 +40,19 @@ screen.onkey(snake.go_right, "Right")
 is_game_over = False
 while not is_game_over:
 
-    # Draw all objects on the screen.
-    screen.update()
-
     # Pause for 0.1 seconds.
     time.sleep(0.1)
 
     # Move the snake forward.
     snake.move()
 
+    # Draw all objects on the screen.
+    screen.update()
+
     # Detect collision between snake head and food.
     if snake.head.distance(food) < FOOD_COLLISION_DISTANCE:
         food.go_to_random_spot()
+        snake.extend()
         scoreboard.increase_score()
         
     # Detect collision between snake head and wall.
@@ -59,4 +60,10 @@ while not is_game_over:
         is_game_over = True
         scoreboard.show_game_over()
     
+    # Detect collision between snake head and any segment in the tail.
+    for segment in snake.segments[1:]:
+        if snake.head.distance(segment) < 10:
+            is_game_over = True
+            scoreboard.show_game_over()
+
 screen.exitonclick()

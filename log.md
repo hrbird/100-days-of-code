@@ -17,6 +17,35 @@
 
 -----
 
+## 10. Turtle Graphics
+### Day 10: January 21, 2023
+
+**Today's Progress**: 
+- Continued working through "100 Days of Python" Udemy class. Completed days 19-20.
+- Learned more about the Turtle library, including using keypress event listeners, multiple turtle instances, the turtle XY coordinate system, prompting for user input, and writing text to the screen.
+- Also learned about class inheritance in Python.
+- Started working on the project to make a Snake game in Turtle.
+
+**Programs**:
+- **inheritance.py**: A quick program exploring how class inheritance works in Python.
+- **turtle_listen.py**: A turtle walks forward ten steps every time the user presses the space bar.
+- **turtle_sketch.py**: Lets the user draw an image on the screen by pressing the WASD keys, like an etch-a-sketch.<br />
+  ![img](/screenshots/1001_sketch.jpg)
+- **turtle_race.py**: Six turtles race across the screen, at random speeds.<br />
+  ![img](/screenshots/1001_race.jpg)<br />
+  ![img](/screenshots/1001_race_2.jpg)<br />
+  ![img](/screenshots/1001_race_3.jpg)
+
+**Snake Game Project**:
+- **main.py**: Main function. Creates the snake object and handles event listeners for the user pressing arrow keys.
+- **snake.py**: A class to handle the snake object in the game, including creating its body segments, handling its movement, and changing its direction.
+- **food.py**: A class to handle the food that the snake eats. The food appears in a random location on the screen, and if the head of the snake eats it, the food moves to a different random location.
+- **scoreboard.py**: A class to
+
+**Thoughts:** 
+
+-----
+
 ## 9. Numeral Systems, String Formatting, Turtle Graphics
 ### Day 9: January 20, 2023
 
@@ -70,8 +99,7 @@
   ![img](/screenshots/0107_dice.jpg)
 - **ducklings.py**: This program creates a randomized field of ASCII ducklings. First, it prints a row of 10 ducklings. Then, it prints a scrolling screen filled with random ducklings.<br />
   ![img](/screenshots/0107_ducklings.jpg)
-- **install-extension.html**: Added navigation links, images, and a video to the install-extension page.<br />
-  ![img](/screenshots/0107_html.jpg)
+- **install-extension.html**: Added navigation links, images, and a video to the install-extension page.
 
 **Thoughts:** Still enjoying learning new things with every project! For this first week, I organized my files into daily folders, since I made several small programs per day. However, next week I think I will put all of the one-file programs into a "small_python_projects" folder and put larger projects into their own subfolders. This will make it easier to work on more complex programs that may take 2+ days to complete.
 
@@ -86,8 +114,7 @@
 - Focused on object-oriented programming in Python, basic HTML, and how to use VSCode Live Server to easily preview HTML pages.
 
 **Programs**:
-- **install-extension.html**: Simple HTML file to learn the basic structure and elements.<br />
-  ![img](/screenshots/0106_live_server.jpg) 
+- **install-extension.html**: Simple HTML file to learn the basic structure and elements.
 - **coffee_machine/main.py**: Tidied up the Coffee Machine project from yesterday by creating a new CoffeeMachine class to encapsulate all of the related objects and code for the coffee machine. This cleans up the main function of the program so it only needs to create a CoffeeMachine object and call its start_machine function. It loops while the machine is on, so multiple drinks can be ordered in a row.
 
 **Quiz Project**:
