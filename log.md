@@ -21,7 +21,7 @@
 ### Day 10: January 21, 2023
 
 **Today's Progress**: 
-- Continued working through "100 Days of Python" Udemy class. Completed days 19-20.
+- Continued working through "100 Days of Python" Udemy class. Completed days 19-21.
 - Learned more about the Turtle library, including using keypress event listeners, multiple turtle instances, the turtle XY coordinate system, prompting for user input, and writing text to the screen.
 - Also learned about class inheritance in Python.
 - Started working on the project to make a Snake game in Turtle.
@@ -33,16 +33,16 @@
   ![img](/screenshots/1001_sketch.jpg)
 - **turtle_race.py**: Six turtles race across the screen, at random speeds.<br />
   ![img](/screenshots/1001_race.jpg)<br />
-  ![img](/screenshots/1001_race_2.jpg)<br />
   ![img](/screenshots/1001_race_3.jpg)
 
 **Snake Game Project**:
-- **main.py**: Main function. Creates the snake object and handles event listeners for the user pressing arrow keys.
+- **main.py**: Main function. Creates the snake object and handles event listeners for the user pressing arrow keys. It also runs the main game loop and detects collision between the snake head and food, the edges of the screen, and its own tail.
 - **snake.py**: A class to handle the snake object in the game, including creating its body segments, handling its movement, and changing its direction.
 - **food.py**: A class to handle the food that the snake eats. The food appears in a random location on the screen, and if the head of the snake eats it, the food moves to a different random location.
-- **scoreboard.py**: A class to
+- **scoreboard.py**: A class to keep track of the score and display it on the screen. It also displays "GAME OVER" when the player loses.<br />
+  ![img](/screenshots/1001_snake_0.jpg) ![img](/screenshots/1001_snake_1.jpg)<br />![img](/screenshots/1001_snake_2.jpg) ![img](/screenshots/1001_snake_3.jpg)
 
-**Thoughts:** 
+**Thoughts:** This was a really, really fun project! I'm excited to be able to fully recreate such a well-known game with just a few Python classes.
 
 -----
 
