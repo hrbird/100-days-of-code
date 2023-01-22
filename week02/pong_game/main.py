@@ -6,13 +6,17 @@ import time
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-COLLISION_DISTANCE = 20
+COLLISION_DISTANCE = 30
 
 # Boundaries of the screen.
 WALL_X_RIGHT = SCREEN_WIDTH/2 - 20
 WALL_X_LEFT = -SCREEN_WIDTH/2 + 20
 WALL_Y_TOP = SCREEN_HEIGHT/2 - 20
 WALL_Y_BOTTOM = -SCREEN_HEIGHT/2 + 20
+
+# Paddle positions.
+RIGHT_PADDLE_X = SCREEN_WIDTH/2 - 50
+LEFT_PADDLE_X = -(SCREEN_WIDTH/2) + 50
 
 # Set up the screen.
 screen = Screen()
@@ -24,8 +28,8 @@ screen.title("Pong")
 screen.tracer(0)
 
 # Create custom objects.
-right_paddle = Paddle(x_cor=SCREEN_WIDTH/2 - 50, y_cor=0)
-left_paddle = Paddle(x_cor=-(SCREEN_WIDTH/2) + 50, y_cor=0)
+right_paddle = Paddle(x_cor=RIGHT_PADDLE_X, y_cor=0)
+left_paddle = Paddle(x_cor=LEFT_PADDLE_X, y_cor=0)
 ball = Ball()
 
 # If the user presses the arrow keys, move the right paddle.
@@ -46,15 +50,25 @@ def play_game():
         # Pause for 0.1 seconds.
         time.sleep(0.1)
 
+        
+        # Draw all objects on the screen.
+        screen.update()
+
         # Move the ball.
         ball.move()
 
         # Detect collision between the ball and top or bottom walls.
         if ball.ycor() > WALL_Y_TOP or ball.ycor() < WALL_Y_BOTTOM:
-            ball.bounce()
+            ball.bounce_y()
 
-        # Draw all objects on the screen.
-        screen.update()
+        # Detect collision between the ball and the right paddle.
+        if ball.distance(right_paddle) < 50 and ball.xcor() > RIGHT_PADDLE_X - COLLISION_DISTANCE:
+            ball.bounce_x()
+
+        # Detect collision between the ball and the left paddle.
+        if ball.distance(left_paddle) < 50 and ball.xcor() < LEFT_PADDLE_X + COLLISION_DISTANCE:
+            ball.bounce_x()
+
 
 def main():
     play_game()
