@@ -15,6 +15,17 @@ screen.setup(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
 # Turn off turtle animation so we can control when the screen is redrawn.
 screen.tracer(0)
 
+# Custom classes.
+player = Player()
+car_manager = CarManager()
+
+
+
+# If the user presses the Up key, move the turtle up/forward.
+screen.listen()
+screen.onkeypress(player.move, "Up")
+
+
 def play_game():
     print("Starting new game.")
     # Game loop.
@@ -26,6 +37,9 @@ def play_game():
 
         # Draw all objects on the screen.
         screen.update()
+
+        # Move all of the cars on screen.
+        car_manager.move_cars()
 
 def main():
     play_game()
