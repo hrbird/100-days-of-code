@@ -1,6 +1,8 @@
 # Pong game.
 from turtle import Turtle, Screen
 from paddle import Paddle
+from ball import Ball
+import time
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
@@ -24,6 +26,7 @@ screen.tracer(0)
 # Create custom objects.
 right_paddle = Paddle(x_cor=SCREEN_WIDTH/2 - 50, y_cor=0)
 left_paddle = Paddle(x_cor=-(SCREEN_WIDTH/2) + 50, y_cor=0)
+ball = Ball()
 
 # If the user presses the arrow keys, move the right paddle.
 screen.listen()
@@ -39,6 +42,12 @@ def play_game():
     # Game loop.
     is_game_over = False
     while not is_game_over:
+
+        # Pause for 0.1 seconds.
+        time.sleep(0.1)
+
+        # Move the ball.
+        ball.move()
 
         # Draw all objects on the screen.
         screen.update()
