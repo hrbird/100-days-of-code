@@ -1,19 +1,26 @@
 # Paddle for pong game.
 from turtle import Turtle
 
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
 MOVE_DISTANCE = 20
 
 class Paddle(Turtle):
-    """Class to handle the paddles on either side of the screen."""
-    def __init__(self):
+    def __init__(self, x_cor, y_cor):
+        """Class to handle the paddles on either side of the screen.
+        
+        Args:
+            x_cor (int): x-coordinate of paddle position
+            y_cor (int): y-coordinate of paddle position
+        """
         super().__init__()
+
+        # Make the paddle a tall white rectangle.
         self.color("white")
         self.shape("square")
         self.shapesize(stretch_wid=5,  stretch_len=1)
+
+        # Move it to its given position without drawing a path.
         self.penup()
-        self.goto(SCREEN_WIDTH/2 - 50, 0)
+        self.goto(x_cor, y_cor)
 
     def go_up(self):
         """Move the paddle upward."""

@@ -22,13 +22,17 @@ screen.title("Pong")
 screen.tracer(0)
 
 # Create custom objects.
-player_paddle = Paddle()
+right_paddle = Paddle(x_cor=SCREEN_WIDTH/2 - 50, y_cor=0)
+left_paddle = Paddle(x_cor=-(SCREEN_WIDTH/2) + 50, y_cor=0)
 
-
-# If the user presses the arrow keys, move the player paddle.
+# If the user presses the arrow keys, move the right paddle.
 screen.listen()
-screen.onkeypress(player_paddle.go_up, "Up")
-screen.onkeypress(player_paddle.go_down, "Down")
+screen.onkeypress(right_paddle.go_up, "Up")
+screen.onkeypress(right_paddle.go_down, "Down")
+
+# If the user presses the W/S keys, move the left paddle.
+screen.onkeypress(left_paddle.go_up, "w")
+screen.onkeypress(left_paddle.go_down, "s")
 
 def play_game():
     print("Starting new game.")
