@@ -5,9 +5,11 @@ from food import Food
 from scoreboard import Scoreboard
 import time
 
+# Constants
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 600
 FOOD_COLLISION_DISTANCE = 20
+TAIL_COLLISION_DISTANCE = 10
 
 # Boundaries of the screen where the Snake is allowed.
 WALL_X_RIGHT = SCREEN_WIDTH/2 - 20
@@ -17,7 +19,7 @@ WALL_Y_DOWN = -SCREEN_HEIGHT/2 + 20
 
 # Set up the screen.
 screen = Screen()
-screen.setup(width=600, height=600)
+screen.setup(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
 screen.bgcolor("black")
 screen.title("Snake Game")
 
@@ -64,7 +66,7 @@ def play_game():
         
         # Detect collision between snake head and any segment in the tail.
         for segment in snake.segments[1:]:
-            if snake.head.distance(segment) < 10:
+            if snake.head.distance(segment) < TAIL_COLLISION_DISTANCE:
                 is_game_over = True
                 scoreboard.show_game_over()
 
