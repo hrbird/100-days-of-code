@@ -11,8 +11,8 @@ COLLISION_DISTANCE = 20
 # Boundaries of the screen.
 WALL_X_RIGHT = SCREEN_WIDTH/2 - 20
 WALL_X_LEFT = -SCREEN_WIDTH/2 + 20
-WALL_Y_UP = SCREEN_HEIGHT/2 - 20
-WALL_Y_DOWN = -SCREEN_HEIGHT/2 + 20
+WALL_Y_TOP = SCREEN_HEIGHT/2 - 20
+WALL_Y_BOTTOM = -SCREEN_HEIGHT/2 + 20
 
 # Set up the screen.
 screen = Screen()
@@ -48,6 +48,10 @@ def play_game():
 
         # Move the ball.
         ball.move()
+
+        # Detect collision between the ball and top or bottom walls.
+        if ball.ycor() > WALL_Y_TOP or ball.ycor() < WALL_Y_BOTTOM:
+            ball.bounce()
 
         # Draw all objects on the screen.
         screen.update()

@@ -16,9 +16,20 @@ class Ball(Turtle):
         # Make sure it doesn't draw a path.
         self.penup()
 
+        # Movement directions.
+        self.x_move = MOVE_DISTANCE
+        self.y_move = MOVE_DISTANCE
+
     def move(self):
         """Move the ball upward."""
-        new_x = self.xcor() + MOVE_DISTANCE
-        new_y = self.ycor() + MOVE_DISTANCE
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
 
         self.goto(new_x, new_y)
+
+    def bounce(self):
+        """Make the ball bounce if it hits the top or bottom wall."""
+
+        # If the ball hits the top wall, it bounces to move downward.
+        # If the ball hits the bottom wall, it bounces to move upward.
+        self.y_move *= -1
