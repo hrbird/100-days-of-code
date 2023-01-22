@@ -7,8 +7,8 @@ ALIGNMENT = "center"
 FONT = ("Courier New", 20, "bold")
 
 class Scoreboard(Turtle):
-    """A class to keep track of the score 
-    and display it on the screen."""
+    """A class to keep track of the score and display it on the screen.
+    It also displays "GAME OVER" when the player loses."""
     def __init__(self) -> None:
         super().__init__()
         self.color("white")
