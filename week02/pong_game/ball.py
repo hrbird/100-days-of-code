@@ -2,6 +2,7 @@
 from turtle import Turtle
 
 MOVE_DISTANCE = 10
+MOVE_SPEED = 0.1
 
 class Ball(Turtle):
     def __init__(self):
@@ -19,6 +20,9 @@ class Ball(Turtle):
         # Movement directions.
         self.x_move = MOVE_DISTANCE
         self.y_move = MOVE_DISTANCE
+
+        # Movement speed.
+        self.move_speed = MOVE_SPEED
 
     def move(self):
         """Move the ball upward."""
@@ -40,4 +44,17 @@ class Ball(Turtle):
         # If the ball hits the right paddle, it bounces left.
         # If the ball hits the left paddle, it bounces right.
         self.x_move *= -1
+
+        # Speed the ball up a bit every time it bounces off a paddle.
+        self.move_speed *= 0.9
+
+    def reset_position(self):
+        """Send the ball back to the center of the screen and
+        make it move in the opposite direction."""
+        self.goto(0, 0)
+        self.bounce_x()
+
+        # Reset ball speed.
+        self.move_speed = MOVE_SPEED
+
 
