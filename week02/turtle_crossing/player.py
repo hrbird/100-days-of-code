@@ -27,3 +27,8 @@ class Player(Turtle):
     def move(self):
         """Make the turtle walk up (across the street)."""
         self.goto(self.xcor(), self.ycor() + MOVE_DISTANCE)
+
+    def reached_finish_line(self):
+        """Checks whether the player has reached the finish line (top edge)."""
+        return (self.ycor() >= FINISH_LINE_Y)
+        

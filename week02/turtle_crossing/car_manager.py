@@ -49,9 +49,6 @@ class CarManager:
         """CarManager class to handle all of the cars together."""
         self.cars = []
 
-        for c in range(10):
-            self.create_car()
-
     def create_car(self):
         """Creates a car with a random color, starting position, and speed."""
         self.cars.append(Car())
@@ -60,3 +57,19 @@ class CarManager:
         """Move all cars forward."""
         for c in self.cars:
             c.move()
+
+    def delete_old_cars(self):
+        """Delete any cars that have moved off-screen."""
+        num_cars = len(self.cars)
+
+        # Go through the cars list backwards and delete cars beyond the left edge.
+        for c in range(num_cars - 1, -1, -1):
+            if self.cars[c].xcor() < WALL_X_LEFT - 30:
+                #print(f"Deleting car #{c} since its xcor is {self.cars[c].xcor()}")
+                self.cars.pop(c)
+
+    def update(self):
+        """Update the cars by moving the cars and deleting old cars."""
+
+        self.move_cars()
+        self.delete_old_cars()
