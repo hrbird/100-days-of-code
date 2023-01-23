@@ -17,17 +17,14 @@
 
 -----
 
-## 11. Pong Game Project
+## 11. Pong Game and Turtle Crossing Game Projects
 ### Day 11: January 22, 2023
 
 **Today's Progress**: 
-- "100 Days of Python" Udemy class: completed days 22-.
-- 
+- "100 Days of Python" Udemy class: completed days 22-24.
+- Gained more experience with using the Turtle library to make games by creating Pong and a Turtle Crossing game in Python.
 
-**Programs**:
-- **x.py**: X.<br />
-
-**Pong Game Project**: The classic game of Pong, in two players control paddles to hit a ball back and forth across the screen. When the ball hits a paddle, it bounces in the opposite direction and its speed increases. If the ball hits the top or bottom edge, it bounces. If a player misses the ball and it goes off the left or right edge, their score increases by 1 and the ball returns to the center of the screen. Whoever has the lowest score wins.
+**Pong Game Project**: The classic game of Pong, in two players control paddles to hit a ball back and forth across the screen.
 - **main.py**: Main program. Creates the custom objects and handles event listeners for the user pressing the keys. The left paddle is controlled by the W/S keys, and the right paddle is controlled by the up/down arrow keys. The main function also runs the main game loop and detects collision between the ball and the paddles or the edges of the screen.
 - **paddle.py**: Paddle class to handle the paddles on either side of the screen.
 - **ball.py**: Ball class to handle the ball that moves across the screen.
@@ -35,7 +32,16 @@
 ![img](/screenshots/1101_pong1.jpg) ![img](/screenshots/1101_pong2.jpg)<br />
 ![img](/screenshots/1101_pong3.jpg) ![img](/screenshots/1101_pong4.jpg)
 
-**Thoughts:** Another recreation of a classic video game. It's amazing to be able to make these with just a few hours of work.
+**Turtle Crossing Game Project**: A game in which the player controls a turtle that is trying to cross a road and dodge the moving cars.
+- **main.py**: Main program. Creates the custom objects and handles event listeners for the user pressing the Up key to move the turtle. The main function also runs the main game loop and detects collision between the turtle and the cars or the edges of the screen. When the turtle reaches the other side, it goes to the next level, in which the cars move even faster.
+- **player.py**: Player class to control the player turtle character that the player moves across the street
+- **car.py**: Car class to handle each car that appears on the screen. Its color and starting y-position are randomly chosen.
+- **car_manager.py**: CarManager class to create and handle all of the cars together.
+- **scoreboard.py**: Scoreboard class to keep track of the current level and display it on the screen.<br />
+![img](/screenshots/1101_crossing0.jpg) ![img](/screenshots/1101_crossing1.jpg)<br />
+![img](/screenshots/1101_crossing2.jpg) ![img](/screenshots/1101_crossing3.jpg)
+
+**Thoughts:** Two more recreations of classic video games. It's amazing to be able to make these with just a few hours of work. I feel like I'm getting the hang of using Turtle and custom classes to implement game logic.
 
 -----
 
