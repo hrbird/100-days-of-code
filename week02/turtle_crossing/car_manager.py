@@ -10,10 +10,11 @@ COLORS = [
 
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 600
-WALL_X_RIGHT = SCREEN_WIDTH/2
-WALL_X_LEFT = -SCREEN_WIDTH/2
-WALL_Y_TOP = SCREEN_HEIGHT/2 - 20
-WALL_Y_BOTTOM = -SCREEN_HEIGHT/2 + 20
+CAR_ZONE_RIGHT = SCREEN_WIDTH/2
+CAR_ZONE_LEFT = -SCREEN_WIDTH/2
+CAR_ZONE_TOP = SCREEN_HEIGHT/2 - 50
+CAR_ZONE_BOTTOM = -SCREEN_HEIGHT/2 + 50
+OFFSCREEN_OFFSET = 30
 
 STARTING_MOVE_SPEED = 5
 LEVEL_UP_SPEED_INCREASE = 1.2
@@ -38,8 +39,8 @@ class Car(Turtle):
         self.setheading(DIR_WEST)
 
         # Set random attributes.
-        x_pos = SCREEN_WIDTH/2 + 30
-        y_pos = random.randint(WALL_Y_BOTTOM, WALL_Y_TOP)
+        x_pos = CAR_ZONE_RIGHT + OFFSCREEN_OFFSET
+        y_pos = random.randint(CAR_ZONE_BOTTOM, CAR_ZONE_TOP)
         self.goto(x_pos, y_pos)
         self.color(random.choice(COLORS))
         self.move_speed = move_speed
@@ -80,7 +81,7 @@ class CarManager:
 
         # Go through the cars list backwards and delete cars beyond the left edge.
         for c in range(num_cars - 1, -1, -1):
-            if self.cars[c].xcor() < WALL_X_LEFT - 30:
+            if self.cars[c].xcor() < CAR_ZONE_LEFT - OFFSCREEN_OFFSET:
                 #print(f"Deleting car #{c} since its xcor is {self.cars[c].xcor()}")
                 self.cars.pop(c)
 
