@@ -1,0 +1,23 @@
+date,day,avg_temp,condition
+2023-01-01,Sun,30,Foggy
+2023-01-02,Mon,25.4,Mostly Sunny
+2023-01-03,Tue,28,Cloudy
+2023-01-04,Wed,36.8,Cloudy
+2023-01-05,Thu,40.4,Cloudy
+2023-01-06,Fri,37.1,Foggy
+2023-01-07,Sat,39,Mostly Sunny
+2023-01-08,Sun,42.3,Cloudy
+2023-01-09,Mon,41.2,Cloudy
+2023-01-10,Tue,34.1,Foggy
+2023-01-11,Wed,39.8,Cloudy
+2023-01-12,Thu,44.3,Cloudy
+2023-01-13,Fri,42.8,Mostly Sunny
+2023-01-14,Sat,45.4,Cloudy
+2023-01-15,Sun,42.7,Cloudy
+2023-01-16,Mon,36.9,Cloudy
+2023-01-17,Tue,31,Mostly Sunny
+2023-01-18,Wed,33.8,Mostly Sunny
+2023-01-19,Thu,31.5,Snow
+2023-01-20,Fri,22.2,Mostly Sunny
+2023-01-21,Sat,24.2,Mostly Sunny
+2023-01-22,Sun,26.3,Mostly Sunny
