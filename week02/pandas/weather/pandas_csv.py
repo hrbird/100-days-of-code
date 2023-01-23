@@ -1,8 +1,4 @@
-# Opens the weather.csv file and reads the data 
-# into the program using the csv library. 
-# Specifically, this program gets the average 
-# temperature for each day in the file and 
-# calculates the overall average temperature.
+# Opens the weather.csv file and reads the data into the program using the pandas library.
 
 from os.path import dirname, join
 import pandas
