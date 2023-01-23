@@ -46,12 +46,22 @@ def play_game():
         if random.randint(0, 5) == 0:
             car_manager.create_car()
 
-        # If the turtle reaches the top edge of the screen, the player levels up.
-        # The turtle is sent back to the bottom again.
+        # If the turtle reaches the top edge of the screen:
+        #   The player levels up.
+        #   The turtle is sent back to the bottom again.
+        #   The cars speed up a bit.
         if player.reached_finish_line():
-            print("You reached the finish line!")
             scoreboard.level_up()
             player.reset_position()
+            car_manager.increase_car_speed()
+            print("You reached the finish line!")
+            print(f"You are now level {scoreboard.level} and cars are moving at a speed of {car_manager.car_move_speed}.")
+
+        # If the player collides with a car, it's game over.
+        if car_manager.detect_collision(player.xcor(), player.ycor()):
+            print("Uh oh! You got hit by a car!\nGAME OVER\n")
+            is_game_over = True
+            scoreboard.show_game_over()
 
 def main():
     play_game()

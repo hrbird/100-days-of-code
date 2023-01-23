@@ -39,4 +39,4 @@ class Scoreboard(Turtle):
     def show_game_over(self):
         """Tell the user the game is over."""
         self.goto(0, 0)
-        self.write(arg="GAME OVER", align=ALIGNMENT, font=FONT)
+        self.write(arg="GAME OVER", align="center", font=FONT)
