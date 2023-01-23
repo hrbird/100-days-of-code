@@ -15,16 +15,21 @@ WALL_X_LEFT = -SCREEN_WIDTH/2
 WALL_Y_TOP = SCREEN_HEIGHT/2 - 20
 WALL_Y_BOTTOM = -SCREEN_HEIGHT/2 + 20
 
-STARTING_MOVE_DISTANCE = 5
-MOVE_INCREMENT_SLOW = 8
-MOVE_INCREMENT_FAST = 12
+STARTING_MOVE_SPEED = 5
+LEVEL_UP_SPEED_INCREASE = 1.2
 DIR_WEST = 90
+
+PLAYER_COLLISION_DISTANCE = 25
 
 
 class Car(Turtle):
-    def __init__(self):
+    def __init__(self, move_speed):
         """Car class to handle each car that appears on the screen.
-        Its color, speed, and starting y-position are randomly chosen."""
+        Its color, speed, and starting y-position are randomly chosen.
+
+        Args:
+            move_speed (int): the movement speed of the car
+        """
         super().__init__()
 
         self.penup()
@@ -37,21 +42,32 @@ class Car(Turtle):
         y_pos = random.randint(WALL_Y_BOTTOM, WALL_Y_TOP)
         self.goto(x_pos, y_pos)
         self.color(random.choice(COLORS))
-        self.move_speed = random.randint(MOVE_INCREMENT_SLOW, MOVE_INCREMENT_FAST)
+        self.move_speed = move_speed
 
     def move(self):
         new_x = self.xcor() - self.move_speed
         self.goto(new_x, self.ycor())
+
+    def detect_collision(self, player_x, player_y):
+        """Check if the player has been hit by a car.
+
+        Args:
+            player_x (int): the player's x-position
+            player_y (int): the player's y-position
+        """
+        return (self.distance(player_x, player_y) <= PLAYER_COLLISION_DISTANCE)
+        
 
 
 class CarManager:
     def __init__(self):
         """CarManager class to handle all of the cars together."""
         self.cars = []
+        self.car_move_speed = STARTING_MOVE_SPEED
 
     def create_car(self):
         """Creates a car with a random color, starting position, and speed."""
-        self.cars.append(Car())
+        self.cars.append(Car(self.car_move_speed))
 
     def move_cars(self):
         """Move all cars forward."""
@@ -73,3 +89,20 @@ class CarManager:
 
         self.move_cars()
         self.delete_old_cars()
+
+    def increase_car_speed(self):
+        """Each time the player levels up, increase the speed of the new cars."""
+        self.car_move_speed *= LEVEL_UP_SPEED_INCREASE
+
+    def detect_collision(self, player_x, player_y):
+        """Check if the player has been hit by a car.
+
+        Args:
+            player_x (int): the player's x-position
+            player_y (int): the player's y-position
+        """
+        for c in self.cars:
+            if c.detect_collision(player_x, player_y):
+                return True
+            
+        return False
