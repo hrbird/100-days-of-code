@@ -17,12 +17,13 @@
 
 -----
 
-## Day 12. Reading CSV Files
+## Day 12. Reading CSV Files and Pandas Library
 ### January 23, 2023 (Week 2)
 
 **Today's Progress**: 
-- "100 Days of Python" Udemy class: completed days 25-.
+- "100 Days of Python" Udemy class: completed day 25.
 - Learned how to set up and activate a virtual environment in VS Code so I can install and use different Python packages. (If I have to do it again, the first commands were "python3 -m venv venv" and "venv\Scripts\activate". Then, to install a specific package, use pip like so: "pip3 install pandas".)
+- Started learning how to use the pandas library for reading, storing, and working with data in DataFrames and Series. Learned how to find the min/max/sum/count/average of values, how to group data, how to select rows based on conditions, and how to read CSV files into DataFrames (and vice versa).
 
 **Weather Data**:
 - **weather/weather.csv**: A CSV file with one row per date. Columns: date, day, avg_temp, and condition.
@@ -35,7 +36,7 @@
 - **squirrel_census/squirrels.py**: Opens the squirrel_data.csv file and reads the data into the program using pandas. Specifically, this program counts the number of squirrels for each primary fur color.<br />
   ![img](/screenshots/012_squirrels.jpg)
 
-**US States Data Project**: A game to guess the names of all the 50 states in the US. Uses both the turtle graphics library and the pandas library.
+**US States Guessing Game Project**: A game to guess the names of all 50 states in the US. Uses both the turtle graphics library and the pandas library.
 - **us_states/50_states.csv**: A CSV file with data of the 50 US states and X, Y coordinates for the location of the state on the blank map image.
 - **us_states/blank_states_img.gif**: A blank map of the 50 US states.
 - **us_states/main.py**: Opens the 50_states.csv file and reads the data into the program using pandas. Then uses turtle to create a game for the player to guess the 50 state names. The game shows a blank map of the US and prompts the user to enter state names. Each time the player correctly guesses a state name, it appears on the map. The current score is shown at the top of the screen. The game congratulates the player if they guess all 50 states.<br />
