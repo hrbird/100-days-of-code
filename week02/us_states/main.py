@@ -24,17 +24,22 @@ screen.addshape(IMG_FILE_PATH)
 turtle.shape(IMG_FILE_PATH)
 
 # Create a Turtle writer to write correctly-guessed state names on the map.
-TEXT_ALIGNMENT = "center"
-FONT = ("Courier New", 10)
 writer = turtle.Turtle()
 writer.penup()
 writer.hideturtle()
+
+# Create a Turtle score writer to draw the current score on the map.
+score_writer = turtle.Turtle()
+score_writer.penup()
+score_writer.hideturtle()
+score_writer.goto(-350,250)
 
 # Keep track of the states correctly guessed so far in a list of state names.
 guessed_states = []
 
 def get_guess_from_player():
-    """Prompt the user to type and enter a state's name."""
+    """Prompt the user to type and enter a state's name.
+    Returns a string of the guessed state."""
 
     prompt_text = "Enter a state's name:"
     guess_state = screen.textinput(title="Guess the State", prompt=prompt_text)
@@ -46,11 +51,13 @@ def get_guess_from_player():
     return guess_state
 
 def is_guess_correct(guess_state):
-    """Check if the guessed state is a correct US state."""
+    """Check if the guessed state is a correct US state.
+    Returns True if the state is correct and has not been guessed yet.
+    Else, returns False."""
     return (guess_state in ALL_STATES and guess_state not in guessed_states)
 
 def write_state_on_map(state_name):
-
+    """Write the given state name in the correct place on the map."""
     # Get the data row for the given state.
     s = STATES_DATA[STATES_DATA["state"] == state_name]
 
@@ -62,43 +69,54 @@ def write_state_on_map(state_name):
 
         # Write the name of the state on the map.
         writer.goto(x=x, y=y)
-        writer.write(arg=state_name, align=TEXT_ALIGNMENT, font=FONT)
+        writer.write(arg=state_name, align="center", font=("Courier New", 10))
+
+def write_score():
+    """Write the current score on the map."""
+    score_writer.clear()
+
+    num_states = len(guessed_states)
+    score_str = f"SCORE: {num_states} / 50"
+    if num_states == 50:
+        score_str += "  Great job, you got them all!"
+
+    score_writer.write(arg=score_str, align="left", font=("Courier New", 16, "bold"))
 
 def play_game():
+    """Start the game and control the game loop."""
+
+    write_score()
 
     is_game_over = False
     while not is_game_over:
 
-        # Get a guess from the player.
-        new_guess = get_guess_from_player()
-
-        # If the player enters "Q" or "Quit", quit the game.
-        if new_guess in ["Q", "Quit"]:
+        # If player guessed all 50 states, they win!
+        if len(guessed_states) == 50:
+            print("\nWow, you guessed all 50 states!\nGreat job!")
             is_game_over = True
 
-        # Else, check if the guess is correct.
-        elif is_guess_correct(new_guess):
+        else:
+            # Get a guess from the player.
+            new_guess = get_guess_from_player()
 
-            # If so, write the name of the state on the map.
-            write_state_on_map(new_guess)
+            # If the player enters "Q" or "Quit", quit the game.
+            if new_guess in ["Q", "Quit"]:
+                is_game_over = True
 
-            # Add the state to the list of guessed states.
-            guessed_states.append(new_guess)
+            # Else, check if the guess is correct.
+            elif is_guess_correct(new_guess):
 
-    # If player guessed all 50 states, they win!
-    if len(guessed_states) == 50:
-        print("\nWow, you guessed all 50 states!\n")
-        is_game_over = True
+                # If so, write the name of the state on the map.
+                write_state_on_map(new_guess)
+
+                # Add the state to the list of guessed states.
+                guessed_states.append(new_guess)
+
+                # Update the score.
+                write_score()
 
 
 play_game()
-
-def get_mouse_click_coor(x, y):
-    """"""
-    print(x, y)
-
-# Event listener for the mouse clicking on the screen.
-turtle.onscreenclick(get_mouse_click_coor)
 
 # Keep the game running.
 turtle.mainloop()
