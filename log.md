@@ -17,8 +17,36 @@
 
 -----
 
+## 12. Reading CSV Files
+### Week 2, Day 5: January 23, 2023
+
+**Today's Progress**: 
+- "100 Days of Python" Udemy class: completed days 25-.
+- Learned how to set up and activate a virtual environment in VS Code so I can install and use different Python packages. (If I have to do it again, the first commands were "python3 -m venv venv" and "venv\Scripts\activate". Then, to install a specific package, use pip like so: "pip3 install pandas".)
+
+**Weather Data**:
+- **weather/weather.csv**: A CSV file with one row per date. Columns: date, day, avg_temp, and condition.
+- **weather/csv_reader.py**: Opens the weather.csv file and reads the data into the program using the csv library. Specifically, this program gets the average temperature for each day in the file and calculates the overall average temperature.
+- **weather/pandas_csv.py**: A program that uses the pandas library to read data from the weather.csv file. It demonstrates a variety of ways you can use pandas for data manipulation.<br />
+  ![img](/screenshots/0112_weather.jpg)
+
+**Squirrel Data Project**:
+- **squirrel_census/squirrel_data.csv**: A CSV file with data from a census of squirrels in Central Park, New York City, in 2018. There is one row per squirrel sighting. Some columns: X and Y geographical coordinates, Unique Squirrel ID, Shift (AM/PM) Date, Age, and Primary Fur Color.
+- **squirrel_census/squirrels.py**: Opens the squirrel_data.csv file and reads the data into the program using pandas. Specifically, this program counts the number of squirrels for each primary fur color.<br />
+  ![img](/screenshots/0112_squirrels.jpg)
+
+**US States Data Project**: A game to guess the names of all the 50 states in the US. # Each time the player correctly guesses a state name, it appears on the map. Uses both the turtle graphics library and the pandas library.
+- **us_states/50_states.csv**: A CSV file with data of the 50 US states and X, Y coordinates for the location of the state on the blank map image.
+- **us_states/blank_states_img.gif**: A blank map of the 50 US states.
+- **us_states/main.py**: Opens the 50_states.csv file and reads the data into the program using pandas. Then uses turtle to create a game for the player to guess the 50 state names. <br />
+  ![img](/screenshots/.jpg)
+
+**Thoughts:** 
+
+-----
+
 ## 11. Pong Game and Turtle Crossing Game Projects
-### Day 11: January 22, 2023
+### Week 2, Day 4: January 22, 2023
 
 **Today's Progress**: 
 - "100 Days of Python" Udemy class: completed days 22-24.
@@ -46,7 +74,7 @@
 -----
 
 ## 10. Turtle Graphics and Snake Game Project
-### Day 10: January 21, 2023
+### Week 2, Day 3: January 21, 2023
 
 **Today's Progress**: 
 - Continued working through "100 Days of Python" Udemy class. Completed days 19-21.
@@ -75,7 +103,7 @@
 -----
 
 ## 9. Numeral Systems, String Formatting, Turtle Graphics
-### Day 9: January 20, 2023
+### Week 2, Day 2: January 20, 2023
 
 **Today's Progress**: 
 - Continued working through "100 Days of Python" Udemy class. Completed day 18.
@@ -100,7 +128,7 @@
 -----
 
 ## 8. Reading From Text Files, String Formatting
-### Day 8: January 19, 2023
+### Week 2, Day 1: January 19, 2023
 
 **Today's Progress**: 
 - Did a project from the "Big Book of Small Python Projects" by Al Sweigart. I tried to play around with the code by creating a class and moving the game logic into smaller encapsulated functions, instead of long, global functions. I also added input validation.
@@ -115,7 +143,7 @@
 -----
 
 ## 7. HTML Links and Videos, Python Enums
-### Day 7: January 18, 2023
+### Week 1, Day 7: January 18, 2023
 
 **Today's Progress**: 
 - NuCamp Web Dev bootcamp: Continued working through Week 1: Course Setup & Introduction to HTML.
@@ -134,7 +162,7 @@
 -----
 
 ## 6. Object-Oriented Programming in Python, VSCode Live Server
-### Day 6: January 17, 2023
+### Week 1, Day 6: January 17, 2023
 
 **Today's Progress**: 
 - NuCamp Web Dev bootcamp: Continued working through Week 1: Course Setup & Introduction to HTML.
@@ -157,7 +185,7 @@
 -----
 
 ## 5. Started NuCamp, Coffee Machine Project
-### Day 5: January 16, 2023
+### Week 1, Day 5: January 16, 2023
 
 **Today's Progress**: 
 - First day of NuCamp bootcamp for Web Dev Fundamentals. Logged into the course, filled out the initial questions/quiz, joined the discussion group, learned a bit about HTML history and basic structure.
@@ -180,7 +208,7 @@
 -----
 
 ## 4. Turtle Graphics Library
-### Day 4: January 15, 2023
+### Week 1, Day 4: January 15, 2023
 
 **Today's Progress**: 
 - I started this 100-days project on Jan 12 in a fork of the repository made by the original creator of this challenge. However, I have just learned that GitHub does not count commits in forked repositories as contributions in your user profile. Therefore, I am copying my work from the first 3 days into a new, standalone repository!
@@ -200,7 +228,7 @@
 -----
 
 ## 3. Python Functions, Dictionaries, and Nesting Lists
-### Day 3: January 14, 2023
+### Week 1, Day 3: January 14, 2023
 
 **Today's Progress**: 
 - Continued working through "100 Days of Python" Udemy class. Completed days 8-11.
@@ -221,7 +249,7 @@
 -----
 
 ## 2. Randomization, Loops, and Validating Input
-### Day 2: January 13, 2023
+### Week 1, Day 2: January 13, 2023
 
 **Today's Progress**: 
 - Continued working through "100 Days of Python" Udemy class. Completed days 4-7.
@@ -244,7 +272,7 @@
 -----
 
 ## 1. Hello World
-### Day 1: January 12, 2023
+### Week 1, Day 1: January 12, 2023
 
 **Today's Progress**: 
 - Started with a Hello World program, of course.  
