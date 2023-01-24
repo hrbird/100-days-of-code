@@ -57,7 +57,7 @@ print(f"Rows where average temp < 30:\n{data[cold_bools]}\n")
 
 # Here's another example that shows the day that had the hottest average temperature.
 max_temp = data['avg_temp'].max()
-print(f"Day with the maximum average temp:\n{data[data['avg_temp'] == max_temp]}\n")
+print(f"Day with the hottest average temp:\n{data[data['avg_temp'] == max_temp]}\n")
 
 # DataFrame[DataFrame['A'].isin(my_list)] selects rows that have a value in a given list
 # (EG the values in column A are in my_list.)
@@ -70,12 +70,12 @@ print(f"{data[bad_weather_bools]}\n")
 # Here's an example using groupby() on condition, then count() on date.
 grouped_weather = data.groupby(by='condition')
 print(f"Number of days, grouped by weather condition:")
-print(f"{grouped_weather['date'].count()}\n")
+print(f"{grouped_weather['date'].count().to_string()}\n")
 
 # Here's an example using groupby() on condition, then mean() on avg_temp.
 grouped_weather = data.groupby(by='condition')
 print(f"Average temp, grouped by weather condition:")
-print(f"{grouped_weather['avg_temp'].mean()}\n")
+print(f"{grouped_weather['avg_temp'].mean().to_string()}\n")
 
 # You can also iterate through groups.
 # Here's an example using groupby() on condition, then showing each row.
