@@ -35,13 +35,13 @@
 - **squirrel_census/squirrels.py**: Opens the squirrel_data.csv file and reads the data into the program using pandas. Specifically, this program counts the number of squirrels for each primary fur color.<br />
   ![img](/screenshots/012_squirrels.jpg)
 
-**US States Data Project**: A game to guess the names of all the 50 states in the US. # Each time the player correctly guesses a state name, it appears on the map. Uses both the turtle graphics library and the pandas library.
+**US States Data Project**: A game to guess the names of all the 50 states in the US. Uses both the turtle graphics library and the pandas library.
 - **us_states/50_states.csv**: A CSV file with data of the 50 US states and X, Y coordinates for the location of the state on the blank map image.
 - **us_states/blank_states_img.gif**: A blank map of the 50 US states.
-- **us_states/main.py**: Opens the 50_states.csv file and reads the data into the program using pandas. Then uses turtle to create a game for the player to guess the 50 state names. <br />
-  ![img](/screenshots/012_states0.jpg)
+- **us_states/main.py**: Opens the 50_states.csv file and reads the data into the program using pandas. Then uses turtle to create a game for the player to guess the 50 state names. The game shows a blank map of the US and prompts the user to enter state names. Each time the player correctly guesses a state name, it appears on the map. The current score is shown at the top of the screen. The game congratulates the player if they guess all 50 states.<br />
+  ![img](/screenshots/012_states0.jpg) ![img](/screenshots/012_states1.jpg) ![img](/screenshots/012_states3.jpg)
 
-**Thoughts:** 
+**Thoughts:** The pandas library is a little intimidating, but playing around with it while reading the documentation helped me start to understand how to use it. It's definitely a lot easier than trying to use the basic csv_reader in Python!
 
 -----
 
