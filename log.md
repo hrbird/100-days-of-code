@@ -3,7 +3,7 @@
 
 -----
 
-## X. Daily Template
+## Day X. Daily Template
 ### Day X: January X, 2023
 
 **Today's Progress**: 
@@ -17,8 +17,8 @@
 
 -----
 
-## 12. Reading CSV Files
-### Week 2, Day 5: January 23, 2023
+## Day 12. Reading CSV Files
+### January 23, 2023 (Week 2)
 
 **Today's Progress**: 
 - "100 Days of Python" Udemy class: completed days 25-.
@@ -45,8 +45,8 @@
 
 -----
 
-## 11. Pong Game and Turtle Crossing Game Projects
-### Week 2, Day 4: January 22, 2023
+## Day 11. Pong Game and Turtle Crossing Game Projects
+### January 22, 2023 (Week 2)
 
 **Today's Progress**: 
 - "100 Days of Python" Udemy class: completed days 22-24.
@@ -73,8 +73,8 @@
 
 -----
 
-## 10. Turtle Graphics and Snake Game Project
-### Week 2, Day 3: January 21, 2023
+## Day 10. Turtle Graphics and Snake Game Project
+### January 21, 2023 (Week 2)
 
 **Today's Progress**: 
 - Continued working through "100 Days of Python" Udemy class. Completed days 19-21.
@@ -102,8 +102,8 @@
 
 -----
 
-## 9. Numeral Systems, String Formatting, Turtle Graphics
-### Week 2, Day 2: January 20, 2023
+## Day 9. Numeral Systems, String Formatting, Turtle Graphics
+### January 20, 2023 (Week 2)
 
 **Today's Progress**: 
 - Continued working through "100 Days of Python" Udemy class. Completed day 18.
@@ -127,8 +127,8 @@
 
 -----
 
-## 8. Reading From Text Files, String Formatting
-### Week 2, Day 1: January 19, 2023
+## Day 8. Reading From Text Files, String Formatting
+### January 19, 2023 (Week 2)
 
 **Today's Progress**: 
 - Did a project from the "Big Book of Small Python Projects" by Al Sweigart. I tried to play around with the code by creating a class and moving the game logic into smaller encapsulated functions, instead of long, global functions. I also added input validation.
@@ -142,8 +142,8 @@
 
 -----
 
-## 7. HTML Links and Videos, Python Enums
-### Week 1, Day 7: January 18, 2023
+## Day 7. HTML Links and Videos, Python Enums
+### January 18, 2023 (Week 1)
 
 **Today's Progress**: 
 - NuCamp Web Dev bootcamp: Continued working through Week 1: Course Setup & Introduction to HTML.
@@ -161,8 +161,8 @@
 
 -----
 
-## 6. Object-Oriented Programming in Python, VSCode Live Server
-### Week 1, Day 6: January 17, 2023
+## Day 6. Object-Oriented Programming in Python, VSCode Live Server
+### January 17, 2023 (Week 1)
 
 **Today's Progress**: 
 - NuCamp Web Dev bootcamp: Continued working through Week 1: Course Setup & Introduction to HTML.
@@ -184,8 +184,8 @@
 
 -----
 
-## 5. Started NuCamp, Coffee Machine Project
-### Week 1, Day 5: January 16, 2023
+## Day 5. Started NuCamp, Coffee Machine Project
+### January 16, 2023 (Week 1)
 
 **Today's Progress**: 
 - First day of NuCamp bootcamp for Web Dev Fundamentals. Logged into the course, filled out the initial questions/quiz, joined the discussion group, learned a bit about HTML history and basic structure.
@@ -207,8 +207,8 @@
 
 -----
 
-## 4. Turtle Graphics Library
-### Week 1, Day 4: January 15, 2023
+## Day 4. Turtle Graphics Library
+### January 15, 2023 (Week 1)
 
 **Today's Progress**: 
 - I started this 100-days project on Jan 12 in a fork of the repository made by the original creator of this challenge. However, I have just learned that GitHub does not count commits in forked repositories as contributions in your user profile. Therefore, I am copying my work from the first 3 days into a new, standalone repository!
@@ -227,8 +227,8 @@
 
 -----
 
-## 3. Python Functions, Dictionaries, and Nesting Lists
-### Week 1, Day 3: January 14, 2023
+## Day 3. Python Functions, Dictionaries, and Nesting Lists
+### January 14, 2023 (Week 1)
 
 **Today's Progress**: 
 - Continued working through "100 Days of Python" Udemy class. Completed days 8-11.
@@ -248,8 +248,8 @@
 
 -----
 
-## 2. Randomization, Loops, and Validating Input
-### Week 1, Day 2: January 13, 2023
+## Day 2. Randomization, Loops, and Validating Input
+### January 13, 2023 (Week 1)
 
 **Today's Progress**: 
 - Continued working through "100 Days of Python" Udemy class. Completed days 4-7.
@@ -271,8 +271,8 @@
 
 -----
 
-## 1. Hello World
-### Week 1, Day 1: January 12, 2023
+## Day 1. Hello World
+### January 12, 2023 (Week 1)
 
 **Today's Progress**: 
 - Started with a Hello World program, of course.  
