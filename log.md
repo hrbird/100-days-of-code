@@ -28,18 +28,18 @@
 - **weather/weather.csv**: A CSV file with one row per date. Columns: date, day, avg_temp, and condition.
 - **weather/csv_reader.py**: Opens the weather.csv file and reads the data into the program using the csv library. Specifically, this program gets the average temperature for each day in the file and calculates the overall average temperature.
 - **weather/pandas_csv.py**: A program that uses the pandas library to read data from the weather.csv file. It demonstrates a variety of ways you can use pandas for data manipulation.<br />
-  ![img](/screenshots/0112_weather.jpg)
+  ![img](/screenshots/012_weather.jpg)
 
 **Squirrel Data Project**:
 - **squirrel_census/squirrel_data.csv**: A CSV file with data from a census of squirrels in Central Park, New York City, in 2018. There is one row per squirrel sighting. Some columns: X and Y geographical coordinates, Unique Squirrel ID, Shift (AM/PM) Date, Age, and Primary Fur Color.
 - **squirrel_census/squirrels.py**: Opens the squirrel_data.csv file and reads the data into the program using pandas. Specifically, this program counts the number of squirrels for each primary fur color.<br />
-  ![img](/screenshots/0112_squirrels.jpg)
+  ![img](/screenshots/012_squirrels.jpg)
 
 **US States Data Project**: A game to guess the names of all the 50 states in the US. # Each time the player correctly guesses a state name, it appears on the map. Uses both the turtle graphics library and the pandas library.
 - **us_states/50_states.csv**: A CSV file with data of the 50 US states and X, Y coordinates for the location of the state on the blank map image.
 - **us_states/blank_states_img.gif**: A blank map of the 50 US states.
 - **us_states/main.py**: Opens the 50_states.csv file and reads the data into the program using pandas. Then uses turtle to create a game for the player to guess the 50 state names. <br />
-  ![img](/screenshots/.jpg)
+  ![img](/screenshots/012_states0.jpg)
 
 **Thoughts:** 
 
@@ -57,8 +57,8 @@
 - **paddle.py**: Paddle class to handle the paddles on either side of the screen.
 - **ball.py**: Ball class to handle the ball that moves across the screen.
 - **scoreboard.py**: A class to keep track of the left and right players' scores and display them on the screen.<br />
-![img](/screenshots/1101_pong1.jpg) ![img](/screenshots/1101_pong2.jpg)<br />
-![img](/screenshots/1101_pong3.jpg) ![img](/screenshots/1101_pong4.jpg)
+![img](/screenshots/011_pong1.jpg) ![img](/screenshots/011_pong2.jpg)<br />
+![img](/screenshots/011_pong3.jpg) ![img](/screenshots/011_pong4.jpg)
 
 **Turtle Crossing Game Project**: A game in which the player controls a turtle that is trying to cross a road and dodge the moving cars.
 - **main.py**: Main program. Creates the custom objects and handles event listeners for the user pressing the Up key to move the turtle. The main function also runs the main game loop and detects collision between the turtle and the cars or the edges of the screen. When the turtle reaches the other side, it goes to the next level, in which the cars move even faster.
@@ -66,8 +66,8 @@
 - **car.py**: Car class to handle each car that appears on the screen. Its color and starting y-position are randomly chosen.
 - **car_manager.py**: CarManager class to create and handle all of the cars together.
 - **scoreboard.py**: Scoreboard class to keep track of the current level and display it on the screen.<br />
-![img](/screenshots/1101_crossing0.jpg) ![img](/screenshots/1101_crossing1.jpg)<br />
-![img](/screenshots/1101_crossing2.jpg) ![img](/screenshots/1101_crossing3.jpg)
+![img](/screenshots/011_crossing0.jpg) ![img](/screenshots/011_crossing1.jpg)<br />
+![img](/screenshots/011_crossing2.jpg) ![img](/screenshots/011_crossing3.jpg)
 
 **Thoughts:** Two more recreations of classic video games. It's amazing to be able to make these with just a few hours of work. I feel like I'm getting the hang of using Turtle and custom classes to implement game logic.
 
@@ -86,17 +86,17 @@
 - **inheritance.py**: A quick program exploring how class inheritance works in Python.
 - **turtle_listen.py**: A turtle walks forward ten steps every time the user presses the space bar.
 - **turtle_sketch.py**: Lets the user draw an image on the screen by pressing the WASD keys, like an etch-a-sketch.<br />
-  ![img](/screenshots/1001_sketch.jpg)
+  ![img](/screenshots/010_sketch.jpg)
 - **turtle_race.py**: Six turtles race across the screen, at random speeds.<br />
-  ![img](/screenshots/1001_race.jpg)<br />
-  ![img](/screenshots/1001_race_3.jpg)
+  ![img](/screenshots/010_race.jpg)<br />
+  ![img](/screenshots/010_race_3.jpg)
 
 **Snake Game Project**:
 - **main.py**: Main function. Creates the snake object and handles event listeners for the user pressing arrow keys. It also runs the main game loop and detects collision between the snake head and food, the edges of the screen, and its own tail.
 - **snake.py**: A class to handle the snake object in the game, including creating its body segments, handling its movement, and changing its direction.
 - **food.py**: A class to handle the food that the snake eats. The food appears in a random location on the screen, and if the head of the snake eats it, the food moves to a different random location.
 - **scoreboard.py**: A class to keep track of the score and display it on the screen. It also displays "GAME OVER" when the player loses.<br />
-  ![img](/screenshots/1001_snake_0.jpg) ![img](/screenshots/1001_snake_1.jpg)<br />![img](/screenshots/1001_snake_2.jpg) ![img](/screenshots/1001_snake_3.jpg)
+  ![img](/screenshots/010_snake_0.jpg) ![img](/screenshots/010_snake_1.jpg)<br />![img](/screenshots/010_snake_2.jpg) ![img](/screenshots/010_snake_3.jpg)
 
 **Thoughts:** This was a really, really fun project! I'm excited to be able to fully recreate such a well-known game with just a few Python classes.
 
@@ -111,17 +111,17 @@
 
 **Programs**:
 - **numeral_systems.py**: Counts to a given number in different numeral systems: decimal (base 10), hexadecimal (base 16), and binary (base 2).<br />
-  ![img](/screenshots/0109_numeral.jpg)
+  ![img](/screenshots/009_numeral.jpg)
 - **blackjack.py**: I went back to day 3's blackjack program and changed the way the cards are presented so they look more like cards. I also added docstrings for the classes and functions.<br />
-  ![img](/screenshots/0109_blackjack_1.jpg)
+  ![img](/screenshots/009_blackjack_1.jpg)
 - **turtle_square.py**: Draws a basic square in Turtle.<br />
-  ![img](/screenshots/0109_turtle_square.jpg)
+  ![img](/screenshots/009_turtle_square.jpg)
 - **turtle_dashed.py**: Draws a dashed line in Turtle.<br />
-  ![img](/screenshots/0109_turtle_dashed.jpg)
+  ![img](/screenshots/009_turtle_dashed.jpg)
 - **turtle_shapes.py**: Draws a variety of overlapping shapes in turtle. Draws every regular shape from the 3-sided triangle to the 10-sided decagon.<br />
-  ![img](/screenshots/0109_turtle_shapes.jpg)
+  ![img](/screenshots/009_turtle_shapes.jpg)
 - **turtle_random_walk.py**: Draws a random path, switching colors and changing speeds randomly.<br />
-  ![img](/screenshots/0109_turtle_random_1.jpg)
+  ![img](/screenshots/009_turtle_random_1.jpg)
 
 **Thoughts:** Decided to reformat this log to put the days in reverse-chronological order. I also added screenshots of each project. Having fun with Turtle!
 
@@ -136,7 +136,7 @@
 
 **Programs**:
 - **hacking_game.py**: Hacking game inspired by the computer-hacking minigame in Fallout: New Vegas.<br />
-  ![img](/screenshots/0108_hack_1.JPG)
+  ![img](/screenshots/008_hack_1.JPG)
 
 **Thoughts:** The hacking game was my favorite minigame in FNV, so it was a lot of fun to be able to mimic it in Python. I'm learning that there's a lot you can do just with ASCII in the terminal.
 
@@ -152,9 +152,9 @@
 
 **Programs**:
 - **dice_roller.py**: This program simulates rolling dice for table-top roleplaying games, like DND or Pathfinder. It can roll dice with 4, 6, 8, 10, 12, 20, or 100 sides.<br />
-  ![img](/screenshots/0107_dice.jpg)
+  ![img](/screenshots/007_dice.jpg)
 - **ducklings.py**: This program creates a randomized field of ASCII ducklings. First, it prints a row of 10 ducklings. Then, it prints a scrolling screen filled with random ducklings.<br />
-  ![img](/screenshots/0107_ducklings.jpg)
+  ![img](/screenshots/007_ducklings.jpg)
 - **install-extension.html**: Added navigation links, images, and a video to the install-extension page.
 
 **Thoughts:** Still enjoying learning new things with every project! For this first week, I organized my files into daily folders, since I made several small programs per day. However, next week I think I will put all of the one-file programs into a "small_python_projects" folder and put larger projects into their own subfolders. This will make it easier to work on more complex programs that may take 2+ days to complete.
@@ -178,7 +178,7 @@
 - **data.py**: A list of objects containing data for each question: the question text and the answer (True or False)
 - **question**: The Question class, which models each quiz question.
 - **quiz_brain.py**: The QuizBrain class, which manages the quiz. It asks the user the questions, validates that each answer is T or F, checks if the answers are right, checks if they reached the end of the quiz, and calculates the final score.<br />
-  ![img](/screenshots/0106_quiz_1.jpg) [Snipped...] ![img](/screenshots/0106_quiz_2.jpg)
+  ![img](/screenshots/006_quiz_1.jpg) [Snipped...] ![img](/screenshots/006_quiz_2.jpg)
 
 **Thoughts:** Feeling more confident with creating and using Python classes.
 
@@ -199,9 +199,9 @@
 - **money_machine.py**: MoneyMachine class that processes coins, accepts or refuses payments, and calculates change. If the user does not enter enough money after ordering a drink, the drink is not made and their money is returned to them.<br />
 - **screenshots**: 
   - Ordering a drink:<br />
-    ![img](/screenshots/0105_coffee.jpg)<br />
+    ![img](/screenshots/005_coffee.jpg)<br />
   - Checking resource levels (secret code 0):<br />
-    ![img](/screenshots/0106_coffee_2.jpg)<br />
+    ![img](/screenshots/005_coffee_2.jpg)<br />
 
 **Thoughts:** Not much HTML work today because I spent most of the day setting up for the bootcamp and doing introductory work. I also started the OOP Coffee Maker project and feel like I'm getting the hang of how to use python classes.
 
@@ -217,11 +217,11 @@
 
 **Programs**:
 - **learn_turtle.py**: Simple program that creates a green turtle and has it create an original modern art piece by walking in a random direction for a random number of steps.<br />
-  ![img](/screenshots/0104_learn_turtle.jpg)
+  ![img](/screenshots/004_learn_turtle.jpg)
 - **spiro_turtle.py**: This program draws a rainbow spirograph image using Turtle.<br />
-  ![img](/screenshots/0104_rainbow_spiro_b.jpg)
+  ![img](/screenshots/004_rainbow_spiro_b.jpg)
 - **spiral_spiro.py**: This program draws a green spiral spirograph image using Turtle.<br />
-  ![img](/screenshots/0104_spiral_spiro.jpg)
+  ![img](/screenshots/004_spiral_spiro.jpg)
 
 **Thoughts:** Feeling a little frustrated that this repo will not have the commit history of the first 3 days, but I hope things go more smoothly from here. I'm excited to learn turtle and graphics libraries, instead of creating purely terminal-based programs.
 
@@ -236,13 +236,13 @@
 
 **Programs**:
 - **primenumber.py**: Checks whether or not a given number is a prime number.<br />
-  ![img](/screenshots/0103_prime_1.jpg)   ![img](/screenshots/0103_prime_2.jpg)
+  ![img](/screenshots/003_prime_1.jpg)   ![img](/screenshots/003_prime_2.jpg)
 - **caesarcipher.py**: Uses the Caesar Cipher mode of encryption to encode or decode secret messages.<br />
-  ![img](/screenshots/0103_caesar.jpg)
+  ![img](/screenshots/003_caesar.jpg)
 - **calculator.py**: Acts as a calculator that can perform basic math operations for the user.<br />
-  ![img](/screenshots/0103_calc.jpg)
+  ![img](/screenshots/003_calc.jpg)
 - **blackjack.py**: A standard game of blackjack. Creates a shuffled deck of 52 cards, keeps track of the player and dealer's hands, calculates hand values, handles the dealer's decisions, and determines the winner/outcome. It also figures out when to count an ace as 1 or 11.<br />
-  ![img](/screenshots/0103_blackjack_b.jpg)
+  ![img](/screenshots/003_blackjack_b.jpg)
 
 **Thoughts:** I continued working on exercises from the "100 Days of Python" class and adding a little more complexity to them. The Blackjack project was supposed to be a lot simpler (just pulling random values from a list of possible card values, with no classes). However, I felt confident to try including classes and more complicated game logic (creating a full deck of 52 cards, using logic to determine when aces should be counted as 1 vs 11, and creating classes with initializers for the Cards, Deck, and Hands). Having fun pushing myself :)
 
@@ -257,15 +257,15 @@
 
 **Programs**:
 - **numberguesser.py**: A game that asks the player to guess a secret random number between 1 and 1000 within 10 guesses. Incorporates a basic game loop and input validation.<br />
-    ![img](/screenshots/0102_number_guesser.jpg)
+    ![img](/screenshots/002_number_guesser.jpg)
 - **rockpaperscissors.py**: A simple Rock, Paper, Scissors game. The player enters their choice while the computer picks a random choice. Then the program shows ASCII art of each choice and determines the winner.<br />
-    ![img](/screenshots/0102_rps.jpg)
+    ![img](/screenshots/002_rps.jpg)
 - **fizzbuzz.py**: A classic interview challenge. Print out each integer from 1 to 100, unless it's divisible by 3, 5, or 15. In those cases, write special keywords instead.<br />
-    ![img](/screenshots/0102_fizzbuzz.jpg)
+    ![img](/screenshots/002_fizzbuzz.jpg)
 - **passwordgen.py**: Generates a random, secure password with a given number of letters, symbols, and numbers.<br />
-    ![img](/screenshots/0102_password_gen.jpg)
+    ![img](/screenshots/002_password_gen.jpg)
 - **hangman.py**: A classic game in which the computer chooses a random word, and the player guesses which letters are in it. If they guess all the letters in the word without too many mistakes, they win. If they make too many wrong guesses, they hang.<br />
-    ![img](/screenshots/0102_hangman_1.jpg) ![img](/screenshots/0102_hangman_2.jpg)
+    ![img](/screenshots/002_hangman_1.jpg) ![img](/screenshots/002_hangman_2.jpg)
 
 **Thoughts:** Feeling pretty comfortable with playing around with lists, loops, and basic functions.
 
@@ -282,13 +282,13 @@
 
 **Programs**:
 - **helloworld.py**: Basic "hello world" program, with some ASCII art.<br />
-    ![helloworld](/screenshots/0101_hello_world.jpg)
+    ![helloworld](/screenshots/001_hello_world.jpg)
 - **basicmath.py**: Asks the user for two numbers, then performs simple math operations with those numbers.<br />
-    ![img](/screenshots/0101_basic_math.jpg)
+    ![img](/screenshots/001_basic_math.jpg)
 - **weightconversion.py**: Asks the user for their weight in pounds, then converts it to kg, stones, and a variety of silly measurements.<br />
-    ![img](/screenshots/0101_weight.jpg)
+    ![img](/screenshots/001_weight.jpg)
 - **tipcalculator.py**: Asks the user for a bill total and how many people will split the bill. Calculates and displays a table with common tip amounts and how much each person should pay.<br />
-    ![img](/screenshots/0101_tip.jpg)
+    ![img](/screenshots/001_tip.jpg)
 
 **Thoughts:** It's been a while since I've used Python, and Python 3 syntax has changed in a few ways since Python 2, so I decided to start from the beginning with some very simple projects. I feel excited and determined.
 
