@@ -1,4 +1,4 @@
-# Demonstrates list comprehension syntax for lists, strings, ranges, and dictionaries
+# Demonstrates list comprehension syntax for lists, strings, and ranges
 
 # Take a list of numbers and create a new list of each of those numbers + 1.
 old_list = [1, 5, 3, 8, 6, 2, 4, 9, 7, 0, -5]
