@@ -4,7 +4,7 @@
 -----
 
 ## Day X. Daily Template
-### Day X: January X, 2023
+### January X, 2023 (Week Y)
 
 **Today's Progress**: 
 - 
@@ -14,6 +14,29 @@
   ![img](/screenshots/.jpg)
 
 **Thoughts:** 
+
+-----
+
+## Day 13. List and Dictionary Comprehension
+### January 24, 2023 (Week 2)
+
+**Today's Progress**: 
+- "100 Days of Python" Udemy class: completed day 26.
+- Learned list comprehension syntax for lists, strings, and ranges. Also learned dictionary comprehension syntax.
+
+**Programs**:
+- **list_comprehension.py**: Demonstrates list comprehension syntax for lists, strings, and ranges, and dictionaries.<br />
+  ![img](/screenshots/013_list_comp.jpg)
+- **dict_comprehension.py**: Demonstrates dictionary comprehension syntax. Creates a dictionary of students and generates random test scores for them. Then gets a dictionary of the students with passing scores.<br />
+  ![img](/screenshots/013_dict_comp.jpg)
+
+**NATO Alphabet Project**: Spells out a given word or message in NATO Alphabet codewords.
+- **main.py**: Program that prompts the user to enter a word or message in English. The program loads NATO codewords for each letter from a CSV file into a pandas dataframe. Then it converts each letter in the user's message into NATO codewords and prints the final message.
+- **nato_alphabet.csv**: CSV file with a row for each alphabetic letter and its corresponding NATO phonetic alphabet word.
+<br />
+  ![img](/screenshots/013_nato.jpg)
+
+**Thoughts:** I will have to practice more to get comfortable with this syntax, since it is very dense compared to using other methods. It is nice, however, to be able to do several steps in one line of code, instead of 5.
 
 -----
 
