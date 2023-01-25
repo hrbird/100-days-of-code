@@ -32,8 +32,7 @@
 
 **NATO Alphabet Project**: Spells out a given word or message in NATO Alphabet codewords.
 - **main.py**: Program that prompts the user to enter a word or message in English. The program loads NATO codewords for each letter from a CSV file into a pandas dataframe. Then it converts each letter in the user's message into NATO codewords and prints the final message.
-- **nato_alphabet.csv**: CSV file with a row for each alphabetic letter and its corresponding NATO phonetic alphabet word.
-<br />
+- **nato_alphabet.csv**: CSV file with a row for each alphabetic letter and its corresponding NATO phonetic alphabet word.<br />
   ![img](/screenshots/013_nato.jpg)
 
 **Thoughts:** I will have to practice more to get comfortable with this syntax, since it is very dense compared to using other methods. It is nice, however, to be able to do several steps in one line of code, instead of 5.
