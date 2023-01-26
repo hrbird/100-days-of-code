@@ -17,8 +17,8 @@
 
 -----
 
-## Day X. Daily Template
-### January X, 2023 (Week Y)
+## Day 15. 
+### January 26, 2023 (Week 3)
 
 **Today's Progress**: 
 - 
@@ -26,6 +26,24 @@
 **Programs**:
 - **x.py**: X.<br />
   ![img](/screenshots/.jpg)
+
+**Thoughts:** 
+
+-----
+
+## Day 14. Tkinter
+### January 25, 2023 (Week 2)
+
+**Today's Progress**: 
+- "100 Days of Python" Udemy class: started day 27.
+- Learned about the built-in tkinter library, which can create GUI applications that work on Windows, MacOS, and Linux. Today, I learned how to create a window, set basic properties, create labels, add widgets to the screen, create buttons, and have buttons trigger a function when clicked.
+- Also learned about default arguments, positional arguments, \*args (allows any number of positional arguments), and \*\*kwargs.
+
+**Programs**:
+- **small_python_projects/args_kwargs.py**: Demonstrates how to use \*args and \*\*kwargs function arguments.<br />
+  ![img](/screenshots/014_args_kwargs.jpg)
+- **tkinter_programs/tkinter_hello.py**: First tkinter program that displays a "Hello, world." label and a "Click me!" button.<br />
+  ![img](/screenshots/014_tkinter_hello.jpg) ![img](/screenshots/014_tkinter_hello2.jpg)
 
 **Thoughts:** Took a daytrip to spend the day hiking up sand dunes, so I didn't do much coding today. I'll get back on it tomorrow!
 
