@@ -17,6 +17,20 @@
 
 -----
 
+## Day X. Daily Template
+### January X, 2023 (Week Y)
+
+**Today's Progress**: 
+- 
+
+**Programs**:
+- **x.py**: X.<br />
+  ![img](/screenshots/.jpg)
+
+**Thoughts:** Took a daytrip to spend the day hiking up sand dunes, so I didn't do much coding today. I'll get back on it tomorrow!
+
+-----
+
 ## Day 13. List and Dictionary Comprehension
 ### January 24, 2023 (Week 2)
 
