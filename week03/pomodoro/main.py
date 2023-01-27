@@ -40,12 +40,6 @@ WORK_SEC = WORK_MIN * 60
 SHORT_BREAK_SEC = SHORT_BREAK_MIN * 60
 LONG_BREAK_SEC = LONG_BREAK_MIN * 60
 
-# DELETE
-WORK_SEC = 20
-SHORT_BREAK_SEC = 5
-LONG_BREAK_SEC = 10
-
-
 # Tomato image file path constants
 CURRENT_DIR = dirname(__file__)
 TOMATO_IMG_FILE_PATH = join(CURRENT_DIR, "./tomato.png")
@@ -60,41 +54,59 @@ TIME_Y = CANVAS_HEIGHT/2 + 20
 pomos = 0       # Total number of pomos completed
 breaks = 0      # Total number of breaks completed
 is_work = True  # True = currently working, False = currently on break
+timer = None    # Tracks the window.after() timer variable.
 
 #=========================================
 # TIMER MECHANISM
 #=========================================
 
-def start_timer():
-    """Start the Pomodoro timer."""
-    global pomos, breaks, is_work
+def start_work():
+    """Start a new work pomodoro."""
+    global pomos
 
-    # Show the current number of completed pomos as checkmarks.
+    # Start working.
+    header_label.config(text="Work Timer", fg=GREEN)
+    count_down(WORK_SEC)
+
+    # After working, increase the number of pomos and take a break.
+    pomos += 1
+
+def start_break():
+    """Start a new short or long break."""
+    global breaks
+
+    # After 3 short breaks, take a long break.
+    if breaks > 0 and breaks % 3 == 0:
+        header_label.config(text="Long Break", fg=PINK)
+        count_down(LONG_BREAK_SEC)
+    else:
+        header_label.config(text="Short Break", fg=PINK)
+        count_down(SHORT_BREAK_SEC)
+    
+    # After the break, start working again.
+    breaks += 1
+
+def update_pomo_checkmarks():
+    """Show the current number of completed pomos as checkmarks."""
+    global pomos
     check_str = "✔" * pomos
     checkmarks_label.config(text=check_str)
 
+def start_timer():
+    """Start the Pomodoro timer.
+    Called when the user clicks the Start button.
+    Also called whenever the timer countdown reaches zero."""
+    global is_work
+
+    update_pomo_checkmarks()
+
     if is_work:
-        # Start working.
-        header_label.config(text="Work Timer")
-
-        count_down(WORK_SEC)
-
-        # After working, increase the number of pomos and take a break.
-        pomos += 1
+        start_work()
         is_work = False
     else:
-        # Take a break.
-        header_label.config(text="Break Timer")
-
-        # After 3 short breaks, take a long break.
-        if breaks > 0 and breaks % 3 == 0:
-            count_down(LONG_BREAK_SEC)
-        else:
-            count_down(SHORT_BREAK_SEC)
-        
-        # After the break, start working again.
-        breaks += 1
+        start_break()
         is_work = True
+        
 
 #=========================================
 # COUNTDOWN MECHANISM 
@@ -122,6 +134,7 @@ def get_count_str(total_seconds):
 
 def count_down(count):
     """Update screen every second to show the current time left on the timer."""
+    global timer
 
     # Get the count in MM:SS format.
     count_str = get_count_str(count)
@@ -131,10 +144,25 @@ def count_down(count):
 
     # Continue counting down every second, until you run out of time.
     if count > 0:
-        window.after(1000, count_down, count - 1)
+        timer = window.after(1000, count_down, count - 1)
     else:
         start_timer()
 
+
+#=========================================
+# RESET ALL
+#=========================================
+
+def reset_all():
+    """Resets the timer and all data.
+    Called when the user clicks the Reset button."""
+    global pomos, breaks, is_work
+
+    window.after_cancel(timer)
+
+    pomos = 0
+    breaks = 0
+    is_work = True
 
 #=========================================
 # SET UP UI AND WIDGETS
@@ -144,7 +172,7 @@ def count_down(count):
 window = tk.Tk()
 window.title("Pomodoro Timer")
 window.minsize(width=CANVAS_WIDTH, height=CANVAS_HEIGHT)
-window.config(padx=50, pady=50, bg=YELLOW)
+window.config(padx=50, pady=25, bg=YELLOW)
 
 # Create a "Timer" header label.
 header_label = tk.Label(text="Work Timer", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 36, "bold"))
@@ -166,9 +194,7 @@ start_button = tk.Button(text="Start", command=start_timer, bg="white", font=(FO
 start_button.grid(row=2, column=0, ipadx=3, ipady=3) 
 
 # Create a "Reset" button that calls reset_action() when pressed.
-def reset_action():
-    pass
-reset_button = tk.Button(text="Reset", command=reset_action, bg="white", font=(FONT_NAME, 12, "bold"))
+reset_button = tk.Button(text="Reset", command=reset_all, bg="white", font=(FONT_NAME, 12, "bold"))
 reset_button.grid(row=2, column=2, ipadx=3, ipady=3) 
 
 # Create a label to show a checkmark for each completed pomodoro.
