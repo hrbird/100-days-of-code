@@ -17,21 +17,26 @@
 
 -----
 
-## Day 15. 
+## Day 15. Tkinter Widgets and Grid Layout
 ### January 26, 2023 (Week 3)
 
 **Today's Progress**: 
-- 
+- "100 Days of Python" Udemy class: completed day 27.
+- Continued learning how to create many different kinds of widgets in the tkinter library and how to get/set values for each type. I also learned how to use the grid layout (instead of the pack layout) to better control where each widget will appear on the screen.
 
 **Programs**:
-- **x.py**: X.<br />
-  ![img](/screenshots/.jpg)
+- **tkinter_programs/tkinter_widgets.py**: Demonstrates several types of tkinter widgets you can create, including labels, buttons, single-line and multi-line text entry boxes, spinboxes, scales, checkbuttons, radiobuttons, and listboxes. Also demonstrates how to bind functions to widgets and get each kind of widget's current value.<br />
+  ![img](/screenshots/015_widgets.jpg)
+- **tkinter_programs/tkinter_grid.py**: This program is mostly the same as tkinter_widgets, except it uses the grid layout, instead of simply packing all of the widgets onto the screen.<br />
+  ![img](/screenshots/015_grid.jpg)
+- **tkinter_programs/tkinter_miles_km.py**: This program converts miles to kilometers. When the user enters a float number of miles into a text entry box and clicks the Calculate button, the equivalent number of kilometers is written in the km label.<br />
+  ![img](/screenshots/015_miles_km.jpg)
 
-**Thoughts:** 
+**Thoughts:** I'm enjoying being able to create simple GUI applications, though I do agree that the default appearance of the window/widgets are a little outdated. I like that the grid layout makes it easier to create rows and columns of widgets that automatically resize themselves and line up neatly. Looking forward to learning more!
 
 -----
 
-## Day 14. Tkinter
+## Day 14. Tkinter Library, *Args, and **Kwargs
 ### January 25, 2023 (Week 2)
 
 **Today's Progress**: 
