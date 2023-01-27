@@ -17,9 +17,9 @@ import tkinter as tk
 
 # Color constants
 PINK = "#e2979c"
-RED = "#e7305b"
-GREEN = "#9bdeac"
-YELLOW = "#FFD56F"
+RED = "#cc4c35"
+GREEN = "#9ebd75"
+YELLOW = "#ffdf91"
 
 # Font constants
 FONT_NAME = "Courier"
@@ -63,7 +63,11 @@ TIME_Y = CANVAS_HEIGHT/2 + 15
 window = tk.Tk()
 window.title("Pomodoro Timer")
 window.minsize(width=CANVAS_WIDTH, height=CANVAS_HEIGHT)
-window.config(padx=100, pady=50, bg=YELLOW)
+window.config(padx=50, pady=50, bg=YELLOW)
+
+# Create a "Timer" header label.
+header_label = tk.Label(text="Timer", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 36, "bold"))
+header_label.grid(row=0, column=1)
 
 # Get the tomato image.
 tomato_img = tk.PhotoImage(file=TOMATO_IMG_FILE_PATH)
@@ -72,10 +76,21 @@ tomato_img = tk.PhotoImage(file=TOMATO_IMG_FILE_PATH)
 canvas = tk.Canvas(width=CANVAS_WIDTH, height=CANVAS_HEIGHT, bg=YELLOW, highlightthickness=0)
 canvas.create_image(TOMATO_IMG_X, TOMATO_IMG_Y, image=tomato_img)
 
-# 
+# Write the text of the current time on the timer over the tomato.
 canvas.create_text(TIME_X, TIME_Y, text="12:15", fill="white", font=(FONT_NAME, 24, "bold"))
+canvas.grid(row=1, column=1)
 
-canvas.pack()
+# Create a "Start" button that calls start_action() when pressed.
+def start_action():
+    pass
+start_button = tk.Button(text="Start", command=start_action, bg="white", font=(FONT_NAME, 12, "bold"))
+start_button.grid(row=2, column=0, ipadx=3, ipady=3) 
+
+# Create a "Reset" button that calls reset_action() when pressed.
+def reset_action():
+    pass
+reset_button = tk.Button(text="Reset", command=reset_action, bg="white", font=(FONT_NAME, 12, "bold"))
+reset_button.grid(row=2, column=2, ipadx=3, ipady=3) 
 
 #=========================================
 # MAIN LOOP
