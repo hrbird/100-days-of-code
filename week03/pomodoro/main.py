@@ -65,7 +65,7 @@ def start_work():
     global pomos
 
     # Start working.
-    header_label.config(text="Work Timer", fg=GREEN)
+    draw_header_work_timer()
     count_down(WORK_SEC)
 
     # After working, increase the number of pomos and take a break.
@@ -77,20 +77,14 @@ def start_break():
 
     # After 3 short breaks, take a long break.
     if breaks > 0 and breaks % 3 == 0:
-        header_label.config(text="Long Break", fg=PINK)
+        draw_header_break(is_short_break=False)
         count_down(LONG_BREAK_SEC)
     else:
-        header_label.config(text="Short Break", fg=PINK)
+        draw_header_break(is_short_break=True)
         count_down(SHORT_BREAK_SEC)
     
     # After the break, start working again.
     breaks += 1
-
-def update_pomo_checkmarks():
-    """Show the current number of completed pomos as checkmarks."""
-    global pomos
-    check_str = "✔" * pomos
-    checkmarks_label.config(text=check_str)
 
 def start_timer():
     """Start the Pomodoro timer.
@@ -98,7 +92,7 @@ def start_timer():
     Also called whenever the timer countdown reaches zero."""
     global is_work
 
-    update_pomo_checkmarks()
+    draw_pomo_checkmarks()
 
     if is_work:
         start_work()
@@ -107,7 +101,6 @@ def start_timer():
         start_break()
         is_work = True
         
-
 #=========================================
 # COUNTDOWN MECHANISM 
 #=========================================
@@ -136,18 +129,14 @@ def count_down(count):
     """Update screen every second to show the current time left on the timer."""
     global timer
 
-    # Get the count in MM:SS format.
-    count_str = get_count_str(count)
-
-    # Update the screen.
-    canvas.itemconfig(timer_text, text=count_str)
+    # Update the timer count on the screen.
+    draw_timer_text(get_count_str(count))
 
     # Continue counting down every second, until you run out of time.
     if count > 0:
         timer = window.after(1000, count_down, count - 1)
     else:
         start_timer()
-
 
 #=========================================
 # RESET ALL
@@ -159,10 +148,37 @@ def reset_all():
     global pomos, breaks, is_work
 
     window.after_cancel(timer)
+    draw_timer_text("00:00")
+    draw_header_work_timer()
 
     pomos = 0
     breaks = 0
     is_work = True
+
+#=========================================
+# DRAW FUNCTIONS
+#=========================================
+
+def draw_header_work_timer():
+    """Draw the header text to show Work Timer."""
+    header_label.config(text="Work Timer", fg=GREEN)
+
+def draw_header_break(is_short_break):
+    """Draw the header text to show Short Break or Long Break."""
+    if is_short_break:
+        header_label.config(text="Short Break", fg=PINK)
+    else:
+        header_label.config(text="Long Break", fg=PINK)
+
+def draw_pomo_checkmarks():
+    """Show the current number of completed pomos as checkmarks."""
+    global pomos
+    check_str = "✔" * pomos
+    checkmarks_label.config(text=check_str)
+
+def draw_timer_text(timer_str):
+    """Show the current countdown time in MM:SS format."""
+    canvas.itemconfig(timer_text, text=timer_str)
 
 #=========================================
 # SET UP UI AND WIDGETS
@@ -175,7 +191,8 @@ window.minsize(width=CANVAS_WIDTH, height=CANVAS_HEIGHT)
 window.config(padx=50, pady=25, bg=YELLOW)
 
 # Create a "Timer" header label.
-header_label = tk.Label(text="Work Timer", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 36, "bold"))
+header_label = tk.Label(fg=GREEN, bg=YELLOW, font=(FONT_NAME, 36, "bold"))
+draw_header_work_timer()
 header_label.grid(row=0, column=0, columnspan=3)
 
 # Get the tomato image.
