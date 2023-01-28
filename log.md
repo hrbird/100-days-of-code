@@ -17,6 +17,28 @@
 
 -----
 
+## Day 16. Tkinter
+### January 27, 2023 (Week 3)
+
+**Today's Progress**: 
+- "100 Days of Python" Udemy class: completed day 28.
+- Learned more about the tkinter library, including how to create canvas widgets to display images and write text. Also learned how to create a countdown mechanism that updates a timer on the screen every second.
+
+**Pomodoro Project**: A program that shows a Pomodoro Timer. (The pomodoro method is helpful for working on long projects. It breaks up the day into 25-minute periods of work, followed by a short 5-minute break.)
+- **main.py**: This program uses the tkinter library to create a GUI. It counts down the time left in the current pomodoro or break. It also shows a checkmark at the bottom for each completed pomodoro.<br />
+- **tomato.png**: Tomato image to display on the screen.<br />
+  ![img](/screenshots/016_pomo0.jpg) ![img](/screenshots/016_pomo1.jpg)<br />
+  ![img](/screenshots/016_pomo2.jpg) ![img](/screenshots/016_pomo3.jpg)<br />
+
+**Tornado Data Project**: A program that uses pandas to read a very large dataset of the extreme weather events in the US in 2022. This program creates a data showing the summary data for tornadoes that happened in each US state in 2022.
+- **main.py**:The main program, which reads in data from a CSV, and selects specific rows for tornado events. For each state, it counts the total number of tornadoes, the number of tornadoes for each Fujita Scale category, the total injuries (direct and indirect), and the total deaths (direct and indirect). This data is displayed in a neat table, with rows sorted from the states with the highest number of tornadoes to the lowest.<br />
+- **tomato.png**: Tomato image to display on the screen.<br />
+  ![img](/screenshots/016_tornadoes.jpg)
+
+**Thoughts:** Getting more familiar with both tkinter and pandas. The pomodoro project was an exercise from the Udemy class, but the tornado project was something I came up with, just out of curiosity. I might see if I can add more years to it tomorrow.
+
+-----
+
 ## Day 15. Tkinter Widgets and Grid Layout
 ### January 26, 2023 (Week 3)
 
@@ -47,7 +69,7 @@
 **Programs**:
 - **small_python_projects/args_kwargs.py**: Demonstrates how to use \*args and \*\*kwargs function arguments.<br />
   ![img](/screenshots/014_args_kwargs.jpg)
-- **tkinter_programs/tkinter_hello.py**: First tkinter program that displays a "Hello, world." label and a "Click me!" button.<br />
+- **small_python_projects/tkinter_hello.py**: First tkinter program that displays a "Hello, world." label and a "Click me!" button.<br />
   ![img](/screenshots/014_tkinter_hello.jpg) ![img](/screenshots/014_tkinter_hello2.jpg)
 
 **Thoughts:** Took a daytrip to spend the day hiking up sand dunes, so I didn't do much coding today. I'll get back on it tomorrow!
