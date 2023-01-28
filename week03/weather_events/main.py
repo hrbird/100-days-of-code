@@ -11,104 +11,78 @@ file_path = join(current_dir, "./StormEvents_2022.csv")
 DATA = pandas.read_csv(file_path)
 
 # Copy rows about Tornado events into a new DataFrame.
-T_DATA = DATA[DATA["EVENT_TYPE"] == "Tornado"]
-
-# DataFrame.head() shows a given number of rows at the top.
-print(f"Head (5 rows):\n{T_DATA.head(25)}\n")
-
-# DataFrame.columns shows the column names.
-print(f"Columns:\n{T_DATA.columns}\n")
-
-for i in T_DATA.head(5).index:
-    date_time = T_DATA['BEGIN_DATE_TIME'][i]
-    day = T_DATA['BEGIN_DAY'][i]
-    begin_time = T_DATA['BEGIN_TIME'][i]
-    state = T_DATA['STATE'][i]
-    event_type = T_DATA['EVENT_TYPE'][i]
-
-    direct_injuries = T_DATA['INJURIES_DIRECT'][i]
-    indirect_injuries = T_DATA['INJURIES_INDIRECT'][i]
-    direct_deaths = T_DATA['DEATHS_DIRECT'][i]
-    indirect_deaths = T_DATA['DEATHS_INDIRECT'][i]
-    
-    print(f"\nBEGIN_DATE_TIME: {date_time}, STATE: {state}, EVENT TYPE: {event_type}")
-    print(f"DIRECT INJURIES: {direct_injuries}, DIRECT DEATHS: {direct_deaths}")
-
-print(f"\n\nNumber of rows:{len(T_DATA)}")
-
-# ===================================================================================
-# Isolate Tornado Data
-# ===================================================================================
-
-# Copy rows about Tornado events into a new DataFrame.
 T_DATA = DATA[DATA['EVENT_TYPE'] == "Tornado"]
 
-# ===================================================================================
-# All States
-# ===================================================================================
-
-# Get a list of all of the states in the DataFrame.
-all_states_list = list(T_DATA["STATE"].sort_values().unique())
-
-print("\nStates:")
-print(all_states_list)
-
-# ===================================================================================
-# Total Tornadoes by State
+# ===========================================================================
+# List of States
 # ===================================================================================
 
-# Group the data by state
+# First group the data by state
 tornado_states = T_DATA.groupby(by=["STATE"])
 
 # Count the number of total tornado events per state.
-total_tornado_counts = tornado_states["EVENT_ID"].count().to_dict()
+total_tornado_counts = tornado_states["EVENT_ID"].count().sort_values(ascending=False).to_dict()
 
-print("\n\nTornado Data:")
-print(total_tornado_counts)
-
-# ===================================================================================
-# Fujita Scale Tornadoes by State
-# ===================================================================================
-
-# For each F Scale category, group the tornadoes by state and count them.
-ef0_state_counts = T_DATA[T_DATA["TOR_F_SCALE"] == "EF0"].groupby("STATE")['EVENT_ID'].count().to_dict()
-ef1_state_counts = T_DATA[T_DATA["TOR_F_SCALE"] == "EF1"].groupby("STATE")['EVENT_ID'].count().to_dict()
-ef2_state_counts = T_DATA[T_DATA["TOR_F_SCALE"] == "EF2"].groupby("STATE")['EVENT_ID'].count().to_dict()
-ef3_state_counts = T_DATA[T_DATA["TOR_F_SCALE"] == "EF3"].groupby("STATE")['EVENT_ID'].count().to_dict()
-ef4_state_counts = T_DATA[T_DATA["TOR_F_SCALE"] == "EF4"].groupby("STATE")['EVENT_ID'].count().to_dict()
-ef5_state_counts = T_DATA[T_DATA["TOR_F_SCALE"] == "EF5"].groupby("STATE")['EVENT_ID'].count().to_dict()
-efu_state_counts = T_DATA[T_DATA["TOR_F_SCALE"] == "EFU"].groupby("STATE")['EVENT_ID'].count().to_dict()
-
-print("\n\nEF0 DATA:")
-print(ef0_state_counts)
+# Get a list of all of the state names, ordered by the number of tornadoes, from highest to lowest.
+all_states_list = list(total_tornado_counts.keys())
 
 # ===================================================================================
-# Injuries and Deaths by State
+# Get Tornado Summary Data by State
 # ===================================================================================
 
-# Get the sums of total injuries and deaths by state.
-direct_injury_sums = T_DATA.groupby("STATE")["INJURIES_DIRECT"].sum()
-indirect_injury_sums = T_DATA.groupby("STATE")["INJURIES_INDIRECT"].sum()
+# Create a main dictionary to store the summary data.
+state_summaries = {}
 
-direct_death_sums = T_DATA.groupby("STATE")["DEATHS_DIRECT"].sum()
-indirect_death_sums = T_DATA.groupby("STATE")["DEATHS_INDIRECT"].sum()
+# For each state, get the summary data and add it to the main dict.
+for s in all_states_list:
 
-print("\n\nDirect Deaths DATA:")
-print(direct_death_sums)
+    # Make a nested dictionary for the state.
+    state_summaries[s] = {}
+
+    # Get the data for the state.
+    state_data = T_DATA[T_DATA["STATE"] == s]
+
+    # Count the number of total tornado events in the state.
+    state_summaries[s]["total_tornadoes"] = state_data["EVENT_ID"].count()
+
+    # For each Fujita Scale category, count how many tornadoes there were.
+    state_summaries[s]["EF0_count"] = state_data[state_data["TOR_F_SCALE"] == "EF0"]["EVENT_ID"].count()
+    state_summaries[s]["EF1_count"] = state_data[state_data["TOR_F_SCALE"] == "EF1"]["EVENT_ID"].count()
+    state_summaries[s]["EF2_count"] = state_data[state_data["TOR_F_SCALE"] == "EF2"]["EVENT_ID"].count()
+    state_summaries[s]["EF3_count"] = state_data[state_data["TOR_F_SCALE"] == "EF3"]["EVENT_ID"].count()
+    state_summaries[s]["EF4_count"] = state_data[state_data["TOR_F_SCALE"] == "EF4"]["EVENT_ID"].count()
+    state_summaries[s]["EF5_count"] = state_data[state_data["TOR_F_SCALE"] == "EF5"]["EVENT_ID"].count()
+    state_summaries[s]["EFU_count"] = state_data[state_data["TOR_F_SCALE"] == "EFU"]["EVENT_ID"].count()
+
+    # Get the sums of total injuries and deaths.
+    state_summaries[s]["direct_injuries"] = state_data["INJURIES_DIRECT"].sum()
+    state_summaries[s]["indirect_injuries"] = state_data["INJURIES_INDIRECT"].sum()
+    state_summaries[s]["direct_deaths"] = state_data["DEATHS_DIRECT"].sum()
+    state_summaries[s]["indirect_deaths"] = state_data["DEATHS_INDIRECT"].sum()
 
 
 # ===================================================================================
 # Show Data by State
 # ===================================================================================
 
-i = 0
-state_name = all_states_list[i]
-print(f"{state_name}:")
-print(f"Total tornadoes: {total_tornado_counts[state_name]}")
-print(f"EF0 tornadoes: {ef0_state_counts[state_name]}")
-print(f"EF1 tornadoes: {ef1_state_counts[state_name]}")
-print(f"EF2 tornadoes: {ef2_state_counts[state_name]}")
-print(f"EF3 tornadoes: {ef3_state_counts[state_name]}")
-print(f"EF4 tornadoes: {ef4_state_counts[state_name]}")
-print(f"EF5 tornadoes: {ef5_state_counts[state_name]}")
-print(f"EFU tornadoes: {efu_state_counts[state_name]}")
+print("="*75)
+print(f"*{'TORNADO DATA FOR THE UNITED STATES IN 2022':^73}*")
+print("="*75)
+
+print(f"\n{'':<15}{'TOTAL':>10} | {'FUJITA SCALE CATEGORIES':^28} | {'TOTAL':>8}{'TOTAL':>8}")
+print(f"{'STATE':<15}{'TORNADOES':>10} | {'EF0':>4}{'EF1':>4}{'EF2':>4}{'EF3':>4}{'EF4':>4}{'EF5':>4}{'EFU':>4} | {'INJURIES':>8}{'DEATHS':>8}")
+print("-"*75)
+
+for s in state_summaries:
+    total = state_summaries[s]['total_tornadoes']
+    ef0 = state_summaries[s]['EF0_count']
+    ef1 = state_summaries[s]['EF1_count']
+    ef2 = state_summaries[s]['EF2_count']
+    ef3 = state_summaries[s]['EF3_count']
+    ef4 = state_summaries[s]['EF4_count']
+    ef5 = state_summaries[s]['EF5_count']
+    efu = state_summaries[s]['EFU_count']
+    injuries = state_summaries[s]['direct_injuries'] + state_summaries[s]['indirect_injuries']
+    deaths = state_summaries[s]['direct_deaths'] + state_summaries[s]['indirect_deaths']
+
+    print(f"{s:<15}{total:>10} | {ef0:>4}{ef1:>4}{ef2:>4}{ef3:>4}{ef4:>4}{ef5:>4}{efu:>4} | {injuries:>8}{deaths:>8}")
