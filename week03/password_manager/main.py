@@ -10,6 +10,7 @@
 from os.path import dirname, join
 import random
 import tkinter as tk
+from tkinter import messagebox
 
 #=========================================
 # CONSTANTS
@@ -44,13 +45,47 @@ DATA_TXT_FILE_PATH = join(CURRENT_DIR, "./data.txt")
 MYPASS_IMG_X = CANVAS_WIDTH/2
 MYPASS_IMG_Y = CANVAS_HEIGHT/2
 
+LETTERS = [
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 
+    'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 
+    's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 
+    'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 
+    'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+]
+SYMBOLS = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+NUMBERS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
 #=========================================
 # PASSWORD GENERATOR
 #=========================================
 
 def generate_password():
     """Generates a random password."""
-    pass
+
+    password = []
+
+    # Get the given number of random letters and append them to the password.
+    for _ in range(random.randint(8, 10)):
+        password.append(random.choice(LETTERS))
+
+    # Get the given number of random symbols and append them to the password.
+    for _ in range(random.randint(2, 4)):
+        password.append(random.choice(SYMBOLS))
+
+    # Get the given number of random numbers and append them to the password.
+    for _ in range(random.randint(2, 4)):
+        password.append(random.choice(NUMBERS))
+
+    # Shuffle the characters in the password list.
+    random.shuffle(password)
+
+    # Join the new password as a string.
+    pass_str = "".join(password)
+
+    # Enter the password into the password_entry box.
+    password_entry.delete(0, tk.END)
+    password_entry.insert(tk.END, string=pass_str)
 
 #=========================================
 # SAVE PASSWORD
@@ -64,20 +99,32 @@ def add_info():
     username = username_entry.get()
     password = password_entry.get()
 
-    # Format the data into a string.
-    data_str = f"{website}, {username}, {password}"
+    details_str = f"These are the details entered:\nEmail/Username: {username}\nPassword: {password}\n\nDo you want to save this account?"
 
-    # Open the data txt file and write the string to it.
-    with open(DATA_TXT_FILE_PATH, "a") as f:
-        f.write(data_str)
+    # If all the fields have some text in them, add the data.
+    if len(website) > 0 and len(username) > 0 and len(password) > 0:
 
-    # Clear the text entry forms.
-    website_entry.delete(0, tk.END)
-    username_entry.delete(0, tk.END)
-    password_entry.delete(0, tk.END)
+        # Show a pop-up message asking the user to confirm they want to save the data.
+        is_ok = messagebox.askokcancel(title=website, message=details_str)
 
-    # Put the cursor back in website_entry.
-    website_entry.focus()
+        if is_ok:
+            # Format the data into a string.
+            data_str = f"{website}, {username}, {password}\n"
+
+            # Open the data txt file and write the string to it.
+            with open(DATA_TXT_FILE_PATH, "a") as f:
+                f.write(data_str)
+
+            # Clear the text entry forms.
+            website_entry.delete(0, tk.END)
+            password_entry.delete(0, tk.END)
+
+            # Put the cursor back in website_entry.
+            website_entry.focus()
+
+    else:
+        # Show a pop-up message telling the user that all fields need to be filled out.
+        messagebox.showerror(title="Error", message="Please fill out all of the fields.")
 
 #=========================================
 # SET UP UI AND WIDGETS
@@ -85,7 +132,7 @@ def add_info():
 
 # Create a window.
 window = tk.Tk()
-window.title("Pomodoro Timer")
+window.title("Password Manager")
 window.minsize(width=CANVAS_WIDTH, height=CANVAS_HEIGHT)
 window.config(padx=50, pady=50, bg="white")
 
@@ -112,6 +159,7 @@ username_label.grid(row=2, column=0)
 
 # Create a username entry box.
 username_entry = tk.Entry(width=50)
+username_entry.insert(tk.END, string="myemail@example.com")
 username_entry.grid(row=2, column=1, columnspan=2)
 
 # Create a "Password" label.
