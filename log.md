@@ -17,7 +17,30 @@
 
 -----
 
-## Day 16. Tkinter
+## Day 17. Tkinter and Pandas: Storm Events and Password Manager Projects
+### January 28, 2023 (Week 3)
+
+**Today's Progress**: 
+- "100 Days of Python" Udemy class: completed day 29.
+- Continued playing around with using pandas and dictionaries to group and summarize the data in StormEvents_2022.csv.
+
+**Storm Events Project**:
+- **weather_events/storms_2022.py**: A program that shows storm and extreme weather event data for 2022. It groups the data by the event type (such as Tornado, Excessive Heat, Flood, Wildfire, Tsunami, etc.), then by state. For each event type, it displays a table showing each state's total number of events, injuries, and deaths for 2022. The rows are sorted from the most events to the fewest events.<br />
+  ![img](/screenshots/017_storms0.jpg) ![img](/screenshots/017_storms1.jpg) ![img](/screenshots/017_storms2.jpg)
+
+**Password Manager Project**:
+- **password_manager/main.py**: Program that stores usernames and passwords for various sites. It shows a form for the user to enter a new set of account information: the name of the website, the email/username, and the password. There is a button to generate a random secure password, if needed. If the user clicks the Add button at the bottom, this account information is written to a text file.
+- **password_manager/logo.png**: "MyPass" image that is displayed on the screen.
+- **password_manager/data.txt**: Stores the saved account data. Each line is comma-delineated and has the website name, email/username, and password for each account.<br />
+  ![img](/screenshots/017_password0.jpg) ![img](/screenshots/017_password1.jpg)<br />
+  ![img](/screenshots/017_password2.jpg) ![img](/screenshots/017_password3.jpg)<br />
+  ![img](/screenshots/017_password4.jpg) ![img](/screenshots/017_password5.jpg) 
+
+**Thoughts:** 
+
+-----
+
+## Day 16. Tkinter and Pandas: Pomodoro Timer and Tornado Data Projects
 ### January 27, 2023 (Week 3)
 
 **Today's Progress**: 
@@ -31,8 +54,8 @@
   ![img](/screenshots/016_pomo2.jpg) ![img](/screenshots/016_pomo3.jpg)<br />
 
 **Tornado Data Project**: A program that uses pandas to read a very large dataset of the extreme weather events in the US in 2022. This program creates a data showing the summary data for tornadoes that happened in each US state in 2022.
-- **main.py**:The main program, which reads in data from a CSV, and selects specific rows for tornado events. For each state, it counts the total number of tornadoes, the number of tornadoes for each Fujita Scale category, the total injuries (direct and indirect), and the total deaths (direct and indirect). This data is displayed in a neat table, with rows sorted from the states with the highest number of tornadoes to the lowest.<br />
-- **tomato.png**: Tomato image to display on the screen.<br />
+- **weather_events/tornadoes_2022.py**:The main program, which reads in data from a CSV, and selects specific rows for tornado events. For each state, it counts the total number of tornadoes, the number of tornadoes for each Fujita Scale category, the total injuries (direct and indirect), and the total deaths (direct and indirect). This data is displayed in a neat table, with rows sorted from the states with the highest number of tornadoes to the lowest.<br />
+- **weather_events/StormEvents_2022.csv**: Storm event data for 2022 in the United States.<br />
   ![img](/screenshots/016_tornadoes.jpg)
 
 **Thoughts:** Getting more familiar with both tkinter and pandas. The pomodoro project was an exercise from the Udemy class, but the tornado project was something I came up with, just out of curiosity. I might see if I can add more years to it tomorrow.
