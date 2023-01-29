@@ -16,11 +16,9 @@ EVENT_TYPES = [
     "Debris Flow", "Dense Fog", "Dense Smoke", "Drought", "Dust Devil", "Dust Storm", 
     "Excessive Heat", "Extreme Cold/Wind Chill", "Flash Flood", "Flood", "Freezing Fog", 
     "Frost/Freeze", "Funnel Cloud", "Hail", "Heat", "Heavy Rain", "Heavy Snow", "High Surf", 
-    "High Wind", "Hurricane", "Ice Storm", "Lake-Effect Snow", "Lightning", "Marine Dense Fog", 
-    "Marine Hail", "Marine High Wind", "Marine Hurricane/Typhoon", "Marine Strong Wind", 
-    "Marine Thunderstorm Wind", "Marine Tropical Depression", "Marine Tropical Storm", 
-    "Rip Current", "Seiche", "Sleet", "Storm Surge/Tide", "Strong Wind", "Thunderstorm Wind", 
-    "Tornado", "Tropical Depression", "Tropical Storm", "Tsunami", "Waterspout", "Wildfire", 
+    "High Wind", "Hurricane", "Ice Storm", "Lake-Effect Snow", "Lightning", "Rip Current", 
+    "Seiche", "Sleet", "Storm Surge/Tide", "Strong Wind", "Thunderstorm Wind", "Tornado", 
+    "Tropical Depression", "Tropical Storm", "Tsunami", "Waterspout", "Wildfire", 
     "Winter Storm", "Winter Weather"
 ]
 
@@ -52,15 +50,14 @@ for e in EVENT_TYPES:
     indirect_injuries_dict = grouped_states["INJURIES_INDIRECT"].sum().sort_values(ascending=False).to_dict()
     indirect_deaths_dict = grouped_states["DEATHS_INDIRECT"].sum().sort_values(ascending=False).to_dict()
 
-    print(f"\nGetting data for {e}...")
-
+    # Add the data for each state to the summary dictionary.
     for (state, num_events) in events_dict.items():
         storm_summaries[e_key][state] = {}
         storm_summaries[e_key][state]["Events"] = num_events
         storm_summaries[e_key][state]["Injuries"] = int(direct_injuries_dict[state]) + int(indirect_injuries_dict[state])
         storm_summaries[e_key][state]["Deaths"] = int(direct_deaths_dict[state]) + int(indirect_deaths_dict[state])
 
-    print(storm_summaries[e_key])
+    #print(storm_summaries[e_key])
 
 # ===================================================================================
 # Show Data by State
@@ -73,16 +70,28 @@ def print_summary(storm_summaries):
     print("="*75)
 
     for event_type in storm_summaries:
-        print()
-        print("-"*75)
-        print(f"{event_type}:")
-        print("-"*75)
+        print("\n")
+        print("*"*50)
+        event_str = event_type + " 2022"
+        print(f"{event_str:^50}")
+        print("*"*50)
+
+        print(f"{'STATE':<21} | EVENTS | INJURIES | DEATHS")
+        print("-"*50)
 
         for state in storm_summaries[event_type].keys():
-            num_events = storm_summaries[event_type][state]["Events"]
-            num_injuries = storm_summaries[event_type][state]["Injuries"]
-            num_deaths = storm_summaries[event_type][state]["Deaths"]
+            num_events = str(storm_summaries[event_type][state]["Events"])
+            num_injuries = str(storm_summaries[event_type][state]["Injuries"])
+            num_deaths = str(storm_summaries[event_type][state]["Deaths"])
 
-            print(f"{state}:    Events: {num_events}    Injuries: {num_injuries}    Deaths: {num_deaths}")
+            # Show blanks instead of zeroes.
+            if num_injuries == "0":
+                num_injuries = ""
+
+            if num_deaths == "0":
+                num_deaths = ""
+
+            print(f"{state:<21}   {num_events:>6}   {num_injuries:>8}   {num_deaths:>6}")
 
 print_summary(storm_summaries)
+
