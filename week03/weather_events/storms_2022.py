@@ -11,7 +11,7 @@ file_path = join(current_dir, "./StormEvents_2022.csv")
 DATA = pandas.read_csv(file_path)
 
 # List to store the EVENT_TYPE values and the key names I'd like to use in the state summaries.
-EVENT_TYPES = [
+ALL_EVENT_TYPES = [
     "Astronomical Low Tide", "Avalanche", "Blizzard", "Coastal Flood", "Cold/Wind Chill", 
     "Debris Flow", "Dense Fog", "Dense Smoke", "Drought", "Dust Devil", "Dust Storm", 
     "Excessive Heat", "Extreme Cold/Wind Chill", "Flash Flood", "Flood", "Freezing Fog", 
@@ -20,6 +20,14 @@ EVENT_TYPES = [
     "Seiche", "Sleet", "Storm Surge/Tide", "Strong Wind", "Thunderstorm Wind", "Tornado", 
     "Tropical Depression", "Tropical Storm", "Tsunami", "Waterspout", "Wildfire", 
     "Winter Storm", "Winter Weather"
+]
+
+EVENT_TYPES = [
+    "Avalanche", "Blizzard", "Cold/Wind Chill", 
+    "Drought", "Dust Storm", "Excessive Heat", "Extreme Cold/Wind Chill", 
+    "Flash Flood", "Flood", "Hail", "Heat", "Heavy Rain",
+    "Hurricane", "Lightning", "Rip Current", "Storm Surge/Tide", "Tornado", 
+    "Tropical Storm", "Tsunami", "Wildfire", "Winter Storm"
 ]
 
 # ===================================================================================
