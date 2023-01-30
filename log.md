@@ -24,8 +24,8 @@
 - "100 Days of Python" Udemy class: completed day 31.
 - Created the Flash Card Capstone Project using pandas and tkinter.
 
-**Flash Cards Project**:
-- **flash_cards/main.py**: A program that shows flashcards to study the most common words in a different language (in this case, Esperanto).<br />It first shows the front of a flashcard with a random word in the language in the language you are studying. After 3 seconds, it flips to show the back of the card, with the translation of the word in English. The user can click the green checkmark button if they knew the answer, or the red X button if they didn't know it.<br />The words that the user didn't know or didn't see yet are saved to a new file called "words_to_learn.csv". The next time the user runs this program, this file will be used for the flashcards, so the user will only be tested on unknown/unfamiliar words.
+**Flash Cards Project**:<br />A program that shows flashcards to study the most common words in a different language (in this case, Esperanto).<br /><br />It first shows the front of a flashcard with a random word in the language to study. After 3 seconds, it flips to show the back of the card, with the translation of the word in English. The user can click the green checkmark button if they knew the answer, or the red X button if they didn't know it.<br /><br />The words that the user didn't know or didn't see yet are saved to a new file called "words_to_learn.csv". The next time the user runs this program, this file will be used for the flashcards, so the user will only be tested on unknown/unfamiliar words.<br /><br />Files:
+- **flash_cards/main.py**: The main program
 - **flash_cards/images/\***: Folder containing images for the front and back of the flashcard, as well as a green checkmark for right answers and a red X for wrong answers.
 - **flash_cards/data/esperanto.csv**: A CSV file containing the full list of Esperanto words and their English translations
 - **flash_cards/data/words_to_learn.csv**: A CSV file containing the list of words that the user either didn't know or hasn't seen yet<br />
