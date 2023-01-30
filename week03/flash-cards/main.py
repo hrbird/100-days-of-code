@@ -13,6 +13,8 @@ import pandas
 
 # Color constants
 BACKGROUND_COLOR = "#B1DDC6"
+TEXT_FRONT_COLOR = "black"
+TEXT_BACK_COLOR = "white"
 
 # Canvas size constants
 CANVAS_WIDTH = 800
@@ -44,8 +46,9 @@ WRONG_IMG_FILE_PATH = join(CURRENT_DIR, "./images/wrong.png")
 # Text constants
 LANG_FRONT = "Esperanto"
 LANG_BACK = "English"
-word_front = "bela"
-word_back = "lovely, beautiful"
+
+# Time constants
+FLIP_TIME = 3000    # Flip the card after 3 seconds
 
 # Language dictionary file path
 DATA_FILE_PATH = join(CURRENT_DIR, "./data/esperanto.csv")
@@ -58,6 +61,11 @@ try:
 except FileNotFoundError:
     print(f"\nError: Could not find data file at {DATA_FILE_PATH}.\n")
 
+# Current random word and translation.
+# Making these global variables because it's tricky trying to send parameters 
+# to repeating window.after() calls.
+cur_word = ""
+cur_translation = ""
 
 #=========================================
 # DATA FUNCTIONS
@@ -65,27 +73,51 @@ except FileNotFoundError:
 
 def get_random_word():
     """Get a new random word from DATA and show it on the flashcard."""
+    global cur_word, cur_translation
 
     try:
         rand_word = random.choice(list(DATA))
-        print(f"\nNew word: {rand_word[LANG_FRONT]}, meaning: {rand_word[LANG_BACK]}")
+        cur_word = rand_word[LANG_FRONT]
+        cur_translation = rand_word[LANG_BACK]
 
-        show_word(rand_word[LANG_FRONT], LANG_FRONT)
+        print(f"\nNew word: {cur_word}, meaning: {cur_translation}")
+
+        show_word()
 
     except IndexError:
         print(f"\nIndex Error: Could not get a new random {LANG_FRONT} word.")
+        cur_word = ""
+        cur_translation = ""
 
     except KeyError:
         print(f"\nKey Error: Could not get a new random {LANG_FRONT} word.")
+        cur_word = ""
+        cur_translation = ""
 
 #=========================================
 # UI FUNCTIONS
 #=========================================
 
-def show_word(word, lang):
-    """Show the given word and language on the flashcard."""
-    canvas.itemconfig(lang_text, text=lang)
-    canvas.itemconfig(word_text, text=word)
+def show_word():
+    """Show the current word and language on the front of the flashcard."""
+    global cur_word
+
+    # Show the word to learn on the card.
+    canvas.itemconfig(flashcard_canvas_img, image=flashcard_front_img)
+    canvas.itemconfig(lang_text, text=LANG_FRONT, fill=TEXT_FRONT_COLOR)
+    canvas.itemconfig(word_text, text=cur_word, fill=TEXT_FRONT_COLOR)
+
+    # Set a timer to flip the card after a short delay.
+    window.after(FLIP_TIME, func=flip_card)
+
+
+def flip_card():
+    """After a short delay, flip the card and show the English translation."""
+    global cur_translation
+
+    canvas.itemconfig(flashcard_canvas_img, image=flashcard_back_img)
+    canvas.itemconfig(lang_text, text=LANG_BACK, fill=TEXT_BACK_COLOR)
+    canvas.itemconfig(word_text, text=cur_translation, fill=TEXT_BACK_COLOR)
 
 #=========================================
 # SET UP UI AND WIDGETS
@@ -97,20 +129,22 @@ window.title("Flash Cards")
 window.minsize(width=CANVAS_WIDTH, height=CANVAS_HEIGHT)
 window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
 
+# Set a timer to flip the card after a short delay.
+window.after(FLIP_TIME, func=flip_card)
+
 # Get the flashcard images.
 flashcard_front_img = tk.PhotoImage(file=FLASHCARD_FRONT_IMG_FILE_PATH)
 flashcard_back_img = tk.PhotoImage(file=FLASHCARD_BACK_IMG_FILE_PATH)
 
 # Add the flashcard image to the center of the window.
 canvas = tk.Canvas(width=CANVAS_WIDTH, height=CANVAS_HEIGHT, bg=BACKGROUND_COLOR, highlightthickness=0)
-canvas.create_image(FLASHCARD_IMG_X, FLASHCARD_IMG_Y, image=flashcard_front_img)
-canvas.grid(row=0, column=0, columnspan=2)
+flashcard_canvas_img = canvas.create_image(FLASHCARD_IMG_X, FLASHCARD_IMG_Y, image=flashcard_front_img)
 
 # Write the current language over the card.
-lang_text = canvas.create_text(LANG_LABEL_X, LANG_LABEL_Y, text="", fill="black", font=FONT_LANG_LABEL)
+lang_text = canvas.create_text(LANG_LABEL_X, LANG_LABEL_Y, text="", fill=TEXT_FRONT_COLOR, font=FONT_LANG_LABEL)
 
 # Write the current word over the card.
-word_text = canvas.create_text(WORD_LABEL_X, WORD_LABEL_Y, text="", fill="black", font=FONT_WORD_LABEL)
+word_text = canvas.create_text(WORD_LABEL_X, WORD_LABEL_Y, text="", fill=TEXT_FRONT_COLOR, font=FONT_WORD_LABEL)
 
 # Add the canvas to the grid.
 canvas.grid(row=0, column=0, columnspan=2)
