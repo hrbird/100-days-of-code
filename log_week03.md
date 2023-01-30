@@ -71,9 +71,10 @@
 - "100 Days of Python" Udemy class: completed day 29.
 - Continued playing around with using pandas and dictionaries to group and summarize the data in StormEvents_2022.csv.
 
-**Storm Events Project**:
+**Storm and Extreme Weather Events Project**:
 - **weather_events/storms_2022.py**: A program that shows storm and extreme weather event data for 2022. It groups the data by the event type (such as Tornado, Excessive Heat, Flood, Wildfire, Tsunami, etc.), then by state. For each event type, it displays a table showing each state's total number of events, injuries, and deaths for 2022. The rows are sorted from the most events to the fewest events.<br />
-  ![img](/screenshots/017_storms0.jpg) ![img](/screenshots/017_storms1.jpg) ![img](/screenshots/017_storms2.jpg)
+  ![img](/screenshots/017_storms0.jpg) ![img](/screenshots/017_storms1.jpg)<br /> 
+  ![img](/screenshots/017_storms2.jpg) ![img](/screenshots/017_storms3.jpg)
 
 **Password Manager Project**:
 - **password_manager/main.py**: Program that stores usernames and passwords for various sites. It shows a form for the user to enter a new set of account information: the name of the website, the email/username, and the password. There is a button to generate a random secure password, if needed. If the user clicks the Add button at the bottom, this account information is written to a text file.
