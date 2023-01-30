@@ -100,7 +100,11 @@ def get_random_word():
 
 def show_word():
     """Show the current word and language on the front of the flashcard."""
-    global cur_word
+    global cur_word, flip_timer
+
+    # Cancel the old flip timer, if the user clicked to the next card before 
+    # the previous one flipped.
+    window.after_cancel(flip_timer)
 
     # Show the word to learn on the card.
     canvas.itemconfig(flashcard_canvas_img, image=flashcard_front_img)
@@ -108,7 +112,7 @@ def show_word():
     canvas.itemconfig(word_text, text=cur_word, fill=TEXT_FRONT_COLOR)
 
     # Set a timer to flip the card after a short delay.
-    window.after(FLIP_TIME, func=flip_card)
+    flip_timer = window.after(FLIP_TIME, func=flip_card)
 
 
 def flip_card():
@@ -130,7 +134,7 @@ window.minsize(width=CANVAS_WIDTH, height=CANVAS_HEIGHT)
 window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
 
 # Set a timer to flip the card after a short delay.
-window.after(FLIP_TIME, func=flip_card)
+flip_timer = window.after(FLIP_TIME, func=flip_card)
 
 # Get the flashcard images.
 flashcard_front_img = tk.PhotoImage(file=FLASHCARD_FRONT_IMG_FILE_PATH)
