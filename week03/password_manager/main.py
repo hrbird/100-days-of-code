@@ -11,6 +11,7 @@ from os.path import dirname, join
 import random
 import tkinter as tk
 from tkinter import messagebox
+import json
 
 #=========================================
 # CONSTANTS
@@ -39,7 +40,7 @@ CURRENT_DIR = dirname(__file__)
 MYPASS_IMG_FILE_PATH = join(CURRENT_DIR, "./logo.png")
 
 # Account data text file path
-DATA_TXT_FILE_PATH = join(CURRENT_DIR, "./data.txt")
+DATA_JSON_FILE_PATH = join(CURRENT_DIR, "./data.json")
 
 # X and Y positions for items on the canvas
 MYPASS_IMG_X = CANVAS_WIDTH/2
@@ -99,22 +100,35 @@ def add_info():
     username = username_entry.get()
     password = password_entry.get()
 
+    new_data = {
+        website: {
+            "username": username,
+            "password": password
+        }
+    }
+
     details_str = f"These are the details entered:\nEmail/Username: {username}\nPassword: {password}\n\nDo you want to save this account?"
 
     # If all the fields have some text in them, add the data.
     if len(website) > 0 and len(username) > 0 and len(password) > 0:
 
-        # Show a pop-up message asking the user to confirm they want to save the data.
-        is_ok = messagebox.askokcancel(title=website, message=details_str)
+        try:
+            # Open the data txt file read the data that's already inside it.
+            with open(DATA_JSON_FILE_PATH, "r") as data_file:
+                data = json.load(data_file)
+                data.update(new_data)
 
-        if is_ok:
-            # Format the data into a string.
-            data_str = f"{website}, {username}, {password}\n"
+        except FileNotFoundError:
+            # If the file does not exist, create it and write the new data to it.
+            with open(DATA_JSON_FILE_PATH, "w") as data_file:
+                json.dump(new_data, data_file, indent=4)
 
-            # Open the data txt file and write the string to it.
-            with open(DATA_TXT_FILE_PATH, "a") as f:
-                f.write(data_str)
+        else:
+            # If the data txt file already exists, write the new data to it.
+            with open(DATA_JSON_FILE_PATH, "w") as data_file:
+                json.dump(data, data_file, indent=4)
 
+        finally:
             # Clear the text entry forms.
             website_entry.delete(0, tk.END)
             password_entry.delete(0, tk.END)
@@ -125,6 +139,46 @@ def add_info():
     else:
         # Show a pop-up message telling the user that all fields need to be filled out.
         messagebox.showerror(title="Error", message="Please fill out all of the fields.")
+
+#=========================================
+# SEARCH FOR WEBSITE
+#=========================================
+
+def search_for_website():
+    """Searches the data file for a given website to see if the user has already saved that account.
+    Shows a popup message with either the account info or a message that the account was not found."""
+
+    # Get the text entered in the website_entry box.
+    website = website_entry.get()
+
+    new_message = ""
+
+    # If the field has some text in it, add the data.
+    if len(website) == 0:
+        new_message = "Please enter a website to search for."
+
+    else:
+        try:
+            # Open the data txt file read the data that's already inside it.
+            with open(DATA_JSON_FILE_PATH, "r") as data_file:
+                data = json.load(data_file)
+                
+                # Search for the given website.
+                try:
+                    account_info = data[website]
+                    username = account_info["username"]
+                    password = account_info["password"]
+                except KeyError:
+                    new_message = f"No account information for {website} was found in the data file."
+                else:
+                    new_message = f"Account information for {website}:\nUsername: {username}\nPassword: {password}"
+
+        except FileNotFoundError:
+            # If the file does not exist, tell the user it was not found.
+            new_message = "No data file found."
+
+    if len(new_message) > 0:
+        messagebox.showinfo(title="Account Information", message=new_message)
 
 #=========================================
 # SET UP UI AND WIDGETS
@@ -149,9 +203,13 @@ website_label = tk.Label(text="Website:", fg="black", bg="white")
 website_label.grid(row=1, column=0)
 
 # Create a website entry box.
-website_entry = tk.Entry(width=50)
+website_entry = tk.Entry(width=32)
 website_entry.focus()
-website_entry.grid(row=1, column=1, columnspan=2)
+website_entry.grid(row=1, column=1)
+
+# Create a "Search" button that calls search_for_website() when pressed.
+generate_password_button = tk.Button(text="Search", command=search_for_website, bg="white", width=14)
+generate_password_button.grid(row=1, column=2) 
 
 # Create an "Email/Username" label.
 username_label = tk.Label(text="Email/Username:", fg="black", bg="white")
@@ -171,7 +229,7 @@ password_entry = tk.Entry(width=32)
 password_entry.grid(row=3, column=1)
 
 # Create a "Generate Password" button that calls generate_password() when pressed.
-generate_password_button = tk.Button(text="Generate Password", command=generate_password, bg="white")
+generate_password_button = tk.Button(text="Generate Password", command=generate_password, bg="white", width=14)
 generate_password_button.grid(row=3, column=2) 
 
 # Create an "Add" button that calls add_info() when pressed.
