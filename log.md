@@ -17,6 +17,32 @@
 
 -----
 
+## Day 18. Exception Handling and JSON
+### January 29, 2023 (Week 3)
+
+**Today's Progress**: 
+- "100 Days of Python" Udemy class: completed day 30.
+- Learned about error handling and catching exceptions in Python with the try-except-else-finally clause. 
+- Went back to the Nato Alphabet program from week 2 to add exception handling.
+- Updated yesterday's Password Manager program to use a JSON file for data storage, exception handling, and a website Search button.
+
+**Programs**:
+- **small_python_projects/exception_handling.py**: A program that demonstrates how to handle FileNotFound exceptions/errors whenever you open a file in Python.<br />
+  ![img](/screenshots/018_filenotfound0.jpg) ![img](/screenshots/018_filenotfound1.jpg)
+- **small_python_projects/index_error.py**: A program that demonstrates how to handle IndexError exceptions/errors.
+- **week02/nato_alphabet/main.py**: Went back to the nato_alphabet project from week 2 and added exception handling for FileNotFoundError exceptions (when opening the nato_alphabet.csv file) and KeyError exceptions (if a given alphabetic letter was not found in the dictionary, such as letters with accent symbols).<br />
+  ![img](/screenshots/018_nato0.jpg)
+
+**Password Manager Project**:
+- **password_manager/main.py**: Updated the program to store the account data in a JSON file, instead of a txt file. Also added exception handling when reading and writing from the file so there will be no FileNotFoundErrors. I also added a Search button that will search the data file to see if the user has already stored a password for a website. If so, it shows a message with the saved account information.
+- **password_manager/logo.png**: "MyPass" image that is displayed on the screen.
+- **password_manager/data.txt**: Stores the saved account data. Each line is comma-delineated and has the website name, email/username, and password for each account.<br />
+  ![img](/screenshots/018_password0.jpg) ![img](/screenshots/018_password1.jpg)
+
+**Thoughts:** I had been using my own ways of trying to catch and prevent errors by cleaning/validating input, but using a try-except clause is so much better. I will try my best to use this in all projects from now on!
+
+-----
+
 ## Day 17. Tkinter and Pandas: Storm Events and Password Manager Projects
 ### January 28, 2023 (Week 3)
 
@@ -36,7 +62,7 @@
   ![img](/screenshots/017_password2.jpg) ![img](/screenshots/017_password3.jpg)<br />
   ![img](/screenshots/017_password4.jpg) ![img](/screenshots/017_password5.jpg) 
 
-**Thoughts:** 
+**Thoughts:** Getting faster and more comfortable with these libraries with every project!
 
 -----
 
