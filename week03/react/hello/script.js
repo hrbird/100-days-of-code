@@ -2,13 +2,11 @@
 // Creates a navigation bar for the top of a page.
 function Navbar() {
     return (
-        <nav>
-            <h1>Website Name</h1>
-            <ul>
-                <li>Pricing</li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
+        <nav className="nav_bar">
+            <a href="#">Website Name</a> |&nbsp;
+            <a href="#">About</a> |&nbsp;
+            <a href="https://reactjs.org">React</a> |&nbsp;
+            <a href="#">Contact</a>
         </nav>
     )
 }
@@ -23,12 +21,20 @@ function MainContent() {
     )
 }
 
-// Creates an unordered list of fruit.
-function FruitList() {
+// Creates an unordered list of companies that use React.
+function ReactCompaniesList() {
     return (
-        <div className="fruits_list">
-            Fruits:<br />
-            <ul><li>apples</li><li>bananas</li><li>cherries</li></ul>
+        <div className="companies_list">
+            <strong>Companies that use React:</strong>
+            <br />
+            <ul>
+                <li>Netlix</li>
+                <li>Meta/Facebook</li>
+                <li>The New York Times</li>
+                <li>Dropbox</li>
+                <li>Airbnb</li>
+                <li>Uber</li>
+            </ul>
         </div>
     )
 }
@@ -41,6 +47,6 @@ root.render(
     <div>
         <Navbar />
         <MainContent />
-        <FruitList />
+        <ReactCompaniesList />
     </div>
 )
