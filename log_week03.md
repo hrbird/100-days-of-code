@@ -4,7 +4,7 @@
 -----
 
 ## Day X. Daily Template
-### January X, 2023 (Week Y)
+### February X, 2023
 
 **Today's Progress**: 
 - 
@@ -17,8 +17,36 @@
 
 -----
 
+## Day 21. X
+### February 1, 2023
+
+**Today's Progress**: 
+- 
+
+**Programs**:
+- **x.py**: X.<br />
+  ![img](/screenshots/.jpg)
+
+**Thoughts:** 
+
+-----
+
+## Day 20. React and JSX Libraries
+### January 31, 2023
+
+**Today's Progress**: 
+- Started the "Learn React for Free" course on Scrimba. Completed Section 1, lessons 1-
+
+**Programs**:
+- **x.py**: X.<br />
+  ![img](/screenshots/.jpg)
+
+**Thoughts:** I decided to spend today looking into React out of curiosity, since I've seen it's a very popular cross-platform library right now. Thankfully, it wasn't as difficult to start getting into as I had feared, and I found a nice free course. It's nice to be able to easily create HTML elements inside different functions and add them to the page without all of the messy node.appendChild() calls in standard JavaScript.
+
+-----
+
 ## Day 19. Flash Card Capstone Project
-### January 30, 2023 (Week 3)
+### January 30, 2023
 
 **Today's Progress**: 
 - "100 Days of Python" Udemy class: completed day 31.
@@ -39,7 +67,7 @@
 -----
 
 ## Day 18. Exception Handling and JSON
-### January 29, 2023 (Week 3)
+### January 29, 2023
 
 **Today's Progress**: 
 - "100 Days of Python" Udemy class: completed day 30.
@@ -65,7 +93,7 @@
 -----
 
 ## Day 17. Tkinter and Pandas: Storm Events and Password Manager Projects
-### January 28, 2023 (Week 3)
+### January 28, 2023
 
 **Today's Progress**: 
 - "100 Days of Python" Udemy class: completed day 29.
@@ -89,7 +117,7 @@
 -----
 
 ## Day 16. Tkinter and Pandas: Pomodoro Timer and Tornado Data Projects
-### January 27, 2023 (Week 3)
+### January 27, 2023
 
 **Today's Progress**: 
 - "100 Days of Python" Udemy class: completed day 28.
@@ -106,12 +134,12 @@
 - **weather_events/StormEvents_2022.csv**: Storm event data for 2022 in the United States.<br />
   ![img](/screenshots/016_tornadoes.jpg)
 
-**Thoughts:** Getting more familiar with both tkinter and pandas. The pomodoro project was an exercise from the Udemy class, but the tornado project was something I came up with, just out of curiosity. I might see if I can add more years to it tomorrow.
+**Thoughts:** Getting more familiar with both tkinter and pandas. The pomodoro project was an exercise from the Udemy class, but the tornado project was something I came up with, just out of curiosity. I might see if I can play with this more tomorrow.
 
 -----
 
 ## Day 15. Tkinter Widgets and Grid Layout
-### January 26, 2023 (Week 3)
+### January 26, 2023
 
 **Today's Progress**: 
 - "100 Days of Python" Udemy class: completed day 27.
