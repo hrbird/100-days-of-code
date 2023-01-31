@@ -28,7 +28,7 @@ function ReactCompaniesList() {
             <strong>Companies that use React:</strong>
             <br />
             <ul>
-                <li>Netlix</li>
+                <li>Netflix</li>
                 <li>Meta/Facebook</li>
                 <li>The New York Times</li>
                 <li>Dropbox</li>
