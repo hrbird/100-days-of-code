@@ -4,7 +4,7 @@ function Header() {
     return (
         <header>
             <nav className="nav-bar">
-                <img className="nav-logo" src="./react-logo.png" />
+                <img className="nav-logo" src="./images/react-logo-small.png" />
                 <h3 className="nav-site">ReactFacts</h3>
                 <h4 className="nav-title">React Course - Project 1</h4>
             </nav>
@@ -22,7 +22,7 @@ function MainContent() {
                 <li>Originally created by Jordan Walke</li>
                 <li>Has well over 100K stars on GitHub</li>
                 <li>Currently is maintained by Meta</li>
-                <li>Powers thousands of enterprise websites and mobile apps, including:</li>
+                <li>Powers thousands of enterprise websites and mobile apps,<br />including:</li>
                 <ul className="list-companies">
                     <li>Netflix</li>
                     <li>Meta/Facebook</li>
