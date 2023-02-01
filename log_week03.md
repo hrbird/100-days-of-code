@@ -35,13 +35,17 @@
 ### January 31, 2023
 
 **Today's Progress**: 
-- Started the "Learn React for Free" course on Scrimba. Completed Section 1, lessons 1-
+- Started the "Learn React for Free" course on Scrimba. Completed Section 1, lessons 1 through 29.
+- Learned the basics of how to create HTML elements and add them to the page using React and JSX.
+- (Note: Learned about Netlify, a free site to deploy and show React projects on the web. Look into this later.)
 
-**Programs**:
-- **x.py**: X.<br />
-  ![img](/screenshots/.jpg)
+**Projects**:
+- **react/hello/\***: A simple web page that uses React and JSX to create some HTML elements.<br />
+  ![img](/screenshots/020_react_hello.jpg)
+- **react/react_facts/\***: A page that shows some facts about React, with some basic CSS styling.<br />
+  ![img](/screenshots/020_react_facts.jpg)
 
-**Thoughts:** I decided to spend today looking into React out of curiosity, since I've seen it's a very popular cross-platform library right now. Thankfully, it wasn't as difficult to start getting into as I had feared, and I found a nice free course. It's nice to be able to easily create HTML elements inside different functions and add them to the page without all of the messy node.appendChild() calls in standard JavaScript.
+**Thoughts:** I decided to spend today looking into React out of curiosity, since I've seen it's a very popular cross-platform library right now. Thankfully, it wasn't as difficult to start getting into as I had feared, and I found a nice free course. It's nice to be able to easily create HTML elements inside different functions and add them to the page without all of the messy node.appendChild() calls in standard JavaScript. CSS is still a hassle though.
 
 -----
 
