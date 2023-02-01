@@ -1,44 +1,48 @@
 
-// Creates a navigation bar for the top of a page.
-function Navbar() {
+// Create a navigation bar for the top of a page.
+function Header() {
     return (
-        <nav className="nav_bar">
-            <img src="./react-logo.png" width="40px" />
-            <a href="#">ReactFacts</a>
-            <a href="#">React Course - Project 1</a>
-        </nav>
+        <header>
+            <nav className="nav-bar">
+                <img className="nav-logo" src="./react-logo.png" />
+                <h3 className="nav-site">ReactFacts</h3>
+                <h4 className="nav-title">React Course - Project 1</h4>
+            </nav>
+        </header>
     )
 }
 
 // Creates the main content of the page.
 function MainContent() {
     return (
-        <div className="main_content">
-            <h1>Fun facts about React</h1>
-            <ul>
+        <main className="main-content">
+            <h1 className="main-title">Fun facts about React</h1>
+            <ul className="list-facts">
                 <li>First released in 2013</li>
                 <li>Originally created by Jordan Walke</li>
                 <li>Has well over 100K stars on GitHub</li>
                 <li>Currently is maintained by Meta</li>
-                <li>Powers thousands of enterprise websites and mobile apps</li>
+                <li>Powers thousands of enterprise websites and mobile apps, including:</li>
+                <ul className="list-companies">
+                    <li>Netflix</li>
+                    <li>Meta/Facebook</li>
+                    <li>The New York Times</li>
+                    <li>Dropbox</li>
+                    <li>Airbnb</li>
+                    <li>Uber</li>
+                </ul>
             </ul>
-        </div>
+        </main>
     )
 }
 
-// Creates an unordered list of companies that use React.
-function ReactCompaniesList() {
+
+// Put all of the page content into one div.
+function App() {
     return (
-        <div className="companies_list">
-            <h1>Companies that use React:</h1>
-            <ul>
-                <li>Netlix</li>
-                <li>Meta/Facebook</li>
-                <li>The New York Times</li>
-                <li>Dropbox</li>
-                <li>Airbnb</li>
-                <li>Uber</li>
-            </ul>
+        <div>
+            <Header />
+            <MainContent />
         </div>
     )
 }
@@ -48,9 +52,5 @@ const root = ReactDOM.createRoot(document.getElementById("root"))
 
 // Add the content to the page.
 root.render(
-    <div>
-        <Navbar />
-        <MainContent />
-        <ReactCompaniesList />
-    </div>
+    <App />
 )
