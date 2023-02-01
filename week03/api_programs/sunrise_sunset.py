@@ -4,6 +4,18 @@
 import requests
 from geopy.geocoders import Nominatim
 
+# ASCII art courtesy of Joan Stark, https://www.asciiart.eu/nature/sunset
+SUNSET_ART = """
+                        |
+                    \       /
+                      .-"-.
+                 --  /     \  --
+`~~^~^~^~^~^~^~^~^~^-=======-~^~^~^~~^~^~^~^~^~^~^~`
+`~^_~^~^~-~^_~^~^_~-=========- -~^~^~^-~^~^_~^~^~^~`
+`~^~-~~^~^~-^~^_~^~~ -=====- ~^~^~-~^~_~^~^~~^~-~^~`
+`~^~^~-~^~~^~-~^~~-~^~^~-~^~~^-~^~^~^-~^~^~^~^~~^~-`
+"""
+
 def get_sunrise_sunset_times(latitude, longitude, location_name):
     """Get today's sunrise and sunset times for a given location.
 
@@ -34,10 +46,12 @@ def get_sunrise_sunset_times(latitude, longitude, location_name):
         print(f"Day length: {data['day_length']} hours")
 
     else:
-        print(f"Error getting data for the location {location_name}...")
+        print(f"\nError getting data for the given location {location_name}...")
 
 def main():
-    print("Welcome to the Sunrise-Sunset Times program.")
+    #print("\n 🌞 Welcome to the Sunrise-Sunset Times program! 🌙")
+    print("\n ☀  Welcome to the Sunrise-Sunset Times program!  ☽")
+    print(SUNSET_ART)
 
     quit_program = False
     while not quit_program:
@@ -52,10 +66,15 @@ def main():
             # Get the lat/long data for the given location.
             geolocator = Nominatim(user_agent="sunrise-sunset")
             location = geolocator.geocode(input_str)
-            my_lat = location.latitude
-            my_long = location.longitude
 
-            get_sunrise_sunset_times(my_lat, my_long, location.address)
+            if location != None:
+                my_lat = location.latitude
+                my_long = location.longitude
+
+                get_sunrise_sunset_times(my_lat, my_long, location.address)
+
+            else:
+                print(f"\nError getting data for the given location {input_str}...")
 
 if __name__ == "__main__":
     main()
