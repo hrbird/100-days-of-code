@@ -6,6 +6,7 @@ body {
     margin: 0;
     height: 100vh;
     font-family: "Inter", Verdana, Helvetica, sans-serif;
+    background-color: #282D35;
 }
 
 #root {
@@ -46,6 +47,11 @@ body {
 .main-content {
     background-color: #282D35;
     padding: 57px 27px;
+    background-image: url(./images/react-logo-bg.png);
+    background-size: 150px;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: 75%;
 }
 
 .main-title {
@@ -56,9 +62,22 @@ body {
 .list-facts {
     color: #DEEBF8;
     line-height: 24px;
+    padding-block: 10px;
+    list-style-type: disc;
+}
+
+.list-facts > li::marker {
+    font-size: 1.4rem;
+    color: #61DAFB;
 }
 
 .list-companies {
     color: #61DAFB;
     font-weight: 600;
+    list-style-type: square;
+}
+
+.list-companies > li::marker {
+    font-size: 1.4rem;
+    color: white;
 }
