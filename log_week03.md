@@ -17,22 +17,23 @@
 
 -----
 
-## Day 21. APIs
+## Day 21. API Requests and Datetime Formatting
 ### February 1, 2023
 
 **Today's Progress**: 
 - "100 Days of Python" Udemy class: completed day 33.
 - Learned about APIs (Application Programming Interfaces) and how to use API requests to get live data from external systems, such as the current location of the International Space Station or the Sunrise/Sunset times for a given location and date.
 - Installed and learned how to use the Requests library in Python to handle API requests.
-- Also installed the Geopy library to get longitude and latitude coordinates from city names.
+- Also installed the Geopy library to get longitude and latitude coordinates from city names (and vice versa).
+- Also learned how to use strftime() to format dates and times.
 
 **Programs**:
-- **api_programs/iss.py**: X.<br />
-  ![img](/screenshots/.jpg)
-- **api_programs/sunrise_sunset.py**: Shows today's sunrise and sunset times for the given location, as well as the day length in hours.<br />
+- **api_programs/iss.py**: A program that gets the current location of the International Space Station. Every 5 seconds, it uses an API request to get the current latitude/longitude of the ISS and prints which location on Earth it is currently flying over.<br />
+  ![img](/screenshots/021_iss.jpg)<br />![img](/screenshots/021_iss0.jpg)<br />![img](/screenshots/021_iss1.jpg)<br />![img](/screenshots/021_iss2.jpg)
+- **api_programs/sunrise_sunset.py**: A program that shows today's sunrise and sunset times for the given location, as well as the day length in hours.<br />
   ![img](/screenshots/021_sun0.jpg) ![img](/screenshots/021_sun1.jpg)
 
-**Thoughts:** 
+**Thoughts:** I had expected API requests to be a lot more intimidating, but learning how to use them was pretty simple in Python, since the Requests library handles the difficult parts.
 
 -----
 
