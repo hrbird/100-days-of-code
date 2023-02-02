@@ -1,17 +1,65 @@
 # A program that gets the current location of the International Space Station
 # using an API request. It uses the geopy library to show the nearest city.
 
+import time
 import requests
+from geopy.geocoders import Nominatim
 
-# Get live data from the ISS API.
-response_iss = requests.get(url="http://api.open-notify.org/iss-now.json")
+SPACE_ART = """
 
-# If there was an API error, print it to the console.
-response_iss.raise_for_status()
+"""
 
-# Get the current latitude and longitude of the ISS.
-iss_data = response_iss.json()
-iss_latitude = iss_data["iss_position"]["latitude"]
-iss_longitude = iss_data["iss_position"]["longitude"]
-print(f"lat: {iss_latitude}, long: {iss_longitude}")
+def get_iss_location():
+    """Get the current location of the ISS."""
+    # Get live data from the ISS API.
+    response_iss = requests.get(url="http://api.open-notify.org/iss-now.json")
 
+    # If there was an API error, print it to the console.
+    response_iss.raise_for_status()
+
+    # Get the current latitude and longitude of the ISS.
+    iss_data = response_iss.json()
+    iss_latitude = iss_data["iss_position"]["latitude"]
+    iss_longitude = iss_data["iss_position"]["longitude"]
+    iss_loc_str = f"{iss_latitude}, {iss_longitude}"
+
+    # Get the nearest city to these coordinates.
+    geolocator = Nominatim(user_agent="iss-location")
+    location = geolocator.reverse(iss_loc_str)
+
+    # Print the current time in 12-hr format ("12:34:15 PM").
+    t = time.localtime()
+    current_time = time.strftime("%I:%M:%S %p", t)
+    print(f"\n{current_time}")
+
+    if location != None:
+        print(f"The ISS is currently over {location.address}.")
+    else:
+        print(f"The ISS is currently over the ocean.")
+
+    
+    print(f"lat, long: {iss_loc_str}")
+
+
+def main():
+    print("\n ☀  International Space Station  ☽")
+    print(SPACE_ART)
+
+    quit_program = False
+    while not quit_program:
+
+        time.sleep(5)
+        get_iss_location()
+
+        # input_str = input("\nPlease enter X, or Q to quit:\n> ")
+
+        # if input_str.upper() == "Q":
+        #     print("\nGoodbye!\n")
+        #     quit_program = True
+
+        # else:            
+        #     get_iss_location()
+
+if __name__ == "__main__":
+    main()
+    
