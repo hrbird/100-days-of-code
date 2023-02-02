@@ -1,6 +1,7 @@
 # A program that gets the current location of the International Space Station
 # using an API request. It uses the geopy library to show the nearest city.
 
+import datetime
 import time
 import requests
 from geopy.geocoders import Nominatim
@@ -28,9 +29,10 @@ def get_iss_location():
     location = geolocator.reverse(iss_loc_str)
 
     # Print the current time in 12-hr format ("12:34:15 PM").
+    current_day = datetime.date.today().strftime("%b %d, %Y")
     t = time.localtime()
-    current_time = time.strftime("%I:%M:%S %p", t)
-    print(f"\n{current_time}")
+    current_time = time.strftime("%I:%M:%S %p (%Z)", t)
+    print(f"\n{current_day} - {current_time}")
 
     if location != None:
         print(f"The ISS is currently over {location.address}.")
@@ -38,7 +40,7 @@ def get_iss_location():
         print(f"The ISS is currently over the ocean.")
 
     
-    print(f"lat, long: {iss_loc_str}")
+    print(f"(Latitude: {iss_latitude}, Longitude: {iss_longitude})")
 
 
 def main():
