@@ -74,7 +74,7 @@ def main():
                 get_sunrise_sunset_times(my_lat, my_long, location.address)
 
             else:
-                print(f"\nError getting data for the given location {input_str}...")
+                print(f"\nError getting data for the given location:\n{input_str}")
 
 if __name__ == "__main__":
     main()
