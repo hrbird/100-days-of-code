@@ -16,7 +16,7 @@ SPACE_ART = """
 | '`. (`     /` ` \` |  ☀  International Space Station  ☽
 |:.  `\`-.   \_   /  |           Location Tracker
 |     (   `,  .`\ ;' |
- \     | .'     `-' /
+ \     | .'     `-' /    (Press Ctrl+C to end the program)
   `.   ;/         .'
     `'-._______. '
 """
@@ -53,7 +53,6 @@ def get_iss_location():
 
     print(f"(Latitude: {iss_latitude}, Longitude: {iss_longitude})")
 
-
 def main():
     print("\n")
     print(SPACE_ART)
@@ -64,15 +63,5 @@ def main():
         time.sleep(5)
         get_iss_location()
 
-        # input_str = input("\nPlease enter X, or Q to quit:\n> ")
-
-        # if input_str.upper() == "Q":
-        #     print("\nGoodbye!\n")
-        #     quit_program = True
-
-        # else:            
-        #     get_iss_location()
-
 if __name__ == "__main__":
     main()
-    
