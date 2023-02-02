@@ -3,20 +3,6 @@
 
 -----
 
-## Day X. Daily Template
-### February X, 2023
-
-**Today's Progress**: 
-- 
-
-**Programs**:
-- **x.py**: X.<br />
-  ![img](/screenshots/.jpg)
-
-**Thoughts:** 
-
------
-
 ## Day 21. API Requests and Datetime Formatting
 ### February 1, 2023
 
