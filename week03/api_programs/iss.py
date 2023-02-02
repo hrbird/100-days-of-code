@@ -1,7 +1,7 @@
 # A program that gets the current location of the International Space Station.
 
 # Every 5 seconds, it uses an API request to get the current latitude/longitude 
-# of the ISS and prints which location it is currently flying over.
+# of the ISS and prints which location on Earth it is currently flying over.
 
 import datetime
 import time
@@ -9,7 +9,16 @@ import requests
 from geopy.geocoders import Nominatim
 
 SPACE_ART = """
-
+        _____
+    ,-:` \;',`'-, 
+  .'-;_,;  ':-;_, '.
+ /;   '/    ,  _`.- \\
+| '`. (`     /` ` \` |  ☀  International Space Station  ☽
+|:.  `\`-.   \_   /  |           Location Tracker
+|     (   `,  .`\ ;' |
+ \     | .'     `-' /
+  `.   ;/         .'
+    `'-._______. '
 """
 
 def get_iss_location():
@@ -46,7 +55,7 @@ def get_iss_location():
 
 
 def main():
-    print("\n ☀  International Space Station  ☽")
+    print("\n")
     print(SPACE_ART)
 
     quit_program = False
