@@ -1,5 +1,7 @@
-# A program that gets the current location of the International Space Station
-# using an API request. It uses the geopy library to show the nearest city.
+# A program that gets the current location of the International Space Station.
+
+# Every 5 seconds, it uses an API request to get the current latitude/longitude 
+# of the ISS and prints which location it is currently flying over.
 
 import datetime
 import time
@@ -26,7 +28,8 @@ def get_iss_location():
 
     # Get the nearest city to these coordinates.
     geolocator = Nominatim(user_agent="iss-location")
-    location = geolocator.reverse(iss_loc_str)
+    location_nativelang = geolocator.reverse(iss_loc_str)
+    location_eng = geolocator.reverse(iss_loc_str, language='en')
 
     # Print the current time in 12-hr format ("12:34:15 PM").
     current_day = datetime.date.today().strftime("%b %d, %Y")
@@ -34,12 +37,11 @@ def get_iss_location():
     current_time = time.strftime("%I:%M:%S %p (%Z)", t)
     print(f"\n{current_day} - {current_time}")
 
-    if location != None:
-        print(f"The ISS is currently over {location.address}.")
+    if location_eng != None:
+        print(f"The ISS is currently over {location_eng.address}.")
     else:
         print(f"The ISS is currently over the ocean.")
 
-    
     print(f"(Latitude: {iss_latitude}, Longitude: {iss_longitude})")
 
 
