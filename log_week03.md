@@ -17,15 +17,20 @@
 
 -----
 
-## Day 21. X
+## Day 21. APIs
 ### February 1, 2023
 
 **Today's Progress**: 
-- 
+- "100 Days of Python" Udemy class: completed day 33.
+- Learned about APIs (Application Programming Interfaces) and how to use API requests to get live data from external systems, such as the current location of the International Space Station or the Sunrise/Sunset times for a given location and date.
+- Installed and learned how to use the Requests library in Python to handle API requests.
+- Also installed the Geopy library to get longitude and latitude coordinates from city names.
 
 **Programs**:
-- **x.py**: X.<br />
+- **api_programs/iss.py**: X.<br />
   ![img](/screenshots/.jpg)
+- **api_programs/sunrise_sunset.py**: Shows today's sunrise and sunset times for the given location, as well as the day length in hours.<br />
+  ![img](/screenshots/021_sun0.jpg) ![img](/screenshots/021_sun1.jpg)
 
 **Thoughts:** 
 
@@ -36,7 +41,7 @@
 
 **Today's Progress**: 
 - Started the "Learn React for Free" course on Scrimba. Completed Section 1, lessons 1 through 29.
-- Learned the basics of how to create HTML elements and add them to the page using React and JSX.
+- Learned the basics of how to create HTML elements and add them to the page using React and JSX. Also reviewed HTML elements and CSS styling.
 - (Note: Learned about Netlify, a free site to deploy and show React projects on the web. Look into this later.)
 
 **Projects**:
@@ -45,7 +50,7 @@
 - **react/react_facts/\***: A page that shows some facts about React, with some basic CSS styling.<br />
   ![img](/screenshots/020_react_facts.jpg)
 
-**Thoughts:** I decided to spend today looking into React out of curiosity, since I've seen it's a very popular cross-platform library right now. Thankfully, it wasn't as difficult to start getting into as I had feared, and I found a nice free course. It's nice to be able to easily create HTML elements inside different functions and add them to the page without all of the messy node.appendChild() calls in standard JavaScript. CSS is still a hassle though.
+**Thoughts:** I decided to spend today looking into React out of curiosity, since I've seen it's a very popular cross-platform library right now. Thankfully, it wasn't as difficult to start getting into as I had feared, and I found a nice free course. It's nice to be able to easily create HTML elements inside different functions and add them to the page without all of the messy node.appendChild() calls in standard JavaScript.
 
 -----
 
