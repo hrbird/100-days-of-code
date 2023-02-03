@@ -1,0 +1,18 @@
+from question import Question
+from data import question_data
+from quiz_brain import QuizBrain
+
+# Fill the question_bank with Question objects using question_data.
+question_bank = []
+for q in question_data:
+    new_q = Question(q["question"], q["correct_answer"])
+    question_bank.append(new_q)
+
+
+def main():
+    # Create a QuizBrain object and pass it the question bank.
+    quiz = QuizBrain(question_bank)
+    quiz.show_quiz()
+
+if __name__ == "__main__":
+    main()
