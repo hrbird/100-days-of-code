@@ -2,8 +2,8 @@
 
 class QuizBrain:
     """The QuizBrain class, which manages the quiz. 
-    It asks the user the questions, checks if their answers 
-    are right, and checks if they reached the end of the quiz."""
+    It asks the user the questions and checks if their answers are right.
+    When all of the questions have been asked, it tells the user their score."""
     def __init__(self, questions_list):
         self.questions_list = questions_list # List of Question objects.
         self.cur_index = 0      # Int current index in the question list.
