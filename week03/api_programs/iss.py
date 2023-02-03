@@ -47,11 +47,12 @@ def get_iss_location():
     print(f"\n{current_day} - {current_time}")
 
     if location_eng != None:
-        print(f"The ISS is currently over {location_eng.address}.")
+        print(f"The ISS is currently over:\n{location_eng.address}\n{location_nativelang}")
     else:
         print(f"The ISS is currently over the ocean.")
 
     print(f"(Latitude: {iss_latitude}, Longitude: {iss_longitude})")
+
 
 def main():
     print("\n")
@@ -60,8 +61,9 @@ def main():
     quit_program = False
     while not quit_program:
 
-        time.sleep(5)
+        # Every 5 seconds, get the ISS's current location.
         get_iss_location()
+        time.sleep(5)
 
 if __name__ == "__main__":
     main()
