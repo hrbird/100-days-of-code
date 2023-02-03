@@ -47,7 +47,7 @@ def get_iss_location():
     print(f"\n{current_day} - {current_time}")
 
     if location_eng != None:
-        print(f"The ISS is currently over:\n{location_eng.address}\n{location_nativelang}")
+        print(f"The ISS is currently over {location_eng.address}.")
     else:
         print(f"The ISS is currently over the ocean.")
 
