@@ -56,12 +56,12 @@ class QuizInterface:
         self.window.minsize(width=MIN_WIDTH, height=MIN_HEIGHT)
         self.window.config(padx=20, pady=20, bg=THEME_COLOR)
 
-        # Create a "Q #" label to show the current question number.
+        # Create a "Question #" label to show the current question number.
         self.qnum_label = tk.Label(
             fg=WHITE_COLOR, 
             bg=THEME_COLOR, 
             font=SCORE_FONT, 
-            text="Q #1",
+            text="Question #1",
             justify="left"
         )
         self.qnum_label.grid(row=0, column=0)
@@ -129,7 +129,7 @@ class QuizInterface:
             
         else:
             # Update the question number.
-            qnum_str = f"Q #{self.quiz_brain.get_cur_question_num()}"
+            qnum_str = f"Question #{self.quiz_brain.get_cur_question_num()}"
             self.qnum_label.config(text=qnum_str)
 
             # Get the next question.
@@ -143,7 +143,7 @@ class QuizInterface:
         Checks whether this answer is correct or not.
         """
         is_correct = self.quiz_brain.check_answer(True)
-        self.give_feedback(is_correct)
+        self.give_feedback(user_answer=True, is_answer_correct=is_correct)
 
 
     def clicked_false(self):
@@ -152,15 +152,16 @@ class QuizInterface:
         Checks whether this answer is correct or not.
         """
         is_correct = self.quiz_brain.check_answer(False)
-        self.give_feedback(is_correct)
+        self.give_feedback(user_answer=False, is_answer_correct=is_correct)
 
 
-    def give_feedback(self, is_answer_correct: bool):
+    def give_feedback(self, user_answer: bool, is_answer_correct: bool):
         """Updates the score and makes the screen briefly flash:
             - Green if the user answers a question correctly
             - Red if the user answers a question incorrectly
 
         Args:
+            user_answer (bool): the answer the user clicked on
             is_answer_correct (bool): whether or not the user correctly answered a question
         """
 
@@ -168,16 +169,21 @@ class QuizInterface:
         score_str = f"Score: {self.quiz_brain.num_correct}"
         self.score_label.config(text=score_str)
 
-        # Make the screen flash green or red.
+        # Show the user's answer and whether it was correct/incorrect in the question text.
+        # Also make the screen flash green or red.
         if is_answer_correct:
             self.canvas.config(bg=GREEN_COLOR)
+            feedback_str = f"You answered {user_answer}.\nThat is correct."
+            self.canvas.itemconfig(self.question_text, text=feedback_str)
         else:
             self.canvas.config(bg=RED_COLOR)
+            feedback_str = f"You answered {user_answer}.\nThat is incorrect."
+            self.canvas.itemconfig(self.question_text, text=feedback_str)
 
         # Go to the next question.
         self.quiz_brain.go_to_next_question()
 
-        # After a second, reset the color to white.
+        # After a short time, reset the color to white.
         self.window.after(FEEDBACK_TIME, self.show_next_question)
        
     
