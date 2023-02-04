@@ -24,16 +24,12 @@
 - "100 Days of Python" Udemy class: completed day 34.
 - Finished ugrading the Quiz Project from Week 1 to use APIs and a GUI.
 
-**Programs**:
-- **x.py**: X.
-  <br />![img](/screenshots/.jpg)
-
 **Quizzler Project**:<br />
-An upgraded version of the Quiz Project from Week 1. It now gets random trivia questions from an API request to the Open Trivia Database, instead of a data file with only 10 possible questions. It also creates a GUI to show each question to the user, instead of using the console.
+An upgraded version of the Quiz Project from Week 1. It now gets random trivia questions from an API request to the Open Trivia Database, instead of a small data file. It also creates a GUI to show each question to the user, instead of relying on the console.
 - **quizzler/main.py**: The main program that runs the quiz.
 - **quizzler/question.py**: The Question class, which models each quiz question.
 - **quizzler/quiz_brain.py**: The QuizBrain class, which manages the quiz. It handles the questions and checks if the user's answers are right. When all of the questions have been asked, it calculates the final score.
-- **quizzler/ui.py**: The QuizInterface class creates a GUI for the Quizzler program.
+- **quizzler/ui.py**: The QuizInterface class creates a tkinter GUI for the user to see the questions and choose their answers.
   <br />![img](/screenshots/023_quiz0.jpg) ![img](/screenshots/023_quiz1.jpg)
   <br />![img](/screenshots/023_quiz2.jpg) ![img](/screenshots/023_quiz3.jpg)
   <br />![img](/screenshots/023_quiz4.jpg) ![img](/screenshots/023_quiz5.jpg)
