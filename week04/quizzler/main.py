@@ -1,4 +1,4 @@
-from question import Question
+from question import Question, CATEGORY_DATA
 from quiz_brain import QuizBrain
 from ui import QuizInterface
 import requests
@@ -18,8 +18,16 @@ def get_questions():
     """Get trivia question data from the Open Trivia Database.
     Returns a list of Question objects."""
 
+    # Parameters for the API.
+    # Modify these if you would like longer/shorter quizzes in different categories.
+    parameters = {
+        "amount": 10,
+        "type": "boolean",
+        "category": CATEGORY_DATA["Science & Nature"]
+    }
+
     # Send an API request to the Open Trivia Database for 10 True/False questions.
-    response = requests.get(url="https://opentdb.com/api.php?amount=10&type=boolean")
+    response = requests.get(url="https://opentdb.com/api.php", params=parameters)
 
     # If there was an API error, print it to the console.
     response.raise_for_status()
