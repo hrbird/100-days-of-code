@@ -1,7 +1,18 @@
 from question import Question
-from data import question_data
 from quiz_brain import QuizBrain
+from ui import QuizInterface
 import requests
+import html
+
+ASCII_ART = """
+  ______      __    __   __   ________   ________   __       _______ .______      
+ /  __  \    |  |  |  | |  | |       /  |       /  |  |     |   ____||   _  \     
+|  |  |  |   |  |  |  | |  | `---/  /   `---/  /   |  |     |  |__   |  |_)  |    
+|  |  |  |   |  |  |  | |  |    /  /       /  /    |  |     |   __|  |      /     
+|  `--'  '--.|  `--'  | |  |   /  /----.  /  /----.|  `----.|  |____ |  |\  \----.
+ \_____\_____\\______/  |__|  /________| /________||_______||_______|| _| `._____|
+                                                                                  
+"""
 
 def get_questions():
     """Get trivia question data from the Open Trivia Database.
@@ -21,23 +32,28 @@ def get_questions():
     for q in data:
 
         # Clean the questions so that quotations and special characters appear correctly.
-        question = q["question"].replace("&quot;", "\"").replace("&#039;", "'").replace("&eacute;", "é")
+        question = html.unescape(q["question"])
         answer = q["correct_answer"]
         
-        new_q = Question(question, answer)
-        question_bank.append(new_q)
+        question_bank.append(Question(question, answer))
 
     return question_bank
 
 def main():
+    print(ASCII_ART)
+
     # Get a new question bank of random trivia questions.
     question_bank = get_questions()
 
     # Create a QuizBrain object and pass it the question bank.
-    quiz = QuizBrain(question_bank)
+    #quiz = QuizBrain(question_bank)
+
+    # Create the GUI.
+    quiz_ui = QuizInterface()
 
     # Give the user the quiz.
-    quiz.show_quiz()
+    #quiz.show_quiz()
 
 if __name__ == "__main__":
     main()
+
