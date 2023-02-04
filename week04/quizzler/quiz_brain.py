@@ -1,64 +1,73 @@
-# The Question class for the Quiz project.
+# The QuizBrain class for the Quiz project.
 
 class QuizBrain:
     """The QuizBrain class, which manages the quiz. 
-    It asks the user the questions and checks if their answers are right.
-    When all of the questions have been asked, it tells the user their score."""
+    It handles the questions and checks if the user's answers are right. 
+    When all of the questions have been asked, it calculates the final score."""
     def __init__(self, questions_list):
         self.questions_list = questions_list # List of Question objects.
         self.cur_index = 0      # Int current index in the question list.
         self.num_correct = 0    # Int number of correct answers.
 
-    def is_quiz_done(self):
+
+    def is_quiz_done(self) -> bool:
         """Returns True if all the questions have been asked, False if there are
         still more questions to ask."""
         return (self.cur_index >= len(self.questions_list))
 
-    def get_answer(self):
-        """Asks user for an answer to a question and keeps looping until the user
-        enters either T or F.
-        Returns a string, either 'T" or 'F'."""
-        ans = ""
-        while True:
-            ans = input("> ").upper().replace(" ", "")
 
-            if len(ans) == 0 or not (ans[0] == "T" or ans[0] == "F"):
-                print(f"Sorry, that is not an acceptable answer. Please enter either T or F.")
-            else:
-                return ans[0]
-    
-    def next_question(self):
-        """Retrieves the current question from the list.
-        Shows the question text and asks for the user's answer."""
+    def get_cur_question_num(self) -> int:
+        """Returns the current question number (numbers start at 1, not 0)."""
+        return self.cur_index + 1
+
+
+    def get_cur_question(self) -> str:
+        """Retrieves the current question text from the list."""
         cur_question = self.questions_list[self.cur_index]
 
         # Ask the user the current question.
         print(f"{self.cur_index + 1}. {cur_question.text}")
 
-        # Get their answer.
-        ans = self.get_answer()
+        return cur_question.text
 
-        # Check if the answer is right.
-        if ans == cur_question.answer[0]:
-            print("Correct!\n")
-            self.num_correct += 1
-        else:
-            print("Incorrect!\n")
-
-        # Move to the next question.
+    def go_to_next_question(self):
+        """Move the question index to point to the next question in the list."""
         self.cur_index += 1
 
-    def show_quiz(self):
-        """Gives the user the quiz and processes each answer."""
-        print("\nPop Quiz!\nPlease answer either T or F for each question.\n")
+    def check_answer(self, user_answer: bool):
+        """Check whether the user chose the correct answer for the correct question.
 
-        # Keep asking the user questions until the quiz is finished.
-        while not self.is_quiz_done():
-            self.next_question()
+        Args:
+            user_answer (bool): the answer the user clicked on (True or False)
 
-        # Calculate the final score.
-        percent_correct = (self.num_correct / len(self.questions_list)) * 100
-        print(f"You got {self.num_correct} out of {len(self.questions_list)} questions correct.")
-        print(f"Score: {percent_correct:.2f}%\n\n")
+        Returns True if the user answered correctly, or False if they answered wrong.
+        """
+        # Check if the answer is right.
+        cur_question = self.questions_list[self.cur_index]
+
+        if str(user_answer) == cur_question.answer:
+            print("Correct!\n")
+            self.num_correct += 1
+            return True
+        else:
+            print("Incorrect!\n")
+            return False
+        
+
+    def get_cur_score_str(self) -> str:
+        """Returns the current quiz score as the number of correct questions 
+        out of total questions."""
+        return f"{self.num_correct} / {len(self.questions_list)}"
+
+
+    def get_final_score_str(self) -> str:
+        """Returns the current quiz score as the number of correct questions 
+        out of total questions, as well as the percentage."""
+
+        percentage = (self.num_correct / len(self.questions_list)) * 100
+        score_str = f"Final Score:\n{self.num_correct} / {len(self.questions_list)} ({percentage} %)"
+
+        return score_str
+
 
         
