@@ -46,10 +46,10 @@ def main():
     question_bank = get_questions()
 
     # Create a QuizBrain object and pass it the question bank.
-    #quiz = QuizBrain(question_bank)
+    quiz_brain = QuizBrain(question_bank)
 
     # Create the GUI.
-    quiz_ui = QuizInterface()
+    quiz_ui = QuizInterface(quiz_brain)
 
     # Give the user the quiz.
     #quiz.show_quiz()
