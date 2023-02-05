@@ -10,8 +10,25 @@
 - 
 
 **Programs**:
-- **x.py**: X.<br />
-  ![img](/screenshots/.jpg)
+- **x.py**: X.
+  <br />![img](/screenshots/.jpg)
+
+**Thoughts:** 
+
+-----
+
+## Day 24. API Authentication and Sending Emails with SMTP
+### February 4, 2023
+
+**Today's Progress**: 
+- "100 Days of Python" Udemy class: completed days 32 and 35.
+- Learned about authentication with API keys. 
+- Also learned how to send emails with Python by using an SMTP client (the smtplib module). 
+- (Note for future programs: For a Gmail account, you must create a special App Password in the Security section of your Google Account to use in a program like this, instead of your usual personal password.)
+
+**Weather Report Project**:
+- **main.py**: This program sends an email to/from my personal account with the current temperature and weather events for my location.
+  <br />![img](/screenshots/024_email0.jpg) ![img](/screenshots/024_email1.jpg)
 
 **Thoughts:** 
 
