@@ -17,12 +17,27 @@
 
 -----
 
+## Day 25. Data Science Intro, Anaconda, and Jupyter Notebooks
+### February 5, 2023
+
+**Today's Progress**: 
+- Decided to start looking into the "Python for Data Science and Machine Learning Bootcamp" Udemy class, to change things up a bit and learn more about data science. Completed sections 1-3
+- Installed Anaconda Notebooks and learned how to open and view Jupyter Notebooks
+
+**Programs**:
+- **x.py**: X.
+  <br />![img](/screenshots/.jpg)
+
+**Thoughts:** 
+
+-----
+
 ## Day 24. API Authentication and Sending Emails with SMTP
 ### February 4, 2023
 
 **Today's Progress**: 
 - "100 Days of Python" Udemy class: completed days 32 and 35.
-- Learned about authentication with API keys. 
+- Learned about authentication with API keys.
 - Also learned how to send emails with Python by using an SMTP client (the smtplib module). 
 - (Note for future programs: For a Gmail account, you must create a special App Password in the Security section of your Google Account to use in a program like this, instead of your usual personal password.)
 
@@ -30,7 +45,7 @@
 - **main.py**: This program sends an email to/from my personal account with the current temperature and weather events for my location.
   <br />![img](/screenshots/024_email0.jpg) ![img](/screenshots/024_email1.jpg)
 
-**Thoughts:** 
+**Thoughts:** I didn't know you could send emails through a Python program so easily, so that was very cool to learn. The course I'm following mentioned setting up environmental variables to hold sensitive data, but they use Pycharm, which makes it very simple to set envs through the console. I tried to find out how to set and access environmental variables in VSCode, but I had difficulty with that. I'll keep troubleshooting this tomorrow.
 
 -----
 
